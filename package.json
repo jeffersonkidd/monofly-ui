@@ -1,6 +1,6 @@
 {
   "name": "monofly",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "MonoFly is a made-for-creator design system package that provides a collection of reusable dashboards, components, and styles for building user operating systems. It is a singular codebase monorepository designed to work seamlessly with Figma and create cohesive personal designs for creators.",
   "type": "module",
   "main": "./dist/index.js",
@@ -11,7 +11,9 @@
     }
   },
   "sideEffects": false,
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -31,7 +33,15 @@
     "type": "git",
     "url": "git+https://github.com/jeffersonkidd/monofly.git"
   },
-  "keywords": ["npm","vite","react","monorepo","design system package", "creator OS", "figma"],
+  "keywords": [
+    "npm",
+    "vite",
+    "react",
+    "monorepo",
+    "design system package",
+    "creator OS",
+    "figma"
+  ],
   "author": "jeffersonkidd",
   "license": "MIT",
   "bugs": {
