@@ -1,3 +1,0 @@
-/* Aggregate stylesheet. Import each component's CSS here so the build
-   collapses them into a single dist/style.css. */
-@import './Button/Button.css';

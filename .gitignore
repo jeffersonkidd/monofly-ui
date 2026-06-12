@@ -1,3 +1,21 @@
+# Ignore node modules and build output
 node_modules
 dist
-NOTES.md
+
+# macOS
+.DS_Store
+
+# Logs / debug
+*.log
+npm-debug.log*
+
+# Env
+.env
+.env.local
+
+# Editor
+.vscode/
+.idea/
+
+# Notes
+.notes/
