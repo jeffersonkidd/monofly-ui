@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/jeffersonkidd/monofly.git"
   },
-  "keywords": ["npm", "design", "package", "figma"],
+  "keywords": ["npm", "design system package", "figma"],
   "author": "jeffersonkidd",
   "license": "MIT",
   "bugs": {
