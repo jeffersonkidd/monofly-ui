@@ -14,7 +14,11 @@
   },
   "keywords": [
     "npm",
+    "vite",
+    "react",
+    "monorepo",
     "design system package",
+    "creator OS",
     "figma"
   ],
   "author": "jeffersonkidd",
