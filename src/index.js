@@ -1,9 +1,9 @@
-/**
- * monofly
- *
- * Public API entry point. Re-export your components, hooks, and styles here.
- */
+// Public entry point. Everything exported here is importable from
+// `monofly` inside Figma Make.
+//
+// Importing the CSS here means a single `import 'monofly/styles.css'`
+// in the Make project pulls in all component styles.
 
-// export { Button } from './components/Button.jsx';
+import './styles.css';
 
-export {};
+export { Button } from './Button/Button.jsx';

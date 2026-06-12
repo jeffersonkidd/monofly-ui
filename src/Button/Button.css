@@ -1,0 +1,25 @@
+.jk-button {
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: filter 120ms ease;
+}
+
+.jk-button:hover {
+  filter: brightness(1.05);
+}
+
+.jk-button--primary {
+  background: #0d99ff;
+  color: #fff;
+}
+
+.jk-button--secondary {
+  background: #e6e6e6;
+  color: #1a1a1a;
+}
