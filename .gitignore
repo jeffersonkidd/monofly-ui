@@ -1,4 +1,4 @@
-# Ignore node modules and build output
+# Node modules & build output
 node_modules
 dist
 

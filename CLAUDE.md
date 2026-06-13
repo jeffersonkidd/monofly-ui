@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-`monofly` is a React component library distributed as a **Figma Make kit**. It is built with Vite in *library mode*: the published artifact is a single ESM bundle (`dist/index.js`) plus one stylesheet (`dist/styles.css`), with React kept external so the host (Figma Make, or any consuming app) supplies its own copy via the esm.sh CDN.
+`monofly` is a React component library designed and distributed to compliment the agentic methodology of consistently modular generative tools (ie. **Figma Make Kits**). It is built with Vite in *library mode*: the published artifact is a single ESM bundle (`dist/index.js`) plus one stylesheet (`dist/styles.css`), with React kept external so the host (Figma Make, or any consuming app) supplies its own copy via the esm.sh CDN.
 
 **Two styling systems coexist.** The original component layer is derived from Figma's Simple Design System (SDS) — styled via `--sds-*` CSS custom properties (see `src/theme.css`) with co-located `*.css` files, built on `react-aria-components`. A newer **Tailwind v4 + shadcn** layer was added on top (sidebar, breadcrumb, collapsible, separator, the `Sidebars` composition, and the `templates/`). These use Tailwind utility classes + Radix primitives (`radix-ui`, `lucide-react`, `class-variance-authority`) and the `cn()` helper in `src/ui/lib/utils.ts`. Tailwind is wired via `@tailwindcss/vite` (`src/tailwind.css`, imported from `index.css`). When adding a component, match the styling system of the layer you're editing — don't mix SDS tokens and Tailwind utilities in one file.
 

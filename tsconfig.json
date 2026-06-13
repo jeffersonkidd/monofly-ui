@@ -25,6 +25,7 @@
       "images": ["./ui/images"],
       "layout": ["./ui/layout"],
       "primitives": ["./ui/primitives"],
+      "primitives/*": ["./ui/primitives/*"],
       "templates": ["./ui/templates"],
       "lib": ["./ui/lib"]
     }

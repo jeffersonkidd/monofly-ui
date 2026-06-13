@@ -1,38 +1,15 @@
-export * from "./Accordion/Accordion";
-export * from "./Avatar/Avatar";
-export * from "./Button/Button";
-export * from "./Checkbox/Checkbox";
-export * from "./Dialog/Dialog";
-export * from "./Fieldset/Fieldset";
-export * from "./Icon/Icon";
-export * from "./IconButton/IconButton";
-export * from "./Image/Image";
-export * from "./Input/Input";
-export * from "./Link/Link";
-export * from "./ListBox/ListBox";
-export * from "./Logo/Logo";
-export * from "./Menu/Menu";
-export * from "./Navigation/Navigation";
-export * from "./Notification/Notification";
-export * from "./Pagination/Pagination";
-export * from "./Radio/Radio";
-export * from "./Search/Search";
-export * from "./Select/Select";
-export * from "./Slider/Slider";
-export * from "./Switch/Switch";
-export * from "./Tab/Tab";
-export * from "./Table/Table";
-export * from "./Tag/Tag";
-export * from "./Text/Text";
-export * from "./Textarea/Textarea";
-export * from "./Tooltip/Tooltip";
+// Root primitive barrel — composes the two design-language sub-barrels.
+//
+// primitives/sds/    — SDS lineage (react-aria, co-located *.css, --sds-* tokens)
+// primitives/shadcn/ — shadcn lineage (Radix + Tailwind utilities, cn())
+//
+// Each lineage lives in its own folder with its own barrel, so a same-named
+// primitive can never silently override across languages. The two real
+// collisions (Avatar, Tooltip) are resolved in ./shadcn by aliasing the shadcn
+// versions to ShadcnAvatar / ShadcnTooltip; SDS keeps the bare names.
+//
+// This flat re-export keeps every existing `from "primitives"` import working.
+// For lineage-scoped imports, pull from "primitives/sds" or "primitives/shadcn".
 
-// export * from "./avatar";
-export * from "./breadcrumb";
-export * from "./collapsible";
-export * from "./dropdown-menu";
-export * from "./separator";
-export * from "./sheet";
-export * from "./skeleton";
-// export * from "./tooltip";
-export * from "./sidebar";
+export * from "./sds";
+export * from "./shadcn";

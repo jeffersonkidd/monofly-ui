@@ -13,7 +13,7 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "./../../../primitives/avatar";
+} from "../../../primitives/shadcn/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
