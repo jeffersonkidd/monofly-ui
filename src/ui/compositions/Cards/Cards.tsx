@@ -4,12 +4,12 @@ import { useMediaQuery } from "hooks";
 import { IconStar } from "icons";
 import { Flex } from "layout";
 import {
-  Avatar,
+  SdsAvatar as Avatar,
   AvatarBlock,
-  AvatarProps,
-  Button,
+  SdsAvatarProps as AvatarProps,
+  SdsButton as Button,
   ButtonGroup,
-  ButtonProps,
+  SdsButtonProps as ButtonProps,
   Image,
   Text,
   TextHeading,

@@ -1,13 +1,16 @@
-import { DashboardShell } from "templates";
-import { PanelSections } from "blocks";
+import { Demo, FAQs, PanelSections, PricingGrid, ProductDetails, ProductGrid, WelcomeHero } from "blocks";
 import { AllProviders } from "data";
 
 export default function App() {
   return (
     <AllProviders>
-      <DashboardShell>
-        <PanelSections />
-      </DashboardShell>
+      <Demo />
+      <WelcomeHero />
+      <FAQs />
+      <PanelSections />
+      <PricingGrid />
+      <ProductDetails />
+      <ProductGrid />
     </AllProviders>
   );
 }

@@ -3,8 +3,24 @@
 // primitives here only; keep shadcn primitives in ../shadcn.
 
 export * from "./Accordion/Accordion";
-export * from "./Avatar/Avatar";
-export * from "./Button/Button";
+export {
+  Avatar as SdsAvatar,
+  AvatarButton,
+  AvatarBlock,
+  AvatarGroup,
+  type AvatarProps as SdsAvatarProps,
+  type AvatarButtonProps,
+  type AvatarBlockProps,
+  type AvatarGroupProps,
+} from "./Avatar/Avatar";
+export {
+  Button as SdsButton,
+  ButtonDanger,
+  ButtonGroup,
+  type ButtonProps as SdsButtonProps,
+  type ButtonDangerProps,
+  type ButtonGroupProps,
+} from "./Button/Button";
 export * from "./Checkbox/Checkbox";
 export * from "./Dialog/Dialog";
 export * from "./Fieldset/Fieldset";
@@ -29,4 +45,9 @@ export * from "./Table/Table";
 export * from "./Tag/Tag";
 export * from "./Text/Text";
 export * from "./Textarea/Textarea";
-export * from "./Tooltip/Tooltip";
+export {
+  Tooltip as SdsTooltip,
+  TooltipOverlayArrow,
+  type TooltipProps as SdsTooltipProps,
+  type TooltipOverlayArrowProps,
+} from "./Tooltip/Tooltip";
