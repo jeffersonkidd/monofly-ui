@@ -12,13 +12,13 @@
     },
     "paths": {
       "compositions": ["src/ui/compositions"],
+      "data": ["src/data"],
       "hooks": ["src/ui/hooks"],
       "icons": ["src/ui/icons"],
       "images": ["src/ui/images"],
       "layout": ["src/ui/layout"],
-      "primitives": ["src/ui/primitives"],
-      "providers": ["src/ui/providers"],
-      "utils": ["src/ui/utils"]
+      "utils": ["src/ui/utils"],
+      "primitives": ["src/ui/primitives"]
     },
 
     "documentUrlSubstitutions": {

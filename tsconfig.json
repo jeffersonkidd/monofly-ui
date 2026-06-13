@@ -27,7 +27,7 @@
       "primitives": ["./ui/primitives"],
       "primitives/*": ["./ui/primitives/*"],
       "templates": ["./ui/templates"],
-      "lib": ["./ui/lib"]
+      "utils": ["./ui/utils"]
     }
   },
   "include": ["src", "scripts"]

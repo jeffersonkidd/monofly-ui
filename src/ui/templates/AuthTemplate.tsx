@@ -1,6 +1,6 @@
 import { type ComponentPropsWithRef, type ReactNode } from "react"
 import { Flex } from "layout"
-import { cn } from "lib"
+import { cn } from "utils"
 
 const maxWidthMap = {
   xs: "max-w-xs",

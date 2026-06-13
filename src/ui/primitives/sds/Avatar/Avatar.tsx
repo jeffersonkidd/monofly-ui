@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { Text, TextStrong } from "primitives";
 import React from "react";
-import { AnchorOrButton, type AnchorOrButtonProps } from "lib";
+import { AnchorOrButton, type AnchorOrButtonProps } from "utils";
 import "./avatar.css";
 
 type SharedAvatarProps = {

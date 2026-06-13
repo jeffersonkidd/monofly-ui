@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { AnchorOrButton, type AnchorOrButtonProps } from "lib";
+import { AnchorOrButton, type AnchorOrButtonProps } from "utils";
 import "./logo.css";
 
 export type LogoProps = AnchorOrButtonProps;

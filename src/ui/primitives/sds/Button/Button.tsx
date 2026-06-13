@@ -1,7 +1,7 @@
 import { clsx } from "clsx";
 import React, { ComponentPropsWithoutRef } from "react";
 import { Button as RACButton, Link as RACLink } from "react-aria-components";
-import { type AnchorOrButtonProps } from "lib";
+import { type AnchorOrButtonProps } from "utils";
 import "./button.css";
 
 export type ButtonProps = Omit<ButtonBaseProps, "variant"> & {

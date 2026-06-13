@@ -23,7 +23,7 @@ export default defineConfig({
       { find: "layout", replacement: path.resolve(__dirname, "./src/ui/layout") },
       { find: "primitives", replacement: path.resolve(__dirname, "./src/ui/primitives") },
       { find: "templates", replacement: path.resolve(__dirname, "./src/ui/templates") },
-      { find: "lib", replacement: path.resolve(__dirname, "./src/ui/lib") },
+      { find: "utils", replacement: path.resolve(__dirname, "./src/ui/utils") },
     ],
   },
   server: {

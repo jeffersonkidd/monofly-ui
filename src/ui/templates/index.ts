@@ -1,4 +1,3 @@
-export { AppTemplate, type AppTemplateProps } from "./app-template"
-export { AuthTemplate, type AuthTemplateProps } from "./auth-template"
-export { BrandTemplate, type BrandTemplateProps } from "./brand-template"
-export { DashboardShell } from "../blocks/dashboards/page"
+export { AppTemplate, type AppTemplateProps } from "./AppTemplate"
+export { AuthTemplate, type AuthTemplateProps } from "./AuthTemplate"
+export { BrandTemplate, type BrandTemplateProps } from "./BrandTemplate"

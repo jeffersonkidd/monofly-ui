@@ -6,7 +6,7 @@ import { PanelLeftIcon } from "lucide-react"
 import { Slot } from "radix-ui"
 
 import { useIsMobile } from "hooks"
-import { cn } from "lib"
+import { cn } from "utils"
 import { Button, Input, Separator } from "primitives"
 import {
   Sheet,

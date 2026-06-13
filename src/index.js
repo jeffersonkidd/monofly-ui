@@ -23,7 +23,7 @@ export * from "./ui/icons/index.ts";
 export * from "./ui/images/index.ts";
 export * from "./ui/hooks/index.ts";
 export * from "./ui/templates/index.ts";
-export * from "./ui/lib/index.ts";
+export * from "./ui/utils/index.ts";
 
 // Data layer (mock services, providers, guarded hooks)
 export * from "./data/index.ts";

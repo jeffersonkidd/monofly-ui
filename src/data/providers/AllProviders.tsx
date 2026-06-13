@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { AuthProvider } from "./AuthProvider";
 import { PricingProvider } from "./PricingProvider";
 import { ProductsProvider } from "./ProductsProvider";
+import { ThemeProvider } from "./theme-provider";
 
 /**
  * Combined provider that wraps all SDS providers in the correct order
@@ -20,11 +21,13 @@ import { ProductsProvider } from "./ProductsProvider";
  */
 export function AllProviders({ children }: { children?: ReactNode }) {
   return (
-    <AuthProvider>
-      <PricingProvider>
-        <ProductsProvider>{children}</ProductsProvider>
-      </PricingProvider>
-    </AuthProvider>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <AuthProvider>
+        <PricingProvider>
+          <ProductsProvider>{children}</ProductsProvider>
+        </PricingProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

@@ -1,11 +1,9 @@
-import { Footer, Header } from "compositions";
-import { AllProviders } from "data";
+import { BrandTemplate } from "templates";
 import { Demo, FAQs, PanelSections, PricingGrid, ProductDetails, ProductGrid, WelcomeHero} from "blocks";
 
 function SdsDemo() {
   return (
-    <AllProviders>
-      <Header />
+    <BrandTemplate>
       <Demo />
       <WelcomeHero />
       <PanelSections />
@@ -13,8 +11,7 @@ function SdsDemo() {
       <FAQs />
       <ProductDetails />
       <ProductGrid />
-      <Footer />
-    </AllProviders>
+    </BrandTemplate>
   );
 }
 

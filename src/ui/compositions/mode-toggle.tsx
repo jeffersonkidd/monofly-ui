@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "primitives"
-import { useTheme } from "compositions"
+import { useTheme } from "data"
 
 export function ModeToggle() {
   const { setTheme } = useTheme()

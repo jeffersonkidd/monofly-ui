@@ -27,9 +27,9 @@ import {
 export interface AppSidebarUser {
   name: string
   email: string
-  avatar: string
+  avatar: string    
 }
-
+//
 export type AppSidebarProps = React.ComponentProps<typeof Sidebar> & {
   user: AppSidebarUser
   /** Defaults to the static sidebarConfig; override to customize. */
@@ -38,7 +38,7 @@ export type AppSidebarProps = React.ComponentProps<typeof Sidebar> & {
   projects?: SidebarProject[]
 }
 
-export function AppSidebar({
+export function AppSidebar07({
   user,
   teams = sidebarConfig.teams,
   navMain = sidebarConfig.navMain,

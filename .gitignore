@@ -17,5 +17,7 @@ npm-debug.log*
 .vscode/
 .idea/
 
-# Notes
+# My Assets
 .notes/
+.box/
+.files/
