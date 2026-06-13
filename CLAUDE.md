@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 `monofly` is a React component library distributed as a **Figma Make kit**. It is built with Vite in *library mode*: the published artifact is a single ESM bundle (`dist/index.js`) plus one stylesheet (`dist/styles.css`), with React kept external so the host (Figma Make, or any consuming app) supplies its own copy via the esm.sh CDN.
 
-The component layer is derived from Figma's Simple Design System (SDS) — all styling is driven by `--sds-*` CSS custom properties (see `src/theme.css`), and primitives are built on `react-aria-components`.
+**Two styling systems coexist.** The original component layer is derived from Figma's Simple Design System (SDS) — styled via `--sds-*` CSS custom properties (see `src/theme.css`) with co-located `*.css` files, built on `react-aria-components`. A newer **Tailwind v4 + shadcn** layer was added on top (sidebar, breadcrumb, collapsible, separator, the `Sidebars` composition, and the `templates/`). These use Tailwind utility classes + Radix primitives (`radix-ui`, `lucide-react`, `class-variance-authority`) and the `cn()` helper in `src/ui/lib/utils.ts`. Tailwind is wired via `@tailwindcss/vite` (`src/tailwind.css`, imported from `index.css`). When adding a component, match the styling system of the layer you're editing — don't mix SDS tokens and Tailwind utilities in one file.
 
 ## Commands
 
@@ -25,16 +25,18 @@ There is **no test runner and no lint script**. Type safety comes from `tsconfig
 Two distinct surfaces share one `src/` tree:
 
 1. **The dev/preview app** — `src/main.tsx` mounts `src/App.tsx`, which composes the blocks in `src/ui/blocks/` inside `<AllProviders>`. This is what `npm run dev` serves and is *not* part of the published package.
-2. **The library** — the Vite build entry is `src/index.js` (see `vite.config.js` `build.lib.entry`). This barrel is what consumers import (`import { Button } from 'monofly'`). **Note:** in the current working tree this entry file is mid-migration/missing — `vite build` requires it to exist, so re-creating the barrel that re-exports from `src/ui/*` is a prerequisite for any successful build or publish.
+2. **The library** — the Vite build entry is `src/index.js` (see `vite.config.js` `build.lib.entry`). This barrel re-exports every `src/ui/*` layer (`blocks`, `primitives`, `layout`, `compositions`, `icons`, `images`, `hooks`, `templates`, `lib`) plus the `data/` layer, and is what consumers import (`import { Button } from 'monofly'`). When you add a new component folder or layer, export it here or it won't ship.
 
 ### Layered structure under `src/ui/`
 
-- `primitives/` — leaf components (Button, Input, Dialog, …), each in its own folder with a co-located `*.css`. Built on `react-aria-components`, styled via `clsx` class composition + SDS tokens.
+- `primitives/` — leaf components. SDS ones (Button, Input, Dialog, …) live in their own folder with a co-located `*.css`, built on `react-aria-components` + `clsx`. shadcn ones (`sidebar.tsx`, `breadcrumb.tsx`, `collapsible.tsx`, `separator.tsx`) are single flat files styled with Tailwind utilities + Radix.
 - `layout/` — Flex, Grid, Section.
-- `compositions/` — multi-primitive assemblies (Cards, Headers, Footers, Forms, Heroes, Panels).
+- `compositions/` — multi-primitive assemblies (Cards, Headers, Footers, Forms, Heroes, Panels, Sidebars).
+- `templates/` — page-level shells (`AppTemplate`, `AuthTemplate`, `BrandTemplate`, `DashboardShell`). Tailwind/shadcn-based; `.figma/` holds Code Connect mappings.
 - `blocks/` — page-level sections used by the preview app (PricingGrid, ProductGrid, FAQs, …).
 - `icons/` — one component per icon (`IconArrowRight`, etc.), styled by `src/icons.css`.
-- `hooks/`, `utils/`, `images/` — shared helpers (e.g. `useMediaQuery`, `AnchorOrButton`).
+- `lib/` — shared utilities: `AnchorOrButton` and the `cn()` class-merge helper (`clsx` + `tailwind-merge`). *Renamed from the former `utils/`; the alias is now `lib`.*
+- `hooks/`, `images/` — shared helpers (e.g. `useMediaQuery`).
 
 ### Data layer — `src/data/`
 
@@ -49,7 +51,7 @@ Wrap any app/tree consuming this data in `<AllProviders>` (or compose individual
 
 ### Path aliases (must stay in sync across two files)
 
-Bare-specifier aliases (`primitives`, `compositions`, `data`, `hooks`, `icons`, `layout`, `utils`, etc.) are defined in **both** `tsconfig.json` (`paths`) and `vite.config.js` (`resolve.alias`). When adding or renaming an alias, update **both** or builds/types diverge.
+Bare-specifier aliases (`primitives`, `compositions`, `data`, `hooks`, `icons`, `layout`, `templates`, `lib`, etc.) are defined in **both** `tsconfig.json` (`paths`) and `vite.config.js` (`resolve.alias`). When adding or renaming an alias, update **both** or builds/types diverge. (The `utils` alias was renamed to `lib` — both files were updated together.)
 
 ## Packaging invariants (from `.notes/NOTES.md` — read it before touching build/publish config)
 
