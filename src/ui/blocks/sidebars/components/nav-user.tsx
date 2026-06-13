@@ -10,10 +10,10 @@ import {
 } from "lucide-react"
 
 import {
-  Avatar,
+  SdsAvatar as Avatar,
   AvatarFallback,
   AvatarImage,
-} from "../../../primitives/shadcn/avatar";
+} from "primitives";
 import {
   DropdownMenu,
   DropdownMenuContent,

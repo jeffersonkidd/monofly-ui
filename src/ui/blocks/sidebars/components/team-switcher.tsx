@@ -11,13 +11,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "./../../../primitives"
+} from "primitives"
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "./../../../primitives"
+} from "primitives"
 
 export function TeamSwitcher({
   teams,
