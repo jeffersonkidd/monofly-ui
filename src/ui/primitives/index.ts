@@ -29,6 +29,7 @@ export * from "./Tooltip/Tooltip";
 
 export * from "./breadcrumb";
 export * from "./collapsible";
+export * from "./dropdown-menu";
 export * from "./separator";
 export * from "./sheet";
 export * from "./skeleton";
