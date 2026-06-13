@@ -26,7 +26,7 @@
       "layout": ["./ui/layout"],
       "primitives": ["./ui/primitives"],
       "templates": ["./ui/templates"],
-      "utils": ["./ui/utils"]
+      "lib": ["./ui/lib"]
     }
   },
   "include": ["src", "scripts"]

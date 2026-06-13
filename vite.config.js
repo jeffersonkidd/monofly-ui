@@ -9,7 +9,7 @@ import { defineConfig } from "vite";
 // https://vitejs.dev/config/
 export default defineConfig({
   base: './',
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       blocks: path.resolve(__dirname, "./src/ui/blocks"),      
@@ -21,7 +21,7 @@ export default defineConfig({
       layout: path.resolve(__dirname, "./src/ui/layout"),
       primitives: path.resolve(__dirname, "./src/ui/primitives"),
       templates: path.resolve(__dirname, "./src/ui/templates"),
-      utils: path.resolve(__dirname, "./src/ui/utils"),
+      lib: path.resolve(__dirname, "./src/ui/lib"),
     },
   },
   server: {

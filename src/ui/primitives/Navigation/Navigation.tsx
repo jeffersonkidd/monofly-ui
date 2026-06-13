@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { ComponentPropsWithoutRef, ReactNode } from "react";
-import { AnchorOrButton, AnchorOrButtonProps } from "utils";
+import { AnchorOrButton, AnchorOrButtonProps } from "lib";
 import "./navigation.css";
 
 export type NavigationProps = ComponentPropsWithoutRef<"nav"> & {

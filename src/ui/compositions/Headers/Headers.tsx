@@ -21,7 +21,7 @@ import {
   NavigationPill,
 } from "primitives";
 import { useState } from "react";
-import { AnchorOrButton } from "utils";
+import { AnchorOrButton } from "lib";
 import "./headers.css";
 
 export function HeaderAuth() {

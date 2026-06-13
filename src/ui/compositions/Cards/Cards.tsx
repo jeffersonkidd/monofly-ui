@@ -22,7 +22,7 @@ import {
   TextSubheading,
 } from "primitives";
 import { ComponentPropsWithoutRef, ReactNode } from "react";
-import { AnchorOrButton, AnchorOrButtonProps } from "utils";
+import { AnchorOrButton, AnchorOrButtonProps } from "lib";
 import "./cards.css";
 
 export type CardProps = ComponentPropsWithoutRef<"div"> & {

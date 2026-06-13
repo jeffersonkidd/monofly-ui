@@ -9,13 +9,15 @@
 import "./index.css";
 
 // UI layers
+export * from "./ui/blocks/index.ts";
 export * from "./ui/primitives/index.ts";
 export * from "./ui/layout/index.ts";
 export * from "./ui/compositions/index.ts";
 export * from "./ui/icons/index.ts";
 export * from "./ui/images/index.ts";
 export * from "./ui/hooks/index.ts";
-export * from "./ui/utils/index.ts";
+export * from "./ui/templates/index.ts";
+export * from "./ui/lib/index.ts";
 
 // Data layer (mock services, providers, guarded hooks)
 export * from "./data/index.ts";
