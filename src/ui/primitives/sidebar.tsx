@@ -5,19 +5,17 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { PanelLeftIcon } from "lucide-react"
 import { Slot } from "radix-ui"
 
-import { useIsMobile } from "../hooks/use-mobile"
-import { cn } from "../lib/utils"
-import { Button } from "./button"
-import { Input } from "./input"
-import { Separator } from "./separator"
+import { useIsMobile } from "hooks"
+import { cn } from "lib"
+import { Button, Input, Separator } from "primitives"
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "./sheet"
-import { Skeleton } from "./skeleton"
+} from "primitives"
+import { Skeleton } from "primitives"
 import {
   Tooltip,
   TooltipContent,
