@@ -4,9 +4,9 @@ import { useMediaQuery } from "hooks";
 import { IconChevronDown, IconMenu, IconX } from "icons";
 import { Flex, FlexItem, Section, type SectionProps } from "layout";
 import {
-  Avatar,
+  SdsAvatar as Avatar,
   AvatarBlock,
-  Button,
+  SdsButton as Button,
   ButtonGroup,
   Dialog,
   DialogModal,
@@ -190,7 +190,7 @@ export function Header({ className, ...props }: HeaderProps) {
       className="header"
       elementType="header"
       variant="stroke"
-      padding={"800"}
+      padding={"600"}
       {...props}
     >
       <Flex container alignPrimary="space-between" alignSecondary="center">

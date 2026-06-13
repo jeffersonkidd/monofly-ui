@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import { IconChevronDown } from "icons";
 import {
-  Button,
-  ButtonProps,
+  SdsButton as Button,
+  SdsButtonProps as ButtonProps,
   Description,
   DescriptionProps,
   IconButton,

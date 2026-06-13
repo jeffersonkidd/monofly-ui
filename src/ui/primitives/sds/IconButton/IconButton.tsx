@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import {
-  Button,
+  SdsButton as Button,
   ButtonDanger,
   ButtonDangerProps,
-  type ButtonProps,
+  type SdsButtonProps as ButtonProps,
 } from "primitives";
 import { ForwardedRef, forwardRef } from "react";
 import "./iconButton.css";
@@ -16,7 +16,7 @@ export const IconButton = forwardRef(function IconButton(
   ref: ForwardedRef<HTMLElement>,
 ) {
   const classNames = clsx(className, "icon-button");
-  return <Button {...props} {...ref} className={classNames} />;
+  return <Button {...props} ref={ref} className={classNames} />;
 });
 
 export type DestructiveIconButtonProps = Omit<
@@ -29,5 +29,5 @@ export const DestructiveIconButton = forwardRef(function IconButton(
   props: DestructiveIconButtonProps,
   ref: ForwardedRef<HTMLElement>,
 ) {
-  return <ButtonDanger {...props} {...ref} className="icon-button" />;
+  return <ButtonDanger {...props} ref={ref} className="icon-button" />;
 });

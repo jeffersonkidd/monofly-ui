@@ -4,7 +4,7 @@ import { Flex, FlexItem, Section } from "layout";
 import {
   Accordion,
   AccordionItem,
-  Button,
+  SdsButton as Button,
   Image,
   SelectField,
   SelectItem,

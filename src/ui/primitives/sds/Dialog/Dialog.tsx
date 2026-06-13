@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import { IconX } from "icons";
 import {
-  Button,
-  ButtonProps,
+  SdsButton as Button,
+  SdsButtonProps as ButtonProps,
   IconButton,
   IconButtonProps,
   Text,
