@@ -1,6 +1,6 @@
 {
   "name": "monofly",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "MonoFly is a made-for-creator design system package that provides a collection of reusable dashboards, components, and styles for building user operating systems. It is a singular codebase monorepository designed to work seamlessly with Figma and create cohesive personal designs for creators.",
   "type": "module",
   "main": "./dist/index.js",
