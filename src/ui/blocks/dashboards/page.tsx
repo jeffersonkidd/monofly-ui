@@ -1,6 +1,6 @@
 "use client";
 
-import { AppSidebar, type AppSidebarUser } from "compositions"
+import { AppSidebar, type AppSidebarUser } from "blocks"
 import { useAuth } from "data"
 import {
   Breadcrumb,

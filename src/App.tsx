@@ -1,21 +1,19 @@
-import { Footer, Header } from "compositions";
+import { DashboardShell } from "blocks";
+import { Modules } from "blocks";
 import { AllProviders } from "data";
-import { Demo, FAQs, PanelSections, PricingGrid, ProductDetails, ProductGrid, WelcomeHero} from "blocks";
+import { ThemeProvider } from "compositions";
+// import { Demo, FAQs, PanelSections, PricingGrid, ProductDetails, ProductGrid, WelcomeHero} from "blocks";
 
 function App() {
   return (
-    <AllProviders>
-      <Header />
-      <Demo />
-      <WelcomeHero />
-      <PanelSections />
-      <PricingGrid />
-      <FAQs />
-      <ProductDetails />
-      <ProductGrid />
-      <Footer />
-    </AllProviders>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <AllProviders> 
+        <DashboardShell>
+          <Modules />
+        </DashboardShell>
+      </AllProviders>
+    </ThemeProvider>
   );
 }
 
-export default App;
+export default App

@@ -1,5 +1,4 @@
 export { AppTemplate, type AppTemplateProps } from "./app-template"
 export { AuthTemplate, type AuthTemplateProps } from "./auth-template"
 export { BrandTemplate, type BrandTemplateProps } from "./brand-template"
-export { DashboardShell } from "./shadcn-dashboard"
-export { BlankLayout } from "./BlankLayout"
+export { DashboardShell } from "../blocks/dashboards/page"
