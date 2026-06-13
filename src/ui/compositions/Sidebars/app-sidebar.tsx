@@ -24,7 +24,7 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "./../../primitives"
+} from "primitives"
 
 // This is sample data.
 const data = {

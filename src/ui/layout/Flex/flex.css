@@ -4,7 +4,7 @@
   width: 100%;
 }
 
-.flex {
+.flex-base {
   --flex-gap: 0px;
   align-items: var(--flex-align-secondary, "start");
   display: flex;

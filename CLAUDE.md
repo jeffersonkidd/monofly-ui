@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm install          # install dev deps (React 18, Vite, react-aria-components)
+npm install          # install dev deps (React 19, Vite, react-aria-components)
 npm run dev          # Vite dev server on http://localhost:8000 (runs src/main.tsx → App.tsx)
 npm run build        # emit dist/index.js + dist/styles.css (library build)
 npm publish          # prepublishOnly runs the build automatically
@@ -61,7 +61,7 @@ These three must always agree or the package builds wrong or publishes the wrong
 3. The actual entry file on disk
 
 Hard-won rules:
-- **Target React 18, not 19.** Figma Make requires React 18 + Vite. Keep `react`/`react-dom` at `^18.0.0` in both `peerDependencies` (host supplies them) and `devDependencies` (local build/dev).
+- **Target React 19.** Keep `react`/`react-dom` at `^19.0.0` in both `peerDependencies` (host supplies them) and `devDependencies` (local build/dev), and `@types/react`/`@types/react-dom` at `^19`. The shadcn layer is written in React-19 style (`ref` as a regular prop, no `forwardRef`) — on React 18 those refs are silently dropped, which breaks Radix `asChild` triggers (e.g. dropdown/popper anchoring positions menus off-screen at `translate(0,-200%)`). **Caveat:** the published kit runs against whatever React the host (Figma Make) injects via esm.sh; if the host is on React 18, ref-as-prop components re-break in production. This was switched from React 18 deliberately — verify the host's React version before publishing.
 - **Keep React external** — `react`, `react-dom`, `react/jsx-runtime` are Rollup externals; never bundle a copy.
 - **Entry fields point at `./dist/index.js`**, never at a source file.
 - **`"files": ["dist"]`** restricts the published tarball to the build output only.

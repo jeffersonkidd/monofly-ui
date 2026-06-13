@@ -6,6 +6,12 @@
 // foundation (theme/reset/responsive/icons) plus every component's
 // co-located CSS, which Vite bundles into one dist/styles.css.
 
+// Tailwind entry imported directly from JS (not via `@import url()` in a
+// stylesheet) so the @tailwindcss/vite plugin actually compiles it. It must
+// come first so Tailwind's `@layer theme,base,components,utilities` order
+// statement is established before the SDS `@layer base` rules in index.css.
+// Both land in the single dist/styles.css.
+import "./tailwind.css";
 import "./index.css";
 
 // UI layers

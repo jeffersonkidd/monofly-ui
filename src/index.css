@@ -1,6 +1,5 @@
 @import url("./reset.css");
 @import url('./fonts.css');
-@import url('./tailwind.css');
 @import url("./responsive.css");
 @import url("./theme.css");
 @import url("./icons.css");
@@ -32,54 +31,60 @@
   }
 }
 
-html {
-  font-size: 16px;
-}
+/* Bare-element defaults live in @layer base so they don't clobber Tailwind
+   utilities on shadcn components (Tailwind's `@layer utilities` outranks base).
+   The `button/input { font }` rule in particular would otherwise override
+   `text-sm`/font utilities on shadcn buttons. */
+@layer base {
+  html {
+    font-size: 16px;
+  }
 
-body {
-  background: var(--sds-color-background-default-default);
-  color: var(--sds-color-text-default-default);
-  margin: 0;
-}
+  body {
+    background: var(--sds-color-background-default-default);
+    color: var(--sds-color-text-default-default);
+    margin: 0;
+  }
 
-html,
-body {
-  height: 100%;
-}
+  html,
+  body {
+    height: 100%;
+  }
 
-#root {
-  min-height: 100%;
-  width: 100%;
-}
+  #root {
+    min-height: 100%;
+    width: 100%;
+  }
 
-body,
-button,
-textarea,
-input,
-select {
-  font: var(--sds-font-body-base);
-}
+  body,
+  button,
+  textarea,
+  input,
+  select {
+    font: var(--sds-font-body-base);
+  }
 
-pre,
-code {
-  font: var(--sds-font-body-code);
-}
+  pre,
+  code {
+    font: var(--sds-font-body-code);
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font: var(--sds-font-heading);
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font: var(--sds-font-heading);
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
 }
