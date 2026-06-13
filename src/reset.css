@@ -1,0 +1,33 @@
+/* SDS element reset. Kept in @layer base so it normalizes bare elements for
+   the SDS component layer, but does NOT clobber Tailwind utilities — Tailwind's
+   `@layer utilities` outranks `base`, so shadcn components (built from bare
+   <button>/<a> + utility classes) keep their styling. Unlayered SDS component
+   CSS still wins over this base reset, so SDS components are unaffected. */
+@layer base {
+  a,
+  button,
+  legend,
+  fieldset,
+  select,
+  input,
+  textarea {
+    all: unset;
+    line-height: 1;
+  }
+
+  /* `all: unset` above resets box-sizing back to content-box; restore
+     border-box for every element it touched (esp. <a>, which was missing —
+     content-box made padded shadcn anchor buttons render wider than their
+     set width and overflow the sidebar). */
+  a,
+  button,
+  legend,
+  fieldset,
+  select,
+  input,
+  textarea,
+  div,
+  span {
+    box-sizing: border-box;
+  }
+}
