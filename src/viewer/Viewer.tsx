@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ModeToggle } from "compositions";
 import type { ConnectEntry } from "./code-connect-shim";
 import { isDescriptor, type Descriptor } from "./code-connect-shim";
-import { loadRegistry, figmaUrl } from "./registry";
+import { loadRegistry, figmaUrl, figmaEmbedUrl, getSnippet } from "./registry";
 import {
   collectNested,
   deepResolveTree,
@@ -127,7 +127,10 @@ function Story({
   reset: () => void;
 }) {
   const url = figmaUrl(entry.node);
+  const embedUrl = figmaEmbedUrl(entry.node);
   const nested = useMemo(() => collectNested(entry.props), [entry]);
+  const snippet = useMemo(() => getSnippet(entry), [entry]);
+  const [tab, setTab] = useState<"preview" | "figma" | "code">("preview");
 
   const preview = useMemo(() => {
     if (!entry.example) return null;
@@ -160,12 +163,63 @@ function Story({
       </header>
 
       <div className="flex flex-1 overflow-hidden">
-        {/* Preview canvas */}
-        <section className="flex-1 overflow-auto p-8">
-          <div className="grid min-h-full place-items-center rounded-lg border border-dashed border-border bg-muted/30 p-10">
-            <ErrorBoundary resetKey={values}>
-              {preview ?? <p className="text-sm text-muted-foreground">No example defined.</p>}
-            </ErrorBoundary>
+        {/* Preview / Figma / Code */}
+        <section className="flex flex-1 flex-col overflow-hidden">
+          <div className="flex shrink-0 gap-1 border-b border-border px-6 pt-2">
+            {(["preview", "figma", "code"] as const).map((t) => (
+              <button
+                key={t}
+                onClick={() => setTab(t)}
+                className={
+                  "rounded-t-md px-3 py-1.5 text-sm capitalize transition-colors " +
+                  (tab === t
+                    ? "border-b-2 border-foreground font-medium text-foreground"
+                    : "text-muted-foreground hover:text-foreground")
+                }
+              >
+                {t === "figma" ? "Figma" : t}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex-1 overflow-auto p-8">
+            {tab === "preview" && (
+              <div className="grid min-h-full place-items-center rounded-lg border border-dashed border-border bg-muted/30 p-10">
+                <ErrorBoundary resetKey={values}>
+                  {preview ?? <p className="text-sm text-muted-foreground">No example defined.</p>}
+                </ErrorBoundary>
+              </div>
+            )}
+
+            {tab === "figma" &&
+              (embedUrl ? (
+                <div className="flex h-full min-h-[480px] flex-col gap-2">
+                  <iframe
+                    title={`${entry.componentName} in Figma`}
+                    src={embedUrl}
+                    className="h-full w-full rounded-lg border border-border bg-muted/30"
+                    allowFullScreen
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    The embed only renders if the design file is publicly shared; otherwise
+                    Figma shows a permission wall.{" "}
+                    {url && (
+                      <a href={url} target="_blank" rel="noreferrer" className="underline">
+                        Open directly ↗
+                      </a>
+                    )}
+                  </p>
+                </div>
+              ) : (
+                <Empty>No Figma node is mapped for this component.</Empty>
+              ))}
+
+            {tab === "code" &&
+              (snippet ? (
+                <CodeBlock code={snippet} />
+              ) : (
+                <Empty>Snippet source could not be located.</Empty>
+              ))}
           </div>
         </section>
 
@@ -303,6 +357,29 @@ function Panel({ title, children }: { title: string; children: React.ReactNode }
 
 function Empty({ children }: { children: React.ReactNode }) {
   return <p className="text-xs text-muted-foreground">{children}</p>;
+}
+
+function CodeBlock({ code }: { code: string }) {
+  const [copied, setCopied] = useState(false);
+  const copy = () => {
+    navigator.clipboard?.writeText(code).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1200);
+    });
+  };
+  return (
+    <div className="relative">
+      <button
+        onClick={copy}
+        className="absolute right-3 top-3 rounded-md border border-border bg-background px-2 py-1 text-xs hover:bg-muted"
+      >
+        {copied ? "Copied" : "Copy"}
+      </button>
+      <pre className="overflow-auto rounded-lg border border-border bg-muted/30 p-4 text-xs leading-relaxed">
+        <code className="font-mono">{code}</code>
+      </pre>
+    </div>
+  );
 }
 
 function groupByCategory(entries: ConnectEntry[]): [string, ConnectEntry[]][] {

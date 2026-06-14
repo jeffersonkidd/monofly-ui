@@ -26,6 +26,8 @@ export interface ConnectEntry {
   sourceFile: string;
   /** Parent folder, e.g. "primitives" / "compositions". */
   category: string;
+  /** Full glob path of the source module, used to look up its raw text. */
+  modulePath: string;
 }
 
 export const registry: ConnectEntry[] = [];
@@ -35,9 +37,11 @@ export const registry: ConnectEntry[] = [];
 // sequentially, so there is no interleaving.
 let currentFile = "unknown";
 let currentCategory = "misc";
-export function __setSource(file: string, category: string) {
+let currentPath = "";
+export function __setSource(file: string, category: string, modulePath: string) {
   currentFile = file;
   currentCategory = category;
+  currentPath = modulePath;
 }
 
 // ---------------------------------------------------------------------------
