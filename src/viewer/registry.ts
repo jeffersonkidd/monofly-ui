@@ -5,6 +5,7 @@
 import { registry, __setSource, type ConnectEntry } from "./code-connect-shim";
 import { extractConnectBlock } from "./source";
 import { layoutStories } from "./stories/layout";
+import { pageStories } from "./stories/pages";
 import figmaConfig from "../../figma.config.json";
 
 // Eager:false -> we get loader functions and import them one at a time, setting
@@ -63,8 +64,9 @@ export function loadRegistry(): Promise<ConnectEntry[]> {
       __setSource(file, category, path);
       await loader();
     }
-    // Hand-authored stories for layers without Code Connect files (layout).
-    registry.push(...layoutStories);
+    // Hand-authored stories for layers without Code Connect files (layout) and
+    // the full-page brutalist demos.
+    registry.push(...layoutStories, ...pageStories);
     registry.sort(
       (a, b) =>
         a.category.localeCompare(b.category) ||

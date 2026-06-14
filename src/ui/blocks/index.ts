@@ -1,4 +1,7 @@
 export * from "./examples/demo-01";
+export * from "./examples/brutalist/ink";
+export * from "./examples/brutalist/BrutalistDashboard";
+export * from "./examples/brutalist/LinkInBio";
 export * from "./sections";
 export * from "./sidebars/sidebar-07";
 export * from "./sidebars/sidebar-02";
