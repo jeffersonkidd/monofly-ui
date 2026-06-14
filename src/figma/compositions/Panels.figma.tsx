@@ -2,7 +2,7 @@ import { figma } from "@figma/code-connect";
 import { Panel } from "compositions";
 import { placeholder } from "images";
 import { Flex, FlexItem, Section } from "layout";
-import { Image } from "primitives";
+import { SdsImage } from "primitives";
 
 figma.connect(Panel, "<FIGMA_SECTIONS_PANEL_IMAGE_CONTENT>", {
   props: {
@@ -13,7 +13,7 @@ figma.connect(Panel, "<FIGMA_SECTIONS_PANEL_IMAGE_CONTENT>", {
   example: ({ padding, gap, children }) => (
     <Section padding={padding}>
       <Panel gap={gap} type="half">
-        <Image
+        <SdsImage
           src={placeholder}
           alt="Always use image alt"
           aspectRatio="4-3"
@@ -43,7 +43,7 @@ figma.connect(Panel, "<FIGMA_SECTIONS_PANEL_IMAGE_CONTENT_REVERSE>", {
             {children}
           </Flex>
         </FlexItem>
-        <Image
+        <SdsImage
           src={placeholder}
           alt="Always use image alt"
           aspectRatio="4-3"
@@ -62,13 +62,13 @@ figma.connect(Panel, "<FIGMA_SECTIONS_PANEL_IMAGE_DOUBLE>", {
   example: ({ padding, gap }) => (
     <Section padding={padding}>
       <Panel gap={gap} type="half">
-        <Image
+        <SdsImage
           src={placeholder}
           alt="Always use image alt"
           aspectRatio="4-3"
           size="medium"
         />
-        <Image
+        <SdsImage
           src={placeholder}
           alt="Always use image alt"
           aspectRatio="4-3"
@@ -87,7 +87,7 @@ figma.connect(Panel, "<FIGMA_SECTIONS_PANEL_IMAGE>", {
     <Section padding={padding}>
       <Panel type="auto">
         <FlexItem size="full">
-          <Image
+          <SdsImage
             src={placeholder}
             alt="Always use image alt"
             aspectRatio="fill"

@@ -7,7 +7,7 @@ import { useProducts, type Product } from "data";
 import { useMediaQuery } from "hooks";
 import { IconChevronDown, IconChevronUp } from "icons";
 import { Flex, FlexItem, Section } from "layout";
-import { Search, TagButton } from "primitives";
+import { SdsSearch, SdsTagButton } from "primitives";
 import { useEffect, useState } from "react";
 
 export function ProductGrid() {
@@ -56,7 +56,7 @@ export function ProductGrid() {
           >
             <FlexItem size="minor">
               <Flex alignPrimary="stretch">
-                <Search
+                <SdsSearch
                   placeholder="Search"
                   value={searchTerm}
                   onInput={(e) => setSearchTerm(e.currentTarget.value)}
@@ -65,14 +65,14 @@ export function ProductGrid() {
             </FlexItem>
             <FlexItem>
               <Flex gap="200">
-                <TagButton
+                <SdsTagButton
                   id="filter-top-rated"
                   onPress={() => setFilterTopRated((prev) => !prev)}
                   variant={filterTopRated ? "primary" : "secondary"}
                 >
                   Top rated
-                </TagButton>
-                <TagButton
+                </SdsTagButton>
+                <SdsTagButton
                   id="sort-price"
                   variant={sortPrice === 0 ? "secondary" : "primary"}
                   onPress={() => {
@@ -89,7 +89,7 @@ export function ProductGrid() {
                   ) : (
                     <IconChevronUp />
                   )}
-                </TagButton>
+                </SdsTagButton>
               </Flex>
             </FlexItem>
           </Flex>

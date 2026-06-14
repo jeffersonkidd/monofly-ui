@@ -1,21 +1,21 @@
 import figma from "@figma/code-connect";
-import { Tab, TabList, TabPanel, Tabs } from "primitives";
+import { SdsTab, SdsTabList, SdsTabPanel, SdsTabs } from "primitives";
 
-figma.connect(Tab, "<FIGMA_TABS_TAB>", {
+figma.connect(SdsTab, "<FIGMA_TABS_TAB>", {
   props: {
     label: figma.string("Label"),
   },
-  example: ({ label }) => <Tab id={label}>{label}</Tab>,
+  example: ({ label }) => <SdsTab id={label}>{label}</SdsTab>,
 });
 
-figma.connect(Tabs, "<FIGMA_TABS_TABS>", {
+figma.connect(SdsTabs, "<FIGMA_TABS_TABS>", {
   props: {
     children: figma.children("Tab"),
   },
   example: ({ children }) => (
-    <Tabs>
-      <TabList>{children}</TabList>
-      <TabPanel id="match-each-tab">Some stuff</TabPanel>
-    </Tabs>
+    <SdsTabs>
+      <SdsTabList>{children}</SdsTabList>
+      <SdsTabPanel id="match-each-tab">Some stuff</SdsTabPanel>
+    </SdsTabs>
   ),
 });

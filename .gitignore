@@ -21,3 +21,6 @@ npm-debug.log*
 .notes/
 .box/
 .files/
+
+# Temporary
+.agents/skills

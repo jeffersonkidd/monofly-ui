@@ -1,7 +1,7 @@
 import figma from "@figma/code-connect";
-import { Search } from "primitives";
+import { SdsSearch } from "primitives";
 
-figma.connect(Search, "<FIGMA_INPUTS_SEARCH>", {
+figma.connect(SdsSearch, "<FIGMA_INPUTS_SEARCH>", {
   props: {
     value: figma.enum("Value Type", {
       Default: figma.string("Value"),
@@ -14,5 +14,5 @@ figma.connect(Search, "<FIGMA_INPUTS_SEARCH>", {
       Disabled: true,
     }),
   },
-  example: ({ ...props }) => <Search {...props} />,
+  example: ({ ...props }) => <SdsSearch {...props} />,
 });

@@ -1,14 +1,14 @@
 import { clsx } from "clsx";
 import { IconCheck, IconChevronDown } from "icons";
 import {
-  Description,
-  Field,
-  FieldError,
-  Label,
-  ListBox,
-  ListBoxItem,
-  SharedFieldProps,
-  type ListBoxItemProps,
+  SdsDescription,
+  SdsField,
+  SdsFieldError,
+  SdsLabel,
+  SdsListBox,
+  SdsListBoxItem,
+  SdsSharedFieldProps,
+  type SdsListBoxItemProps,
 } from "primitives";
 import {
   Button as RACButton,
@@ -21,7 +21,7 @@ import "./select.css";
 
 export interface SelectFieldProps<T extends object>
   extends Omit<SelectProps<T>, "children">,
-    SharedFieldProps {
+    SdsSharedFieldProps {
   items?: Iterable<T>;
   children: React.ReactNode | ((item: T) => React.ReactNode);
 }
@@ -37,18 +37,18 @@ export function SelectField<T extends object>({
   const classNames = clsx(className, "select-container");
   return (
     <Select className={classNames} {...props}>
-      <Field>
-        {label && <Label>{label}</Label>}
+      <SdsField>
+        {label && <SdsLabel>{label}</SdsLabel>}
         <RACButton className="select">
           <RACSelectValue className="select-value" />
           <IconChevronDown aria-hidden="true" />
         </RACButton>
         <RACPopover>
-          <ListBox items={items}>{children}</ListBox>
+          <SdsListBox items={items}>{children}</SdsListBox>
         </RACPopover>
-        {description && <Description>{description}</Description>}
-        <FieldError>{errorMessage}</FieldError>
-      </Field>
+        {description && <SdsDescription>{description}</SdsDescription>}
+        <SdsFieldError>{errorMessage}</SdsFieldError>
+      </SdsField>
     </Select>
   );
 }
@@ -58,16 +58,16 @@ export function Select<T extends object>({ ...props }: SelectProps<T>) {
   return <RACSelect<T> {...props} />;
 }
 
-export type SelectItemProps = ListBoxItemProps;
+export type SelectItemProps = SdsListBoxItemProps;
 export function SelectItem({ children, className, ...props }: SelectItemProps) {
   const classNames = clsx(className, "select-item");
   const textValue = typeof children === "string" ? children : "";
   return (
-    <ListBoxItem textValue={textValue} className={classNames} {...props}>
+    <SdsListBoxItem textValue={textValue} className={classNames} {...props}>
       <>
         <IconCheck className="select-item-check" />
         {children}
       </>
-    </ListBoxItem>
+    </SdsListBoxItem>
   );
 }

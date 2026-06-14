@@ -5,21 +5,21 @@ import { IconStar } from "icons";
 import { Flex } from "layout";
 import {
   SdsAvatar as Avatar,
-  AvatarBlock,
+  SdsAvatarBlock,
   SdsAvatarProps as AvatarProps,
   SdsButton as Button,
-  ButtonGroup,
+  SdsButtonGroup,
   SdsButtonProps as ButtonProps,
-  Image,
-  Text,
-  TextHeading,
-  TextList,
-  TextListItem,
-  TextPrice,
-  TextPriceProps,
-  TextSmall,
-  TextStrong,
-  TextSubheading,
+  SdsImage,
+  SdsText,
+  SdsTextHeading,
+  SdsTextList,
+  SdsTextListItem,
+  SdsTextPrice,
+  SdsTextPriceProps,
+  SdsTextSmall,
+  SdsTextStrong,
+  SdsTextSubheading,
 } from "primitives";
 import { ComponentPropsWithoutRef, ReactNode } from "react";
 import { AnchorOrButton, AnchorOrButtonProps } from "utils";
@@ -106,19 +106,19 @@ export type PricingCardProps = {
   /**
    * The price excluding currency
    */
-  price: TextPriceProps["price"];
+  price: SdsTextPriceProps["price"];
   /**
    * The price currency
    */
-  priceCurrency: TextPriceProps["currency"];
+  priceCurrency: SdsTextPriceProps["currency"];
   /**
    * The text for price per
    */
-  priceLabel?: TextPriceProps["label"];
+  priceLabel?: SdsTextPriceProps["label"];
   /**
    * Size of the pricing
    */
-  size?: TextPriceProps["size"];
+  size?: SdsTextPriceProps["size"];
   /**
    * Card variant
    */
@@ -222,26 +222,26 @@ export function PricingCardSkeleton({
         alignSecondary="center"
         gap={size === "large" ? "400" : undefined}
       >
-        <TextHeading>&nbsp;</TextHeading>
-        <TextPrice
+        <SdsTextHeading>&nbsp;</SdsTextHeading>
+        <SdsTextPrice
           size={size}
           label="&nbsp;"
           currency="&nbsp;"
           price="&nbsp;"
         />
       </Flex>
-      <TextList density={size === "large" ? "default" : "tight"}>
+      <SdsTextList density={size === "large" ? "default" : "tight"}>
         {[<>&nbsp;</>, <>&nbsp;</>, <>&nbsp;</>].map((item, i) => (
-          <TextListItem key={i}>{item}</TextListItem>
+          <SdsTextListItem key={i}>{item}</SdsTextListItem>
         ))}
-      </TextList>
+      </SdsTextList>
 
       <Flex alignPrimary="stretch">
-        <ButtonGroup align="justify">
+        <SdsButtonGroup align="justify">
           <Button isDisabled variant="primary">
             &nbsp;
           </Button>
-        </ButtonGroup>
+        </SdsButtonGroup>
       </Flex>
     </Card>
   );
@@ -277,8 +277,8 @@ export function PricingCard({
         alignSecondary="center"
         gap={size === "large" ? "400" : undefined}
       >
-        <TextHeading>{heading}</TextHeading>
-        <TextPrice
+        <SdsTextHeading>{heading}</SdsTextHeading>
+        <SdsTextPrice
           size={size}
           label={priceLabel}
           currency={priceCurrency}
@@ -286,17 +286,17 @@ export function PricingCard({
         />
       </Flex>
       {props.list ? (
-        <TextList density={size === "large" ? "default" : "tight"}>
+        <SdsTextList density={size === "large" ? "default" : "tight"}>
           {props.list.map((item) => (
-            <TextListItem key={item}>{item}</TextListItem>
+            <SdsTextListItem key={item}>{item}</SdsTextListItem>
           ))}
-        </TextList>
+        </SdsTextList>
       ) : (
         props.listSlot
       )}
 
       <Flex alignPrimary="stretch">
-        <ButtonGroup align="justify">
+        <SdsButtonGroup align="justify">
           <Button
             isDisabled={actionDisabled}
             variant={actionVariant}
@@ -305,7 +305,7 @@ export function PricingCard({
             {action}
             {actionIcon}
           </Button>
-        </ButtonGroup>
+        </SdsButtonGroup>
       </Flex>
     </Card>
   );
@@ -323,7 +323,7 @@ export function productToProductInfoCardProps(
     description: product.description,
     rating: product.rating,
     asset: (
-      <Image
+      <SdsImage
         src={product.imageUrl}
         alt={product.name}
         aspectRatio="4-3"
@@ -364,7 +364,7 @@ export function ProductInfoCardSkeleton({}: {}) {
       direction="vertical"
       variant="stroke"
       asset={
-        <Image
+        <SdsImage
           aspectRatio="4-3"
           alt="Placeholder image"
           className="product-info-card-asset"
@@ -372,9 +372,9 @@ export function ProductInfoCardSkeleton({}: {}) {
       }
     >
       <Flex direction="column" gap="200">
-        <TextSubheading lineClamp={1}>&nbsp;</TextSubheading>
-        <TextStrong>&nbsp;</TextStrong>
-        <Text lineClamp={2}>&nbsp;</Text>
+        <SdsTextSubheading lineClamp={1}>&nbsp;</SdsTextSubheading>
+        <SdsTextStrong>&nbsp;</SdsTextStrong>
+        <SdsText lineClamp={2}>&nbsp;</SdsText>
       </Flex>
     </Card>
   );
@@ -400,11 +400,11 @@ export function ProductInfoCard({
       asset={asset}
     >
       <Flex direction="column" gap="200">
-        <TextSubheading lineClamp={1}>{heading}</TextSubheading>
-        <TextStrong>
+        <SdsTextSubheading lineClamp={1}>{heading}</SdsTextSubheading>
+        <SdsTextStrong>
           ${price} ({rating} rating)
-        </TextStrong>
-        <Text lineClamp={2}>{description}</Text>
+        </SdsTextStrong>
+        <SdsText lineClamp={2}>{description}</SdsText>
       </Flex>
     </Card>
   );
@@ -458,12 +458,12 @@ export function ReviewCard({
         ))}
       </Flex>
       <Flex direction="column" gap="100">
-        <TextHeading>{title}</TextHeading>
-        <TextSmall>{body}</TextSmall>
+        <SdsTextHeading>{title}</SdsTextHeading>
+        <SdsTextSmall>{body}</SdsTextSmall>
       </Flex>
-      <AvatarBlock title={name} description={date}>
+      <SdsAvatarBlock title={name} description={date}>
         <Avatar size="large" src={src} initials={name.charAt(0)} />
-      </AvatarBlock>
+      </SdsAvatarBlock>
     </Card>
   );
 }
@@ -502,8 +502,8 @@ export function StatsCard({
     >
       {icon}
       <Flex direction="column" alignSecondary="center" gap="100">
-        <TextHeading>{stat}</TextHeading>
-        {description && <TextSmall>{description}</TextSmall>}
+        <SdsTextHeading>{stat}</SdsTextHeading>
+        {description && <SdsTextSmall>{description}</SdsTextSmall>}
       </Flex>
     </Card>
   );
@@ -545,10 +545,10 @@ export function TestimonialCard({
 }: TestimonialCardProps) {
   return (
     <Card {...props} padding="600" direction="vertical" variant="stroke">
-      <TextHeading>{heading}</TextHeading>
-      <AvatarBlock title={name} description={`@${username}`}>
+      <SdsTextHeading>{heading}</SdsTextHeading>
+      <SdsAvatarBlock title={name} description={`@${username}`}>
         <Avatar size="large" src={src} initials={initials} />
-      </AvatarBlock>
+      </SdsAvatarBlock>
     </Card>
   );
 }

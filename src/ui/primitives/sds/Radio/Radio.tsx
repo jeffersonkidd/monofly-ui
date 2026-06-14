@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { Description, FieldError, Label, SharedFieldProps } from "primitives";
+import { SdsDescription, SdsFieldError, SdsLabel, SdsSharedFieldProps } from "primitives";
 import {
   Radio as RACRadio,
   RadioGroup as RACRadioGroup,
@@ -10,7 +10,7 @@ import "./radio.css";
 
 export interface RadioGroupProps
   extends Omit<RACRadioGroupProps, "children">,
-    SharedFieldProps {
+    SdsSharedFieldProps {
   children?: React.ReactNode;
 }
 
@@ -25,15 +25,15 @@ export function RadioGroup({
   const classNames = clsx(className, "radio-group");
   return (
     <RACRadioGroup {...props} className={classNames}>
-      {label && <Label>{label}</Label>}
-      {description && <Description>{description}</Description>}
-      {errorMessage && <FieldError>{errorMessage}</FieldError>}
+      {label && <SdsLabel>{label}</SdsLabel>}
+      {description && <SdsDescription>{description}</SdsDescription>}
+      {errorMessage && <SdsFieldError>{errorMessage}</SdsFieldError>}
       {children}
     </RACRadioGroup>
   );
 }
 
-export type RadioFieldProps = RACRadioProps & SharedFieldProps;
+export type RadioFieldProps = RACRadioProps & SdsSharedFieldProps;
 export function RadioField({
   children,
   className,
@@ -48,10 +48,10 @@ export function RadioField({
   return (
     <RACRadio className={classNames} {...props}>
       <>
-        <Label>{labelText}</Label>
+        <SdsLabel>{labelText}</SdsLabel>
         <Radio />
-        {description && <Description>{description}</Description>}
-        <FieldError>{errorMessage}</FieldError>
+        {description && <SdsDescription>{description}</SdsDescription>}
+        <SdsFieldError>{errorMessage}</SdsFieldError>
         {labelText !== children && children}
       </>
     </RACRadio>

@@ -1,7 +1,7 @@
 import { Hero, Panel } from "compositions";
 import { useMediaQuery } from "hooks";
 import { Flex, FlexItem, Section } from "layout";
-import { Image, Text, TextContentHeading, TextContentTitle } from "primitives";
+import { SdsImage, SdsText, SdsTextContentHeading, SdsTextContentTitle } from "primitives";
 
 export function PanelSections() {
   const { isMobile } = useMediaQuery();
@@ -13,7 +13,7 @@ export function PanelSections() {
       <Section padding={sectionPadding} variant="brand">
         <Panel type="auto">
           <FlexItem size="fill">
-            <Image
+            <SdsImage
               src="https://picsum.photos/seed/Mountain landscape/1200/900"
               alt="Mountain landscape"
               aspectRatio="fill"
@@ -25,7 +25,7 @@ export function PanelSections() {
 
       <Section padding={sectionPadding} variant="stroke">
         <Panel alignSecondary="center" gap={flexGap} type="half">
-          <Image
+          <SdsImage
             src="https://picsum.photos/seed/Forest path/1200/900"
             alt="Forest path"
             aspectRatio="4-3"
@@ -33,20 +33,20 @@ export function PanelSections() {
           />
           <FlexItem size="half">
             <Flex direction="column" gap="600">
-              <TextContentHeading
+              <SdsTextContentHeading
                 heading="Explore Nature"
                 subheading="Discover the outdoors"
               />
-              <Text>
+              <SdsText>
                 Experience the beauty of the world through breathtaking
                 landscapes and serene environments.
-              </Text>
-              <Text>
+              </SdsText>
+              <SdsText>
                 From tranquil forests to majestic mountains, immerse yourself in
                 the wonders of nature. Whether you're seeking adventure or
                 relaxation, the outdoors offers endless possibilities for
                 exploration and inspiration.
-              </Text>
+              </SdsText>
             </Flex>
           </FlexItem>
         </Panel>
@@ -56,22 +56,22 @@ export function PanelSections() {
         <Panel alignSecondary="center" type="half" gap={flexGap}>
           <FlexItem size="half">
             <Flex direction="column" gap="600">
-              <TextContentHeading
+              <SdsTextContentHeading
                 heading="Urban Escapes"
                 subheading="City adventures await"
               />
-              <Text>
+              <SdsText>
                 Dive into the vibrant life of the city. Discover hidden gems,
                 bustling streets, and cultural landmarks.
-              </Text>
-              <Text>
+              </SdsText>
+              <SdsText>
                 Cities are alive with energy, offering unique experiences at
                 every corner. From art galleries to cozy cafes, there's always
                 something new to explore and enjoy.
-              </Text>
+              </SdsText>
             </Flex>
           </FlexItem>
-          <Image
+          <SdsImage
             src="https://picsum.photos/seed/City skyline/1200/900"
             alt="City skyline"
             aspectRatio="4-3"
@@ -82,13 +82,13 @@ export function PanelSections() {
 
       <Section padding={sectionPadding} variant="stroke">
         <Panel type="half" gap={flexGap}>
-          <Image
+          <SdsImage
             src="https://picsum.photos/seed/Desert dunes/1200/900"
             alt="Desert dunes"
             aspectRatio="4-3"
             size="medium"
           />
-          <Image
+          <SdsImage
             src="https://picsum.photos/seed/Ocean waves/1200/900"
             alt="Ocean waves"
             aspectRatio="4-3"
@@ -102,7 +102,7 @@ export function PanelSections() {
         variant="image"
         src="https://picsum.photos/seed/hero/1200/900"
       >
-        <TextContentTitle align="center" title="Join us today." />
+        <SdsTextContentTitle align="center" title="Join us today." />
       </Hero>
     </>
   );

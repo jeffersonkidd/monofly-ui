@@ -1,7 +1,7 @@
 import { clsx } from "clsx";
 import { useMediaQuery } from "hooks";
 import { Flex } from "layout";
-import { Link } from "primitives";
+import { SdsLink } from "primitives";
 import { ComponentPropsWithoutRef, ReactNode } from "react";
 import {
   Text as RACText,
@@ -130,10 +130,10 @@ export function TextEmphasis({
     <RACText className={classNames} elementType={elementType} {...props} />
   );
 }
-export type TextLinkProps = ComponentPropsWithoutRef<typeof Link>;
+export type TextLinkProps = ComponentPropsWithoutRef<typeof SdsLink>;
 export function TextLink({ className, ...props }: TextLinkProps) {
   const classNames = clsx(className, "text-body-link");
-  return <Link className={classNames} {...props} />;
+  return <SdsLink className={classNames} {...props} />;
 }
 export type TextCodeProps = RACTextProps;
 export function TextCode({ className, ...props }: TextCodeProps) {

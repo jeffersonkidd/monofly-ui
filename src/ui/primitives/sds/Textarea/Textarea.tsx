@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { Description, FieldError, Label, SharedFieldProps } from "primitives";
+import { SdsDescription, SdsFieldError, SdsLabel, SdsSharedFieldProps } from "primitives";
 import { forwardRef } from "react";
 import {
   TextArea as RACTextArea,
@@ -11,7 +11,7 @@ import "./textarea.css";
 
 export type SharedTextareaProps = { isResizable?: boolean };
 
-export type TextareaFieldProps = SharedFieldProps &
+export type TextareaFieldProps = SdsSharedFieldProps &
   RACTextFieldProps &
   SharedTextareaProps;
 export function TextareaField({
@@ -25,10 +25,10 @@ export function TextareaField({
   const classNames = clsx(className, "field");
   return (
     <RACTextField className={classNames} {...props}>
-      {label && <Label>{label}</Label>}
+      {label && <SdsLabel>{label}</SdsLabel>}
       <Textarea placeholder={placeholder} />
-      {description && <Description>{description}</Description>}
-      <FieldError>{errorMessage}</FieldError>
+      {description && <SdsDescription>{description}</SdsDescription>}
+      <SdsFieldError>{errorMessage}</SdsFieldError>
     </RACTextField>
   );
 }

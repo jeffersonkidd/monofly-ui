@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import { IconCheck, IconMinus } from "icons";
-import { Description, FieldError, Label, SharedFieldProps } from "primitives";
+import { SdsDescription, SdsFieldError, SdsLabel, SdsSharedFieldProps } from "primitives";
 import {
   Checkbox as RACCheckbox,
   CheckboxGroup as RACCheckboxGroup,
@@ -11,7 +11,7 @@ import "./checkbox.css";
 
 export interface CheckboxGroupProps
   extends Omit<RACCheckboxGroupProps, "children">,
-    SharedFieldProps {
+    SdsSharedFieldProps {
   children?: React.ReactNode;
 }
 
@@ -26,15 +26,15 @@ export function CheckboxGroup({
   const classNames = clsx(className, "checkbox-group");
   return (
     <RACCheckboxGroup {...props} className={classNames}>
-      {label && <Label>{label}</Label>}
-      {description && <Description>{description}</Description>}
-      {errorMessage && <FieldError>{errorMessage}</FieldError>}
+      {label && <SdsLabel>{label}</SdsLabel>}
+      {description && <SdsDescription>{description}</SdsDescription>}
+      {errorMessage && <SdsFieldError>{errorMessage}</SdsFieldError>}
       {children}
     </RACCheckboxGroup>
   );
 }
 
-export type CheckboxFieldProps = RACCheckboxProps & SharedFieldProps;
+export type CheckboxFieldProps = RACCheckboxProps & SdsSharedFieldProps;
 export function CheckboxField({
   children,
   className,
@@ -49,10 +49,10 @@ export function CheckboxField({
   return (
     <RACCheckbox className={classNames} {...props}>
       <>
-        <Label>{labelText}</Label>
+        <SdsLabel>{labelText}</SdsLabel>
         <Checkbox />
-        {description && <Description>{description}</Description>}
-        <FieldError>{errorMessage}</FieldError>
+        {description && <SdsDescription>{description}</SdsDescription>}
+        <SdsFieldError>{errorMessage}</SdsFieldError>
         {labelText !== children && children}
       </>
     </RACCheckbox>

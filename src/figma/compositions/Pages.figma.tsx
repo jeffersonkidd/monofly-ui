@@ -2,7 +2,7 @@ import { figma } from "@figma/code-connect";
 import { Card } from "compositions";
 import { placeholder } from "images";
 import { Flex, FlexItem, Section } from "layout";
-import { Image } from "primitives";
+import { SdsImage } from "primitives";
 
 figma.connect(Section, "<FIGMA_SECTIONS_PAGE_ACCORDION>", {
   props: {
@@ -48,7 +48,7 @@ figma.connect(Section, "<FIGMA_SECTIONS_PAGE_PRODUCT>", {
   }) => (
     <Section padding={padding}>
       <Flex container type="half" wrap gap={gap}>
-        <Image
+        <SdsImage
           src={placeholder}
           alt="Always use image alt"
           size="large"

@@ -1,7 +1,7 @@
 import figma from "@figma/code-connect";
-import { Select, SelectField, SelectItem } from "primitives";
+import { SdsSelect, SdsSelectField, SdsSelectItem } from "primitives";
 
-figma.connect(Select, "<FIGMA_INPUTS_SELECT_FIELD>", {
+figma.connect(SdsSelect, "<FIGMA_INPUTS_SELECT_FIELD>", {
   variant: { "Has Label": false },
   props: {
     isDisabled: figma.enum("State", { Disabled: true }),
@@ -15,17 +15,17 @@ figma.connect(Select, "<FIGMA_INPUTS_SELECT_FIELD>", {
     defaultSelectedKey: figma.string("Value"),
   },
   example: ({ defaultSelectedKey, ...props }) => (
-    <Select defaultSelectedKey={defaultSelectedKey} {...props}>
-      <SelectItem>{defaultSelectedKey}</SelectItem>
-      <SelectItem>Option 2</SelectItem>
-      <SelectItem>Option 3</SelectItem>
-      <SelectItem>Option 4</SelectItem>
-      <SelectItem>Option 5</SelectItem>
-    </Select>
+    <SdsSelect defaultSelectedKey={defaultSelectedKey} {...props}>
+      <SdsSelectItem>{defaultSelectedKey}</SdsSelectItem>
+      <SdsSelectItem>Option 2</SdsSelectItem>
+      <SdsSelectItem>Option 3</SdsSelectItem>
+      <SdsSelectItem>Option 4</SdsSelectItem>
+      <SdsSelectItem>Option 5</SdsSelectItem>
+    </SdsSelect>
   ),
 });
 
-figma.connect(SelectField, "<FIGMA_INPUTS_SELECT_FIELD>", {
+figma.connect(SdsSelectField, "<FIGMA_INPUTS_SELECT_FIELD>", {
   variant: { "Has Label": true },
   props: {
     isDisabled: figma.enum("State", { Disabled: true }),
@@ -45,12 +45,12 @@ figma.connect(SelectField, "<FIGMA_INPUTS_SELECT_FIELD>", {
     defaultSelectedKey: figma.string("Value"),
   },
   example: ({ defaultSelectedKey, ...props }) => (
-    <SelectField defaultSelectedKey={defaultSelectedKey} {...props}>
-      <SelectItem>{defaultSelectedKey}</SelectItem>
-      <SelectItem>Option 2</SelectItem>
-      <SelectItem>Option 3</SelectItem>
-      <SelectItem>Option 4</SelectItem>
-      <SelectItem>Option 5</SelectItem>
-    </SelectField>
+    <SdsSelectField defaultSelectedKey={defaultSelectedKey} {...props}>
+      <SdsSelectItem>{defaultSelectedKey}</SdsSelectItem>
+      <SdsSelectItem>Option 2</SdsSelectItem>
+      <SdsSelectItem>Option 3</SdsSelectItem>
+      <SdsSelectItem>Option 4</SdsSelectItem>
+      <SdsSelectItem>Option 5</SdsSelectItem>
+    </SdsSelectField>
   ),
 });

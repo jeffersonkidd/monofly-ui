@@ -1,6 +1,6 @@
 import { useMediaQuery } from "hooks";
 import { Flex, Section } from "layout";
-import { Button, Form, Input, TextContentTitle } from "primitives";
+import { SdsButton, SdsForm, SdsInput, SdsTextContentTitle } from "primitives";
 
 export function WelcomeHero() {
   const { isMobile } = useMediaQuery();
@@ -18,17 +18,17 @@ export function WelcomeHero() {
         alignSecondary="center"
         type="third"
       >
-        <TextContentTitle
+        <SdsTextContentTitle
           align="center"
           title="Welcome Home"
           subtitle={<>We're happy to have&nbsp;you.</>}
         />
-        <Form singleLine>
-          <Input aria-label="Email address" placeholder="you@example.com" />
-          <Button onPress={() => {}} variant="neutral">
+        <SdsForm singleLine>
+          <SdsInput aria-label="Email address" placeholder="you@example.com" />
+          <SdsButton onPress={() => {}} variant="neutral">
             Get updates
-          </Button>
-        </Form>
+          </SdsButton>
+        </SdsForm>
       </Flex>
     </Section>
   );

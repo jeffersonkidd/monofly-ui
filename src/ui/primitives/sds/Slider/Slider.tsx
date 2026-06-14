@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Description, Field, Label } from "primitives";
+import { SdsDescription, SdsField, SdsLabel } from "primitives";
 import {
   Slider as RACSlider,
   SliderOutput as RACSliderOutput,
@@ -29,8 +29,8 @@ export function SliderField({
 }: SliderFieldProps) {
   return (
     <Slider {...props}>
-      <Field>
-        {label && <Label>{label}</Label>}
+      <SdsField>
+        {label && <SdsLabel>{label}</SdsLabel>}
         {showOutput && (
           <SliderOutput>
             {({ state }) =>
@@ -56,8 +56,8 @@ export function SliderField({
             ))
           }
         </SliderTrack>
-        {description && <Description>{description}</Description>}
-      </Field>
+        {description && <SdsDescription>{description}</SdsDescription>}
+      </SdsField>
     </Slider>
   );
 }

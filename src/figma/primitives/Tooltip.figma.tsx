@@ -1,10 +1,10 @@
 import figma from "@figma/code-connect";
-import { TextSmall, TextStrong, Tooltip } from "primitives";
+import { SdsTextSmall, SdsTextStrong, SdsTooltip } from "primitives";
 
-figma.connect(Tooltip, "<FIGMA_TOOLTIP_TOOLTIP>", {
+figma.connect(SdsTooltip, "<FIGMA_TOOLTIP_TOOLTIP>", {
   props: {
     body: figma.boolean("Has Body", {
-      true: <TextSmall>{figma.string("Body")}</TextSmall>,
+      true: <SdsTextSmall>{figma.string("Body")}</SdsTextSmall>,
       false: undefined,
     }),
     title: figma.string("Title"),
@@ -16,9 +16,9 @@ figma.connect(Tooltip, "<FIGMA_TOOLTIP_TOOLTIP>", {
     }),
   },
   example: ({ title, body, ...props }) => (
-    <Tooltip {...props}>
-      <TextStrong>{title}</TextStrong>
+    <SdsTooltip {...props}>
+      <SdsTextStrong>{title}</SdsTextStrong>
       {body}
-    </Tooltip>
+    </SdsTooltip>
   ),
 });

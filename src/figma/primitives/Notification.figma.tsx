@@ -1,7 +1,7 @@
 import figma from "@figma/code-connect";
-import { Notification, Text, TextStrong } from "primitives";
+import { SdsNotification, SdsText, SdsTextStrong } from "primitives";
 
-figma.connect(Notification, "<FIGMA_NOTIFICATION_NOTIFICATION>", {
+figma.connect(SdsNotification, "<FIGMA_NOTIFICATION_NOTIFICATION>", {
   props: {
     title: figma.string("Title"),
     icon: figma.boolean("Has Icon", {
@@ -17,10 +17,10 @@ figma.connect(Notification, "<FIGMA_NOTIFICATION_NOTIFICATION>", {
     }),
   },
   example: ({ button, body, title, ...props }) => (
-    <Notification {...props}>
-      <TextStrong>{title}</TextStrong>
-      <Text>{body}</Text>
+    <SdsNotification {...props}>
+      <SdsTextStrong>{title}</SdsTextStrong>
+      <SdsText>{body}</SdsText>
       {button}
-    </Notification>
+    </SdsNotification>
   ),
 });

@@ -1,8 +1,8 @@
 import figma from "@figma/code-connect";
 import { placeholder } from "images";
-import { Avatar, AvatarBlock, AvatarGroup } from "primitives";
+import { SdsAvatar, SdsAvatarBlock, SdsAvatarGroup } from "primitives";
 
-figma.connect(AvatarGroup, "<FIGMA_AVATARS_AVATAR_GROUP>", {
+figma.connect(SdsAvatarGroup, "<FIGMA_AVATARS_AVATAR_GROUP>", {
   props: {
     spacing: figma.enum("Spacing", {
       Overlap: "negative-200",
@@ -11,12 +11,12 @@ figma.connect(AvatarGroup, "<FIGMA_AVATARS_AVATAR_GROUP>", {
     children: figma.children("Avatar"),
   },
   example: ({ children, ...props }) => (
-    <AvatarGroup {...props} max={3}>
+    <SdsAvatarGroup {...props} max={3}>
       {children}
-    </AvatarGroup>
+    </SdsAvatarGroup>
   ),
 });
-figma.connect(Avatar, "<FIGMA_AVATARS_AVATAR>", {
+figma.connect(SdsAvatar, "<FIGMA_AVATARS_AVATAR>", {
   props: {
     square: figma.enum("Shape", {
       Square: true,
@@ -32,16 +32,16 @@ figma.connect(Avatar, "<FIGMA_AVATARS_AVATAR>", {
       Image: placeholder,
     }),
   },
-  example: ({ ...props }) => <Avatar {...props} />,
+  example: ({ ...props }) => <SdsAvatar {...props} />,
 });
 
-figma.connect(AvatarBlock, "<FIGMA_AVATARS_AVATAR_BLOCK>", {
+figma.connect(SdsAvatarBlock, "<FIGMA_AVATARS_AVATAR_BLOCK>", {
   props: {
     title: figma.string("Title"),
     description: figma.string("Description"),
     children: figma.children("Avatar"),
   },
   example: ({ children, ...props }) => (
-    <AvatarBlock {...props}>{children}</AvatarBlock>
+    <SdsAvatarBlock {...props}>{children}</SdsAvatarBlock>
   ),
 });

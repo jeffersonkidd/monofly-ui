@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import { IconChevronDown, IconChevronUp } from "icons";
-import { Checkbox } from "primitives";
+import { SdsCheckbox } from "primitives";
 import {
   Button as RACButton,
   Cell as RACCell,
@@ -102,7 +102,7 @@ export function TableHead<T extends object>({
       {allowsDragging && <TableColumn />}
       {selectionBehavior === "toggle" && (
         <TableColumn>
-          {selectionMode === "multiple" && <Checkbox slot="selection" />}
+          {selectionMode === "multiple" && <SdsCheckbox slot="selection" />}
         </TableColumn>
       )}
       <RACCollection items={columns}>{children}</RACCollection>
@@ -129,7 +129,7 @@ export function TableRow<T extends object>({
       )}
       {selectionBehavior === "toggle" && (
         <TableCell>
-          <Checkbox slot="selection" />
+          <SdsCheckbox slot="selection" />
         </TableCell>
       )}
       <RACCollection items={columns}>{children}</RACCollection>

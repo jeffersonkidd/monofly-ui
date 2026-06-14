@@ -1,26 +1,39 @@
 "use client"
 
 import { type ComponentPropsWithRef, type ReactNode } from "react"
-import { SidebarInset, SidebarProvider } from "primitives"
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarInset,
+  SidebarProvider,
+  SidebarSeparator,
+} from "primitives"
 import { Flex } from "layout"
 import { cn } from "utils"
 
-export interface AppTemplateProps
-  extends Omit<ComponentPropsWithRef<"div">, "content"> {
-  /** The entire sidebar — a generic `<Sidebar>` tree or a block like `<AppSidebar07 />`. */
-  sidebar: ReactNode
-  /** Top header bar — breadcrumbs, trigger, search, user menu. */
+export interface AppTemplateProps02 extends Omit<ComponentPropsWithRef<"div">, "content"> {
+  /** Sidebar header slot — typically a <Logo /> or brand mark */
+  sidebarHeader?: ReactNode
+  /** Sidebar body — nav groups, menus, etc. Usually a <SidebarNav /> pattern. */
+  nav: ReactNode
+  /** Sidebar footer slot — help link, user menu, workspace switcher */
+  sidebarFooter?: ReactNode
+  /** Top header bar content — breadcrumbs, search, user menu */
   header?: ReactNode
-  /** Main page content. */
+  /** Main page content */
   content: ReactNode
-  /** Optional bottom panel — status bar, quick actions. */
+  /** Optional bottom panel — status bar, quick actions */
   panel?: ReactNode
-  /** Whether the sidebar starts open. */
+  /** Whether the sidebar starts open */
   defaultOpen?: boolean
 }
 
-export function AppTemplate({
-  sidebar,
+export function AppTemplate02({
+  sidebarHeader,
+  nav,
+  sidebarFooter,
   header,
   content,
   panel,
@@ -29,14 +42,25 @@ export function AppTemplate({
   // Pulled out so it isn't spread onto SidebarProvider (a non-forwardRef fn component).
   ref: _ref,
   ...props
-}: AppTemplateProps) {
+}: AppTemplateProps02) {
   return (
     <SidebarProvider
       defaultOpen={defaultOpen}
       className={cn("h-svh bg-background", className)}
       {...props}
     >
-      {sidebar}
+      <Sidebar>
+        {sidebarHeader && (
+          <>
+            <SidebarHeader className="p-4">{sidebarHeader}</SidebarHeader>
+            <SidebarSeparator className="max-w-xs" />
+          </>
+        )}
+        <SidebarContent>{nav}</SidebarContent>
+        {sidebarFooter && (
+          <SidebarFooter className="p-4">{sidebarFooter}</SidebarFooter>
+        )}
+      </Sidebar>
 
       <SidebarInset>
         {/* ── Header ────────────────────────────────────────── */}
@@ -49,7 +73,9 @@ export function AppTemplate({
         )}
 
         {/* ── Main content ──────────────────────────────────── */}
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6">{content}</main>
+        <main className="flex-1 overflow-y-auto p-4 sm:p-6">
+          {content}
+        </main>
 
         {/* ── Bottom panel ──────────────────────────────────── */}
         {panel && (
@@ -61,4 +87,4 @@ export function AppTemplate({
     </SidebarProvider>
   )
 }
-AppTemplate.displayName = "AppTemplate"
+AppTemplate02.displayName = "AppTemplate02"

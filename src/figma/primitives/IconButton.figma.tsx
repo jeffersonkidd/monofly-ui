@@ -1,5 +1,5 @@
 import figma from "@figma/code-connect";
-import { IconButton } from "primitives";
+import { SdsIconButton } from "primitives";
 
 const sharedProps = {
   icon: figma.instance("Icon"),
@@ -11,7 +11,7 @@ const sharedProps = {
   }),
 };
 
-figma.connect(IconButton, "<FIGMA_BUTTONS_ICON_BUTTON>", {
+figma.connect(SdsIconButton, "<FIGMA_BUTTONS_ICON_BUTTON>", {
   props: {
     ...sharedProps,
     variant: figma.enum("Variant", {
@@ -21,12 +21,12 @@ figma.connect(IconButton, "<FIGMA_BUTTONS_ICON_BUTTON>", {
     }),
   },
   example: ({ icon, ...props }) => (
-    <IconButton
+    <SdsIconButton
       aria-label="Write a nice description of the action."
       onPress={() => {}}
       {...props}
     >
       {icon}
-    </IconButton>
+    </SdsIconButton>
   ),
 });

@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import { IconSearch, IconX } from "icons";
-import { IconButton, Input, Label, ListBox, ListBoxItem } from "primitives";
+import { SdsIconButton, SdsInput, SdsLabel, SdsListBox, SdsListBoxItem } from "primitives";
 import React, { useRef, useState } from "react";
 import {
   ComboBox as RACComboBox,
@@ -30,8 +30,8 @@ export const Search = React.forwardRef(function Search(
 
   return (
     <RACComboBox className={classNames}>
-      <Label hidden>{props["aria-label"] || "Search"}</Label>
-      <Input
+      <SdsLabel hidden>{props["aria-label"] || "Search"}</SdsLabel>
+      <SdsInput
         type="search"
         className="search-input"
         value={searchTerm}
@@ -48,33 +48,33 @@ export const Search = React.forwardRef(function Search(
       />
       <span className="search-icon">
         {searchTerm ? (
-          <IconButton
+          <SdsIconButton
             aria-label="Clear search"
             onPress={() => onInputInput("")}
             size="small"
             variant="subtle"
           >
             <IconX />
-          </IconButton>
+          </SdsIconButton>
         ) : (
-          <IconButton
+          <SdsIconButton
             aria-label="Clear search"
             onPress={() => inputRef?.current?.focus()}
             size="small"
             variant="subtle"
           >
             <IconSearch />
-          </IconButton>
+          </SdsIconButton>
         )}
       </span>
       <RACPopover>
-        <ListBox>
+        <SdsListBox>
           {results?.map((a) => (
-            <ListBoxItem key={a} onAction={() => onInputInput(a)}>
+            <SdsListBoxItem key={a} onAction={() => onInputInput(a)}>
               {a}
-            </ListBoxItem>
+            </SdsListBoxItem>
           ))}
-        </ListBox>
+        </SdsListBox>
       </RACPopover>
     </RACComboBox>
   );

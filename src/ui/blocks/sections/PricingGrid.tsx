@@ -6,7 +6,7 @@ import {
 import { usePricing } from "data";
 import { useMediaQuery } from "hooks";
 import { Flex, FlexItem, Section } from "layout";
-import { Navigation, NavigationPill } from "primitives";
+import { SdsNavigation, SdsNavigationPill } from "primitives";
 import { useState } from "react";
 
 export function PricingGrid() {
@@ -23,20 +23,20 @@ export function PricingGrid() {
       <Flex container gap={flexGap} direction="column" alignSecondary="stretch">
         <FlexItem>
           <Flex alignPrimary="center">
-            <Navigation direction="row">
-              <NavigationPill
+            <SdsNavigation direction="row">
+              <SdsNavigationPill
                 onPress={() => setPricingInterval("monthly")}
                 isSelected={pricingInterval === "monthly"}
               >
                 Monthly
-              </NavigationPill>
-              <NavigationPill
+              </SdsNavigationPill>
+              <SdsNavigationPill
                 onPress={() => setPricingInterval("yearly")}
                 isSelected={pricingInterval === "yearly"}
               >
                 Yearly
-              </NavigationPill>
-            </Navigation>
+              </SdsNavigationPill>
+            </SdsNavigation>
           </Flex>
         </FlexItem>
         <FlexItem>

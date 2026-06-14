@@ -1,7 +1,7 @@
 import figma from "@figma/code-connect";
-import { Input, InputField } from "primitives";
+import { SdsInput, SdsInputField } from "primitives";
 
-figma.connect(Input, "<FIGMA_INPUTS_INPUT_FIELD>", {
+figma.connect(SdsInput, "<FIGMA_INPUTS_INPUT_FIELD>", {
   variant: { "Has Label": false },
   props: {
     isDisabled: figma.enum("State", { Disabled: true }),
@@ -13,10 +13,10 @@ figma.connect(Input, "<FIGMA_INPUTS_INPUT_FIELD>", {
       Placeholder: figma.string("Value"),
     }),
   },
-  example: ({ ...props }) => <Input {...props} />,
+  example: ({ ...props }) => <SdsInput {...props} />,
 });
 
-figma.connect(InputField, "<FIGMA_INPUTS_INPUT_FIELD>", {
+figma.connect(SdsInputField, "<FIGMA_INPUTS_INPUT_FIELD>", {
   variant: { "Has Label": true },
   props: {
     isDisabled: figma.enum("State", { Disabled: true }),
@@ -34,5 +34,5 @@ figma.connect(InputField, "<FIGMA_INPUTS_INPUT_FIELD>", {
       Placeholder: figma.string("Value"),
     }),
   },
-  example: ({ ...props }) => <InputField {...props} />,
+  example: ({ ...props }) => <SdsInputField {...props} />,
 });

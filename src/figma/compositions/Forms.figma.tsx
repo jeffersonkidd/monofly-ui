@@ -1,7 +1,7 @@
 import { figma } from "@figma/code-connect";
 import { FormBox } from "compositions";
 import { Flex } from "layout";
-import { Form } from "primitives";
+import { SdsForm } from "primitives";
 
 figma.connect(FormBox, "<FIGMA_FORMS_FORM_LOG_IN>", {
   props: {
@@ -27,9 +27,9 @@ figma.connect(FormBox, "<FIGMA_FORMS_FORM_REGISTER>", {
 figma.connect(FormBox, "<FIGMA_FORMS_FORM_NEWSLETTER>", {
   props: { children: figma.children(["Input Field", "Button"]) },
   example: ({ children }) => (
-    <Form singleLine onSubmit={() => {}}>
+    <SdsForm singleLine onSubmit={() => {}}>
       {children}
-    </Form>
+    </SdsForm>
   ),
 });
 

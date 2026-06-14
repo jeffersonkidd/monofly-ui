@@ -1,16 +1,11 @@
-import { DashboardShell } from "blocks";
-import { Modules } from "blocks";
-import { AllProviders } from "data";
-// import { Demo, FAQs, PanelSections, PricingGrid, ProductDetails, ProductGrid, WelcomeHero} from "blocks";
+import { AllProviders } from "data"
+// import Link01 from "./../src/ui/blocks/links/link-01";
+import  SdsDemo from "./ui/blocks/examples/demo-01"
 
-function App() {
+export default function App() {
   return (
-      <AllProviders> 
-        <DashboardShell>
-          <Modules />
-        </DashboardShell>
-      </AllProviders>
-  );
+    <AllProviders>
+      <SdsDemo />
+    </AllProviders>
+  )
 }
-
-export default App

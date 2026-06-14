@@ -2,16 +2,16 @@ import { useMediaQuery } from "hooks";
 import { IconShoppingBag } from "icons";
 import { Flex, FlexItem, Section } from "layout";
 import {
-  Accordion,
-  AccordionItem,
+  SdsAccordion,
+  SdsAccordionItem,
   SdsButton as Button,
-  Image,
-  SelectField,
-  SelectItem,
-  Tag,
-  Text,
-  TextHeading,
-  TextPrice,
+  SdsImage,
+  SdsSelectField,
+  SdsSelectItem,
+  SdsTag,
+  SdsText,
+  SdsTextHeading,
+  SdsTextPrice,
 } from "primitives";
 
 export function ProductDetails() {
@@ -22,7 +22,7 @@ export function ProductDetails() {
   return (
     <Section padding={sectionPadding} variant="stroke">
       <Flex container type="half" wrap gap={flexGap}>
-        <Image
+        <SdsImage
           src="https://picsum.photos/seed/Modern office/1200/900"
           alt="Modern office chair in black"
           size="large"
@@ -31,21 +31,21 @@ export function ProductDetails() {
         <FlexItem size="half">
           <Flex direction="column" gap="400" alignSecondary="stretch">
             <Flex alignSecondary="center" gap="200">
-              <TextHeading>Ergonomic Office Chair </TextHeading>
-              <Tag variant="secondary" scheme="positive" className="promo-tag">
+              <SdsTextHeading>Ergonomic Office Chair </SdsTextHeading>
+              <SdsTag variant="secondary" scheme="positive" className="promo-tag">
                 30% Off
-              </Tag>
+              </SdsTag>
             </Flex>
             <FlexItem>
               <Flex direction="column" gap="200">
-                <TextPrice currency="$" price="129.99" />
+                <SdsTextPrice currency="$" price="129.99" />
               </Flex>
             </FlexItem>
-            <Text>
+            <SdsText>
               Experience all-day comfort with our Ergonomic Office Chair,
               featuring adjustable lumbar support, breathable mesh back, and
               smooth-rolling casters. Perfect for home or office use.
-            </Text>
+            </SdsText>
             <FlexItem>
               <Flex
                 wrap
@@ -54,30 +54,30 @@ export function ProductDetails() {
                 alignSecondary={isDesktop ? "end" : "stretch"}
               >
                 <FlexItem size="fill">
-                  <SelectField
+                  <SdsSelectField
                     label="Color"
                     defaultSelectedKey="Black"
                     placeholder="Select color..."
                   >
-                    <SelectItem>Black</SelectItem>
-                    <SelectItem>Gray</SelectItem>
-                    <SelectItem>Blue</SelectItem>
-                    <SelectItem>Red</SelectItem>
-                    <SelectItem>White</SelectItem>
-                  </SelectField>
+                    <SdsSelectItem>Black</SdsSelectItem>
+                    <SdsSelectItem>Gray</SdsSelectItem>
+                    <SdsSelectItem>Blue</SdsSelectItem>
+                    <SdsSelectItem>Red</SdsSelectItem>
+                    <SdsSelectItem>White</SdsSelectItem>
+                  </SdsSelectField>
                 </FlexItem>
                 <FlexItem size="fill">
-                  <SelectField
+                  <SdsSelectField
                     label="Quantity"
                     defaultSelectedKey="1"
                     placeholder="Select quantity..."
                   >
-                    <SelectItem>1</SelectItem>
-                    <SelectItem>2</SelectItem>
-                    <SelectItem>3</SelectItem>
-                    <SelectItem>4</SelectItem>
-                    <SelectItem>5</SelectItem>
-                  </SelectField>
+                    <SdsSelectItem>1</SdsSelectItem>
+                    <SdsSelectItem>2</SdsSelectItem>
+                    <SdsSelectItem>3</SdsSelectItem>
+                    <SdsSelectItem>4</SdsSelectItem>
+                    <SdsSelectItem>5</SdsSelectItem>
+                  </SdsSelectField>
                 </FlexItem>
                 <Button onPress={() => {}} variant="primary">
                   Add
@@ -85,8 +85,8 @@ export function ProductDetails() {
                 </Button>
               </Flex>
             </FlexItem>
-            <Accordion>
-              <AccordionItem title="Product Details">
+            <SdsAccordion>
+              <SdsAccordionItem title="Product Details">
                 <>
                   <ul>
                     <li>Adjustable height and tilt</li>
@@ -96,8 +96,8 @@ export function ProductDetails() {
                     <li>Easy assembly required</li>
                   </ul>
                 </>
-              </AccordionItem>
-            </Accordion>
+              </SdsAccordionItem>
+            </SdsAccordion>
           </Flex>
         </FlexItem>
       </Flex>

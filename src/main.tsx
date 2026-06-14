@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import Link01 from "./App.tsx";
 import "./tailwind.css";
 import "./index.css";
 // Tailwind entry imported directly from JS (not via `@import url()` in a
@@ -9,6 +9,6 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <Link01 />
   </React.StrictMode>
 );

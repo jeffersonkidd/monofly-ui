@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import { Form, type FormProps } from "primitives";
+import { SdsForm, type SdsFormProps } from "primitives";
 import "./forms.css";
 
-export type FormBoxProps = FormProps;
+export type FormBoxProps = SdsFormProps;
 export function FormBox({ className, ...props }: FormBoxProps) {
   const classNames = clsx(className, "form-box");
-  return <Form className={classNames} {...props} />;
+  return <SdsForm className={classNames} {...props} />;
 }

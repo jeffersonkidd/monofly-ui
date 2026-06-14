@@ -3,12 +3,12 @@ import { IconX } from "icons";
 import {
   SdsButton as Button,
   SdsButtonProps as ButtonProps,
-  IconButton,
-  IconButtonProps,
-  Text,
-  TextHeading,
-  type TextHeadingProps,
-  type TextProps,
+  SdsIconButton,
+  SdsIconButtonProps,
+  SdsText,
+  SdsTextHeading,
+  type SdsTextHeadingProps,
+  type SdsTextProps,
 } from "primitives";
 import {
   Dialog as RACDialog,
@@ -29,9 +29,9 @@ export function Dialog({ className, type = "card", ...props }: DialogProps) {
   return <RACDialog className={classNames} {...props} />;
 }
 
-export type DialogCloseProps = Pick<IconButtonProps, "onPress">;
+export type DialogCloseProps = Pick<SdsIconButtonProps, "onPress">;
 export const DialogClose = ({ onPress }: DialogCloseProps) => (
-  <IconButton
+  <SdsIconButton
     className="dialog-close"
     aria-label="Dismiss dialog"
     onPress={onPress}
@@ -39,7 +39,7 @@ export const DialogClose = ({ onPress }: DialogCloseProps) => (
     size="small"
   >
     <IconX />
-  </IconButton>
+  </SdsIconButton>
 );
 
 export type DialogTriggerProps = RACDialogTriggerProps;
@@ -64,9 +64,9 @@ export function DialogButton({
   return (
     <DialogTrigger>
       {icon ? (
-        <IconButton variant={variant} aria-label={label}>
+        <SdsIconButton variant={variant} aria-label={label}>
           {icon}
-        </IconButton>
+        </SdsIconButton>
       ) : (
         <Button variant={variant}>{label}</Button>
       )}
@@ -77,19 +77,19 @@ export function DialogButton({
   );
 }
 
-export type DialogTitleProps = TextHeadingProps;
+export type DialogTitleProps = SdsTextHeadingProps;
 export function DialogTitle({ className, ...props }: DialogTitleProps) {
   const classNames = clsx(className, "dialog-title");
-  return <TextHeading {...props} slot="title" className={classNames} />;
+  return <SdsTextHeading {...props} slot="title" className={classNames} />;
 }
 
-export type DialogDescriptionProps = TextProps;
+export type DialogDescriptionProps = SdsTextProps;
 export function DialogDescription({
   className,
   ...props
 }: DialogDescriptionProps) {
   const classNames = clsx(className, "dialog-description");
-  return <Text {...props} className={classNames} />;
+  return <SdsText {...props} className={classNames} />;
 }
 
 export type DialogBodyProps = {

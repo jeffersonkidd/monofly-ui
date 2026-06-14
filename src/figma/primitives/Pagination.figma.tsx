@@ -1,14 +1,14 @@
 import figma from "@figma/code-connect";
 import {
-  Pagination,
-  PaginationGap,
-  PaginationList,
-  PaginationNext,
-  PaginationPage,
-  PaginationPrevious,
+  SdsPagination,
+  SdsPaginationGap,
+  SdsPaginationList,
+  SdsPaginationNext,
+  SdsPaginationPage,
+  SdsPaginationPrevious,
 } from "primitives";
 
-figma.connect(PaginationPage, "<FIGMA_PAGINATION_PAGINATION_PAGE>", {
+figma.connect(SdsPaginationPage, "<FIGMA_PAGINATION_PAGINATION_PAGE>", {
   props: {
     number: figma.string("Number"),
     current: figma.enum("State", {
@@ -18,34 +18,34 @@ figma.connect(PaginationPage, "<FIGMA_PAGINATION_PAGINATION_PAGE>", {
     href: figma.string("Number"),
   },
   example: ({ number, ...props }) => (
-    <PaginationPage {...props}>{number}</PaginationPage>
+    <SdsPaginationPage {...props}>{number}</SdsPaginationPage>
   ),
 });
 
-figma.connect(PaginationGap, "<FIGMA_PAGINATION_PAGINATION_GAP>");
+figma.connect(SdsPaginationGap, "<FIGMA_PAGINATION_PAGINATION_GAP>");
 
-figma.connect(PaginationPrevious, "<FIGMA_PAGINATION_PAGINATION_PREVIOUS>", {
+figma.connect(SdsPaginationPrevious, "<FIGMA_PAGINATION_PAGINATION_PREVIOUS>", {
   props: {
     href: figma.enum("State", { Default: "?previous", Hover: "?previous" }),
   },
-  example: ({ ...props }) => <PaginationPrevious {...props} />,
+  example: ({ ...props }) => <SdsPaginationPrevious {...props} />,
 });
 
-figma.connect(PaginationNext, "<FIGMA_PAGINATION_PAGINATION_NEXT>", {
+figma.connect(SdsPaginationNext, "<FIGMA_PAGINATION_PAGINATION_NEXT>", {
   props: {
     href: figma.enum("State", { Default: "?next", Hover: "?next" }),
   },
-  example: ({ ...props }) => <PaginationNext {...props} />,
+  example: ({ ...props }) => <SdsPaginationNext {...props} />,
 });
 
-figma.connect(PaginationList, "<FIGMA_PAGINATION_PAGINATION_LIST>", {
+figma.connect(SdsPaginationList, "<FIGMA_PAGINATION_PAGINATION_LIST>", {
   props: {
     children: figma.children(["Pagination Page", "Pagination Gap"]),
   },
-  example: ({ children }) => <PaginationList>{children}</PaginationList>,
+  example: ({ children }) => <SdsPaginationList>{children}</SdsPaginationList>,
 });
 
-figma.connect(Pagination, "<FIGMA_PAGINATION_PAGINATION>", {
+figma.connect(SdsPagination, "<FIGMA_PAGINATION_PAGINATION>", {
   props: {
     children: figma.children([
       "Pagination Previous",
@@ -53,5 +53,5 @@ figma.connect(Pagination, "<FIGMA_PAGINATION_PAGINATION>", {
       "Pagination Next",
     ]),
   },
-  example: ({ children }) => <Pagination>{children}</Pagination>,
+  example: ({ children }) => <SdsPagination>{children}</SdsPagination>,
 });

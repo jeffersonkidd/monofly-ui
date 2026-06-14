@@ -1,69 +1,69 @@
 import figma from "@figma/code-connect";
 import {
-  Text,
-  TextCode,
-  TextContentHeading,
-  TextContentTitle,
-  TextEmphasis,
-  TextHeading,
-  TextLink,
-  TextLinkList,
-  TextList,
-  TextListItem,
-  TextPrice,
-  TextSmall,
-  TextStrong,
-  TextSubheading,
-  TextSubtitle,
-  TextTitleHero,
-  TextTitlePage,
+  SdsText,
+  SdsTextCode,
+  SdsTextContentHeading,
+  SdsTextContentTitle,
+  SdsTextEmphasis,
+  SdsTextHeading,
+  SdsTextLink,
+  SdsTextLinkList,
+  SdsTextList,
+  SdsTextListItem,
+  SdsTextPrice,
+  SdsTextSmall,
+  SdsTextStrong,
+  SdsTextSubheading,
+  SdsTextSubtitle,
+  SdsTextTitleHero,
+  SdsTextTitlePage,
 } from "primitives";
 
-figma.connect(TextTitleHero, "<FIGMA_TEXT_TEXT_TITLE_HERO>", {
+figma.connect(SdsTextTitleHero, "<FIGMA_TEXT_TEXT_TITLE_HERO>", {
   props: { text: figma.string("Text") },
-  example: ({ text }) => <TextTitleHero>{text}</TextTitleHero>,
+  example: ({ text }) => <SdsTextTitleHero>{text}</SdsTextTitleHero>,
 });
-figma.connect(TextTitlePage, "<FIGMA_TEXT_TEXT_TITLE_PAGE>", {
+figma.connect(SdsTextTitlePage, "<FIGMA_TEXT_TEXT_TITLE_PAGE>", {
   props: { text: figma.string("Text") },
-  example: ({ text }) => <TextTitlePage>{text}</TextTitlePage>,
+  example: ({ text }) => <SdsTextTitlePage>{text}</SdsTextTitlePage>,
 });
-figma.connect(TextSubtitle, "<FIGMA_TEXT_TEXT_SUBTITLE>", {
+figma.connect(SdsTextSubtitle, "<FIGMA_TEXT_TEXT_SUBTITLE>", {
   props: { text: figma.string("Text") },
-  example: ({ text }) => <TextSubtitle>{text}</TextSubtitle>,
+  example: ({ text }) => <SdsTextSubtitle>{text}</SdsTextSubtitle>,
 });
-figma.connect(TextHeading, "<FIGMA_TEXT_TEXT_HEADING>", {
+figma.connect(SdsTextHeading, "<FIGMA_TEXT_TEXT_HEADING>", {
   props: { text: figma.string("Text") },
-  example: ({ text }) => <TextHeading>{text}</TextHeading>,
+  example: ({ text }) => <SdsTextHeading>{text}</SdsTextHeading>,
 });
-figma.connect(TextSubheading, "<FIGMA_TEXT_TEXT_SUBHEADING>", {
+figma.connect(SdsTextSubheading, "<FIGMA_TEXT_TEXT_SUBHEADING>", {
   props: { text: figma.string("Text") },
-  example: ({ text }) => <TextSubheading>{text}</TextSubheading>,
+  example: ({ text }) => <SdsTextSubheading>{text}</SdsTextSubheading>,
 });
-figma.connect(Text, "<FIGMA_TEXT_TEXT>", {
+figma.connect(SdsText, "<FIGMA_TEXT_TEXT>", {
   props: { text: figma.string("Text") },
-  example: ({ text }) => <Text>{text}</Text>,
+  example: ({ text }) => <SdsText>{text}</SdsText>,
 });
-figma.connect(TextEmphasis, "<FIGMA_TEXT_TEXT_EMPHASIS>", {
+figma.connect(SdsTextEmphasis, "<FIGMA_TEXT_TEXT_EMPHASIS>", {
   props: { text: figma.string("Text") },
-  example: ({ text }) => <TextEmphasis>{text}</TextEmphasis>,
+  example: ({ text }) => <SdsTextEmphasis>{text}</SdsTextEmphasis>,
 });
-figma.connect(TextLink, "<FIGMA_TEXT_TEXT_LINK>", {
+figma.connect(SdsTextLink, "<FIGMA_TEXT_TEXT_LINK>", {
   props: { text: figma.string("Text") },
-  example: ({ text }) => <TextLink href="#">{text}</TextLink>,
+  example: ({ text }) => <SdsTextLink href="#">{text}</SdsTextLink>,
 });
-figma.connect(TextStrong, "<FIGMA_TEXT_TEXT_STRONG>", {
+figma.connect(SdsTextStrong, "<FIGMA_TEXT_TEXT_STRONG>", {
   props: { text: figma.string("Text") },
-  example: ({ text }) => <TextStrong>{text}</TextStrong>,
+  example: ({ text }) => <SdsTextStrong>{text}</SdsTextStrong>,
 });
-figma.connect(TextSmall, "<FIGMA_TEXT_TEXT_SMALL>", {
+figma.connect(SdsTextSmall, "<FIGMA_TEXT_TEXT_SMALL>", {
   props: { text: figma.string("Text") },
-  example: ({ text }) => <TextSmall>{text}</TextSmall>,
+  example: ({ text }) => <SdsTextSmall>{text}</SdsTextSmall>,
 });
-figma.connect(TextCode, "<FIGMA_TEXT_TEXT_CODE>", {
+figma.connect(SdsTextCode, "<FIGMA_TEXT_TEXT_CODE>", {
   props: { text: figma.string("Text") },
-  example: ({ text }) => <TextCode>{text}</TextCode>,
+  example: ({ text }) => <SdsTextCode>{text}</SdsTextCode>,
 });
-figma.connect(TextList, "<FIGMA_TEXT_TEXT_LIST>", {
+figma.connect(SdsTextList, "<FIGMA_TEXT_TEXT_LIST>", {
   props: {
     children: figma.children("Text List Item"),
     title: figma.boolean("Has Title", {
@@ -73,10 +73,10 @@ figma.connect(TextList, "<FIGMA_TEXT_TEXT_LIST>", {
     density: figma.enum("Density", { Default: "default", Tight: "tight" }),
   },
   example: ({ children, ...props }) => (
-    <TextList {...props}>{children}</TextList>
+    <SdsTextList {...props}>{children}</SdsTextList>
   ),
 });
-figma.connect(TextLinkList, "<FIGMA_TEXT_TEXT_LINK_LIST>", {
+figma.connect(SdsTextLinkList, "<FIGMA_TEXT_TEXT_LINK_LIST>", {
   props: {
     children: figma.children("Text Link List Item"),
     title: figma.boolean("Has Title", {
@@ -86,24 +86,24 @@ figma.connect(TextLinkList, "<FIGMA_TEXT_TEXT_LINK_LIST>", {
     density: figma.enum("Density", { Default: "default", Tight: "tight" }),
   },
   example: ({ children, ...props }) => (
-    <TextLinkList {...props}>{children}</TextLinkList>
+    <SdsTextLinkList {...props}>{children}</SdsTextLinkList>
   ),
 });
-figma.connect(TextListItem, "<FIGMA_TEXT_TEXT_LIST_ITEM>", {
+figma.connect(SdsTextListItem, "<FIGMA_TEXT_TEXT_LIST_ITEM>", {
   props: { text: figma.string("Text") },
-  example: ({ text }) => <TextListItem>{text}</TextListItem>,
+  example: ({ text }) => <SdsTextListItem>{text}</SdsTextListItem>,
 });
 
-figma.connect(TextListItem, "<FIGMA_TEXT_TEXT_LINK_LIST_ITEM>", {
+figma.connect(SdsTextListItem, "<FIGMA_TEXT_TEXT_LINK_LIST_ITEM>", {
   props: { text: figma.string("Text") },
   example: ({ text }) => (
-    <TextListItem>
-      <TextLink href="#">{text}</TextLink>
-    </TextListItem>
+    <SdsTextListItem>
+      <SdsTextLink href="#">{text}</SdsTextLink>
+    </SdsTextListItem>
   ),
 });
 
-figma.connect(TextPrice, "<FIGMA_TEXT_TEXT_PRICE>", {
+figma.connect(SdsTextPrice, "<FIGMA_TEXT_TEXT_PRICE>", {
   props: {
     label: figma.string("Label"),
     size: figma.enum("Size", {
@@ -112,23 +112,23 @@ figma.connect(TextPrice, "<FIGMA_TEXT_TEXT_PRICE>", {
     currency: figma.string("Currency"),
     price: figma.string("Price"),
   },
-  example: ({ ...props }) => <TextPrice {...props} />,
+  example: ({ ...props }) => <SdsTextPrice {...props} />,
 });
 
-figma.connect(TextContentHeading, "<FIGMA_TEXT_TEXT_CONTENT_HEADING>", {
+figma.connect(SdsTextContentHeading, "<FIGMA_TEXT_TEXT_CONTENT_HEADING>", {
   props: {
     align: figma.enum("Align", { Center: "center" }),
     heading: figma.string("Heading"),
     subheading: figma.string("Subheading"),
   },
-  example: ({ ...props }) => <TextContentHeading {...props} />,
+  example: ({ ...props }) => <SdsTextContentHeading {...props} />,
 });
 
-figma.connect(TextContentTitle, "<FIGMA_TEXT_TEXT_CONTENT_TITLE>", {
+figma.connect(SdsTextContentTitle, "<FIGMA_TEXT_TEXT_CONTENT_TITLE>", {
   props: {
     align: figma.enum("Align", { Center: "center" }),
     title: figma.string("Title"),
     subtitle: figma.string("Subtitle"),
   },
-  example: ({ ...props }) => <TextContentTitle {...props} />,
+  example: ({ ...props }) => <SdsTextContentTitle {...props} />,
 });

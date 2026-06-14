@@ -3,15 +3,15 @@ import { IconChevronDown } from "icons";
 import {
   SdsButton as Button,
   SdsButtonProps as ButtonProps,
-  Description,
-  DescriptionProps,
-  IconButton,
-  Keyboard,
-  KeyboardProps,
-  Label,
-  LabelProps,
-  TextHeading,
-  type TextHeadingProps,
+  SdsDescription,
+  SdsDescriptionProps,
+  SdsIconButton,
+  SdsKeyboard,
+  SdsKeyboardProps,
+  SdsLabel,
+  SdsLabelProps,
+  SdsTextHeading,
+  type SdsTextHeadingProps,
 } from "primitives";
 import type React from "react";
 import {
@@ -57,9 +57,9 @@ export function MenuButton<T extends object>({
   return (
     <MenuTrigger>
       {icon ? (
-        <IconButton variant={variant} aria-label={label}>
+        <SdsIconButton variant={variant} aria-label={label}>
           {icon}
-        </IconButton>
+        </SdsIconButton>
       ) : (
         <Button variant={variant}>{label}</Button>
       )}
@@ -105,10 +105,10 @@ export function MenuSection({ className, ...props }: MenuSectionProps) {
   return <div {...props} className={classNames} />;
 }
 
-export type MenuHeadingProps = TextHeadingProps;
+export type MenuHeadingProps = SdsTextHeadingProps;
 export function MenuHeading({ className, ...props }: MenuHeadingProps) {
   const classNames = clsx(className, "menu-heading");
-  return <TextHeading {...props} className={classNames} />;
+  return <SdsTextHeading {...props} className={classNames} />;
 }
 
 export type MenuSeparatorProps = RACSeparatorProps;
@@ -117,19 +117,19 @@ export function MenuSeparator({ className, ...props }: MenuSeparatorProps) {
   return <RACSeparator {...props} className={classNames} />;
 }
 
-export type MenuLabelProps = LabelProps;
+export type MenuLabelProps = SdsLabelProps;
 export function MenuLabel({ className, ...props }: MenuLabelProps) {
   const classNames = clsx(className, "menu-label");
-  return <Label {...props} className={classNames} />;
+  return <SdsLabel {...props} className={classNames} />;
 }
 
-export type MenuDescriptionProps = DescriptionProps;
+export type MenuDescriptionProps = SdsDescriptionProps;
 export function MenuDescription({ className, ...props }: MenuDescriptionProps) {
   const classNames = clsx(className, "menu-description");
-  return <Description {...props} className={classNames} />;
+  return <SdsDescription {...props} className={classNames} />;
 }
 
-export type MenuShortcutProps = KeyboardProps;
+export type MenuShortcutProps = SdsKeyboardProps;
 export function MenuShortcut({
   children,
   className,
@@ -137,8 +137,8 @@ export function MenuShortcut({
 }: MenuShortcutProps) {
   const classNames = clsx(className, "menu-shortcut");
   return (
-    <Keyboard {...props} className={classNames}>
+    <SdsKeyboard {...props} className={classNames}>
       {children}
-    </Keyboard>
+    </SdsKeyboard>
   );
 }

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Image } from "primitives";
+import { SdsImage } from "primitives";
 import { ComponentPropsWithoutRef } from "react";
 import "./section.css";
 
@@ -42,7 +42,7 @@ export function Section({
   );
   const image =
     props.variant === "image" ? (
-      <Image
+      <SdsImage
         alt="Background image"
         role="presentation"
         src={props.src}

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { IconX } from "icons";
-import { DestructiveIconButton, IconButton } from "primitives";
+import { SdsDestructiveIconButton, SdsIconButton } from "primitives";
 import { ReactNode } from "react";
 import "./notification.css";
 
@@ -31,21 +31,21 @@ export function Notification({
       <div className="notification-content">{children}</div>
       {isDismissible &&
         (variant === "alert" ? (
-          <DestructiveIconButton
+          <SdsDestructiveIconButton
             size="small"
             variant="danger-subtle"
             aria-label="Dismiss notification"
           >
             <IconX />
-          </DestructiveIconButton>
+          </SdsDestructiveIconButton>
         ) : (
-          <IconButton
+          <SdsIconButton
             size="small"
             variant="subtle"
             aria-label="Dismiss notification"
           >
             <IconX />
-          </IconButton>
+          </SdsIconButton>
         ))}
     </div>
   );

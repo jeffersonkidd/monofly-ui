@@ -1,7 +1,7 @@
 import { figma } from "@figma/code-connect";
-import { Navigation, NavigationButton, NavigationPill } from "primitives";
+import { SdsNavigation, SdsNavigationButton, SdsNavigationPill } from "primitives";
 
-figma.connect(Navigation, "<FIGMA_NAVIGATION_NAVIGATION_PILL_LIST>", {
+figma.connect(SdsNavigation, "<FIGMA_NAVIGATION_NAVIGATION_PILL_LIST>", {
   props: {
     children: figma.children("Navigation Pill"),
     direction: figma.enum("Direction", {
@@ -10,11 +10,11 @@ figma.connect(Navigation, "<FIGMA_NAVIGATION_NAVIGATION_PILL_LIST>", {
     }),
   },
   example: ({ children, ...props }) => (
-    <Navigation {...props}>{children}</Navigation>
+    <SdsNavigation {...props}>{children}</SdsNavigation>
   ),
 });
 
-figma.connect(NavigationPill, "<FIGMA_NAVIGATION_NAVIGATION_PILL>", {
+figma.connect(SdsNavigationPill, "<FIGMA_NAVIGATION_NAVIGATION_PILL>", {
   props: {
     label: figma.string("Label"),
     isSelected: figma.enum("State", {
@@ -24,11 +24,11 @@ figma.connect(NavigationPill, "<FIGMA_NAVIGATION_NAVIGATION_PILL>", {
     }),
   },
   example: ({ label, ...props }) => (
-    <NavigationPill {...props}>{label}</NavigationPill>
+    <SdsNavigationPill {...props}>{label}</SdsNavigationPill>
   ),
 });
 
-figma.connect(Navigation, "<FIGMA_NAVIGATION_NAVIGATION_BUTTON_LIST>", {
+figma.connect(SdsNavigation, "<FIGMA_NAVIGATION_NAVIGATION_BUTTON_LIST>", {
   props: {
     children: figma.children("Navigation Button"),
     direction: figma.enum("Direction", {
@@ -37,11 +37,11 @@ figma.connect(Navigation, "<FIGMA_NAVIGATION_NAVIGATION_BUTTON_LIST>", {
     }),
   },
   example: ({ children, ...props }) => (
-    <Navigation {...props}>{children}</Navigation>
+    <SdsNavigation {...props}>{children}</SdsNavigation>
   ),
 });
 
-figma.connect(NavigationButton, "<FIGMA_NAVIGATION_NAVIGATION_BUTTON>", {
+figma.connect(SdsNavigationButton, "<FIGMA_NAVIGATION_NAVIGATION_BUTTON>", {
   props: {
     label: figma.string("Label"),
     icon: figma.boolean("Has Icon", {
@@ -55,6 +55,6 @@ figma.connect(NavigationButton, "<FIGMA_NAVIGATION_NAVIGATION_BUTTON>", {
     }),
   },
   example: ({ label, ...props }) => (
-    <NavigationButton {...props}>{label}</NavigationButton>
+    <SdsNavigationButton {...props}>{label}</SdsNavigationButton>
   ),
 });

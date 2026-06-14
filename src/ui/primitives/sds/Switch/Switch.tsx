@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { Description, FieldError, Label, SharedFieldProps } from "primitives";
+import { SdsDescription, SdsFieldError, SdsLabel, SdsSharedFieldProps } from "primitives";
 import type React from "react";
 import {
   Switch as RACSwitch,
@@ -13,7 +13,7 @@ export function SwitchGroup({ className, ...props }: SwitchGroupProps) {
   return <div {...props} className={classNames} />;
 }
 
-export type SwitchFieldProps = RACSwitchProps & SharedFieldProps;
+export type SwitchFieldProps = RACSwitchProps & SdsSharedFieldProps;
 export function SwitchField({
   children,
   className,
@@ -28,10 +28,10 @@ export function SwitchField({
   return (
     <RACSwitch className={classNames} {...props}>
       <>
-        <Label>{labelText}</Label>
+        <SdsLabel>{labelText}</SdsLabel>
         <Switch />
-        {description && <Description>{description}</Description>}
-        <FieldError>{errorMessage}</FieldError>
+        {description && <SdsDescription>{description}</SdsDescription>}
+        <SdsFieldError>{errorMessage}</SdsFieldError>
         {labelText !== children && children}
       </>
     </RACSwitch>

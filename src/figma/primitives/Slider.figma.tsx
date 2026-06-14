@@ -1,7 +1,7 @@
 import figma from "@figma/code-connect";
-import { SliderField } from "primitives";
+import { SdsSliderField } from "primitives";
 
-figma.connect(SliderField, "<FIGMA_INPUTS_SLIDER_FIELD>", {
+figma.connect(SdsSliderField, "<FIGMA_INPUTS_SLIDER_FIELD>", {
   props: {
     isDisabled: figma.enum("State", { Disabled: true }),
     label: figma.string("Label"),
@@ -10,5 +10,5 @@ figma.connect(SliderField, "<FIGMA_INPUTS_SLIDER_FIELD>", {
       false: undefined,
     }),
   },
-  example: ({ ...props }) => <SliderField {...props} showOutput />,
+  example: ({ ...props }) => <SdsSliderField {...props} showOutput />,
 });

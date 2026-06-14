@@ -1,5 +1,5 @@
 import figma from "@figma/code-connect";
-import { Button, ButtonDanger, ButtonGroup } from "primitives";
+import { SdsButton, SdsButtonDanger, SdsButtonGroup } from "primitives";
 
 const sharedProps = {
   label: figma.string("Label"),
@@ -19,7 +19,7 @@ const sharedProps = {
   }),
 };
 
-figma.connect(Button, "<FIGMA_BUTTONS_BUTTON>", {
+figma.connect(SdsButton, "<FIGMA_BUTTONS_BUTTON>", {
   props: {
     ...sharedProps,
     variant: figma.enum("Variant", {
@@ -29,14 +29,14 @@ figma.connect(Button, "<FIGMA_BUTTONS_BUTTON>", {
     }),
   },
   example: ({ label, iconEnd, iconStart, ...props }) => (
-    <Button onPress={() => {}} {...props}>
+    <SdsButton onPress={() => {}} {...props}>
       {iconStart}
       {label}
       {iconEnd}
-    </Button>
+    </SdsButton>
   ),
 });
-figma.connect(Button, "<FIGMA_BUTTONS_BUTTON_DANGER>", {
+figma.connect(SdsButton, "<FIGMA_BUTTONS_BUTTON_DANGER>", {
   props: {
     ...sharedProps,
     variant: figma.enum("Variant", {
@@ -44,15 +44,15 @@ figma.connect(Button, "<FIGMA_BUTTONS_BUTTON_DANGER>", {
     }),
   },
   example: ({ label, iconEnd, iconStart, ...props }) => (
-    <ButtonDanger onPress={() => {}} {...props}>
+    <SdsButtonDanger onPress={() => {}} {...props}>
       {iconStart}
       {label}
       {iconEnd}
-    </ButtonDanger>
+    </SdsButtonDanger>
   ),
 });
 
-figma.connect(ButtonGroup, "<FIGMA_BUTTONS_BUTTON_GROUP>", {
+figma.connect(SdsButtonGroup, "<FIGMA_BUTTONS_BUTTON_GROUP>", {
   props: {
     align: figma.enum("Align", {
       Center: "center",
@@ -63,6 +63,6 @@ figma.connect(ButtonGroup, "<FIGMA_BUTTONS_BUTTON_GROUP>", {
     children: figma.children(["Button"]),
   },
   example: ({ children, ...props }) => (
-    <ButtonGroup {...props}>{children}</ButtonGroup>
+    <SdsButtonGroup {...props}>{children}</SdsButtonGroup>
   ),
 });

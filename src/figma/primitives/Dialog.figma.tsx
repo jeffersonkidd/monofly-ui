@@ -1,13 +1,13 @@
 import figma from "@figma/code-connect";
 import {
-  Dialog,
-  DialogBody,
-  DialogClose,
-  DialogModal,
-  DialogTitle,
+  SdsDialog,
+  SdsDialogBody,
+  SdsDialogClose,
+  SdsDialogModal,
+  SdsDialogTitle,
 } from "primitives";
 
-figma.connect(Dialog, "<FIGMA_DIALOG_DIALOG_BODY>", {
+figma.connect(SdsDialog, "<FIGMA_DIALOG_DIALOG_BODY>", {
   props: {
     type: figma.enum("Type", { Card: "card", Sheet: "sheet" }),
     body: figma.string("Body"),
@@ -15,22 +15,22 @@ figma.connect(Dialog, "<FIGMA_DIALOG_DIALOG_BODY>", {
     buttons: figma.children("Button Group"),
   },
   example: ({ heading, body, buttons, ...props }) => (
-    <Dialog {...props}>
-      <DialogClose onPress={() => {}} />
-      <DialogTitle>{heading}</DialogTitle>
-      <DialogBody>{body}</DialogBody>
+    <SdsDialog {...props}>
+      <SdsDialogClose onPress={() => {}} />
+      <SdsDialogTitle>{heading}</SdsDialogTitle>
+      <SdsDialogBody>{body}</SdsDialogBody>
       {buttons}
-    </Dialog>
+    </SdsDialog>
   ),
 });
 
-figma.connect(Dialog, "<FIGMA_DIALOG_DIALOG>", {
+figma.connect(SdsDialog, "<FIGMA_DIALOG_DIALOG>", {
   props: {
     children: figma.children("Dialog Body"),
   },
   example: ({ children }) => (
-    <DialogModal isDismissable isOpen={true} onOpenChange={() => {}}>
+    <SdsDialogModal isDismissable isOpen={true} onOpenChange={() => {}}>
       {children}
-    </DialogModal>
+    </SdsDialogModal>
   ),
 });

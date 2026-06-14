@@ -1,16 +1,16 @@
 import figma from "@figma/code-connect";
 import {
-  Menu,
-  MenuDescription,
-  MenuHeader,
-  MenuHeading,
-  MenuItem,
-  MenuLabel,
-  MenuSeparator,
-  MenuShortcut,
+  SdsMenu,
+  SdsMenuDescription,
+  SdsMenuHeader,
+  SdsMenuHeading,
+  SdsMenuItem,
+  SdsMenuLabel,
+  SdsMenuSeparator,
+  SdsMenuShortcut,
 } from "primitives";
 
-figma.connect(Menu, "<FIGMA_MENU_MENU>", {
+figma.connect(SdsMenu, "<FIGMA_MENU_MENU>", {
   props: {
     children: figma.children([
       "Menu Header",
@@ -19,27 +19,27 @@ figma.connect(Menu, "<FIGMA_MENU_MENU>", {
       "Menu Item",
     ]),
   },
-  example: ({ children }) => <Menu>{children}</Menu>,
+  example: ({ children }) => <SdsMenu>{children}</SdsMenu>,
 });
 
-figma.connect(MenuHeading, "<FIGMA_MENU_MENU_HEADING>", {
+figma.connect(SdsMenuHeading, "<FIGMA_MENU_MENU_HEADING>", {
   props: { heading: figma.children("Text Strong") },
-  example: ({ heading }) => <MenuHeading>{heading}</MenuHeading>,
+  example: ({ heading }) => <SdsMenuHeading>{heading}</SdsMenuHeading>,
 });
 
-figma.connect(MenuShortcut, "<FIGMA_MENU_MENU_SHORTCUT>", {
+figma.connect(SdsMenuShortcut, "<FIGMA_MENU_MENU_SHORTCUT>", {
   props: { shortcut: figma.string("Shortcut") },
-  example: ({ shortcut }) => <MenuShortcut>{shortcut}</MenuShortcut>,
+  example: ({ shortcut }) => <SdsMenuShortcut>{shortcut}</SdsMenuShortcut>,
 });
 
-figma.connect(MenuItem, "<FIGMA_MENU_MENU_ITEM>", {
+figma.connect(SdsMenuItem, "<FIGMA_MENU_MENU_ITEM>", {
   props: {
     icon: figma.boolean("Has Icon", {
       true: figma.instance("Icon"),
       false: undefined,
     }),
     description: figma.boolean("Has Description", {
-      true: <MenuDescription>{figma.string("Description")}</MenuDescription>,
+      true: <SdsMenuDescription>{figma.string("Description")}</SdsMenuDescription>,
       false: undefined,
     }),
     shortcut: figma.boolean("Has Shortcut", {
@@ -49,26 +49,26 @@ figma.connect(MenuItem, "<FIGMA_MENU_MENU_ITEM>", {
     label: figma.string("Label"),
   },
   example: ({ icon, label, description, shortcut }) => (
-    <MenuItem>
+    <SdsMenuItem>
       {icon}
-      <MenuLabel>{label}</MenuLabel>
+      <SdsMenuLabel>{label}</SdsMenuLabel>
       {shortcut}
       {description}
-    </MenuItem>
+    </SdsMenuItem>
   ),
 });
 
-figma.connect(MenuHeader, "<FIGMA_MENU_MENU_HEADER>", {
+figma.connect(SdsMenuHeader, "<FIGMA_MENU_MENU_HEADER>", {
   props: {
     header: figma.children("Text Strong"),
     subhead: figma.children("Text Small"),
   },
   example: ({ header, subhead }) => (
-    <MenuHeader>
+    <SdsMenuHeader>
       {subhead}
       {header}
-    </MenuHeader>
+    </SdsMenuHeader>
   ),
 });
 
-figma.connect(MenuSeparator, "<FIGMA_MENU_MENU_SEPARATOR>");
+figma.connect(SdsMenuSeparator, "<FIGMA_MENU_MENU_SEPARATOR>");

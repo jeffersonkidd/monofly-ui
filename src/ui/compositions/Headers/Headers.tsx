@@ -5,20 +5,20 @@ import { IconChevronDown, IconMenu, IconX } from "icons";
 import { Flex, FlexItem, Section, type SectionProps } from "layout";
 import {
   SdsAvatar as Avatar,
-  AvatarBlock,
+  SdsAvatarBlock,
   SdsButton as Button,
-  ButtonGroup,
-  Dialog,
-  DialogModal,
-  IconButton,
-  Label,
-  Logo,
-  Menu,
-  MenuItem,
-  MenuPopover,
-  MenuTrigger,
-  Navigation,
-  NavigationPill,
+  SdsButtonGroup,
+  SdsDialog,
+  SdsDialogModal,
+  SdsIconButton,
+  SdsLabel,
+  SdsLogo,
+  SdsMenu,
+  SdsMenuItem,
+  SdsMenuPopover,
+  SdsMenuTrigger,
+  SdsNavigation,
+  SdsNavigationPill,
 } from "primitives";
 import { useState } from "react";
 import { AnchorOrButton } from "utils";
@@ -68,17 +68,17 @@ export function HeaderAuth() {
   ];
 
   const navigation = (
-    <Navigation direction={isTabletDown ? "column" : "row"}>
+    <SdsNavigation direction={isTabletDown ? "column" : "row"}>
       {navItems.map((item) => (
-        <NavigationPill
+        <SdsNavigationPill
           key={item}
           onPress={() => setPage(item.toLowerCase())}
           isSelected={page === item.toLowerCase()}
         >
           {item}
-        </NavigationPill>
+        </SdsNavigationPill>
       ))}
-    </Navigation>
+    </SdsNavigation>
   );
 
   return (
@@ -91,23 +91,23 @@ export function HeaderAuth() {
       <FlexItem>
         {isTabletDown ? (
           <Flex alignPrimary="center">
-            <IconButton
+            <SdsIconButton
               variant="subtle"
               aria-label="Toggle navigation menu"
               onPress={() => setOpen(true)}
             >
               <IconMenu />
-            </IconButton>
-            <DialogModal isOpen={open}>
-              <Dialog className={clsx("navigation-dialog")}>
-                <IconButton
+            </SdsIconButton>
+            <SdsDialogModal isOpen={open}>
+              <SdsDialog className={clsx("navigation-dialog")}>
+                <SdsIconButton
                   className={clsx("navigation-dialog-close")}
                   variant="subtle"
                   aria-label="Close navigation menu"
                   onPress={() => setOpen(false)}
                 >
                   <IconX />
-                </IconButton>
+                </SdsIconButton>
                 <Flex
                   direction="column"
                   alignPrimary="space-between"
@@ -126,7 +126,7 @@ export function HeaderAuth() {
                       </FlexItem>
                       <FlexItem>
                         <Flex alignPrimary="center">
-                          <Label>{user.name}</Label>
+                          <SdsLabel>{user.name}</SdsLabel>
                         </Flex>
                       </FlexItem>
                       <FlexItem>
@@ -142,39 +142,39 @@ export function HeaderAuth() {
                       </FlexItem>
                     </Flex>
                   ) : (
-                    <ButtonGroup align="center">{userButtons}</ButtonGroup>
+                    <SdsButtonGroup align="center">{userButtons}</SdsButtonGroup>
                   )}
                 </Flex>
-              </Dialog>
-            </DialogModal>
+              </SdsDialog>
+            </SdsDialogModal>
           </Flex>
         ) : (
           <Flex gap="400" alignSecondary="center">
             {navigation}
             {user ? (
-              <MenuTrigger>
+              <SdsMenuTrigger>
                 <AnchorOrButton className={clsx("header-auth-avatar-button")}>
                   <Avatar src={user.avatar} initials={user.name.charAt(0)} />
                   <IconChevronDown />
                 </AnchorOrButton>
-                <MenuPopover placement="bottom right">
-                  <Menu>
-                    <MenuItem>
-                      <AvatarBlock title={user.name} description="View profile">
+                <SdsMenuPopover placement="bottom right">
+                  <SdsMenu>
+                    <SdsMenuItem>
+                      <SdsAvatarBlock title={user.name} description="View profile">
                         <Avatar
                           src={user.avatar}
                           initials={user.name.charAt(0)}
                         />
-                      </AvatarBlock>
-                    </MenuItem>
-                    <MenuItem onAction={logout}>Log out</MenuItem>
-                  </Menu>
-                </MenuPopover>
-              </MenuTrigger>
+                      </SdsAvatarBlock>
+                    </SdsMenuItem>
+                    <SdsMenuItem onAction={logout}>Log out</SdsMenuItem>
+                  </SdsMenu>
+                </SdsMenuPopover>
+              </SdsMenuTrigger>
             ) : (
-              <ButtonGroup className={clsx("header-auth-avatar-button")}>
+              <SdsButtonGroup className={clsx("header-auth-avatar-button")}>
                 {userButtons}
-              </ButtonGroup>
+              </SdsButtonGroup>
             )}
           </Flex>
         )}
@@ -195,7 +195,7 @@ export function Header({ className, ...props }: HeaderProps) {
     >
       <Flex container alignPrimary="space-between" alignSecondary="center">
         <FlexItem size="minor">
-          <Logo />
+          <SdsLogo />
         </FlexItem>
         <FlexItem size="major">
           <Flex gap="600" alignPrimary="end" alignSecondary="center">

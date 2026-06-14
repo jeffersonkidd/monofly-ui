@@ -1,7 +1,7 @@
 import figma from "@figma/code-connect";
-import { RadioField, RadioGroup } from "primitives";
+import { SdsRadioField, SdsRadioGroup } from "primitives";
 
-figma.connect(RadioField, "<FIGMA_INPUTS_RADIO_FIELD>", {
+figma.connect(SdsRadioField, "<FIGMA_INPUTS_RADIO_FIELD>", {
   props: {
     label: figma.string("Label"),
     description: figma.boolean("Has Description", {
@@ -10,10 +10,10 @@ figma.connect(RadioField, "<FIGMA_INPUTS_RADIO_FIELD>", {
     }),
     isDisabled: figma.enum("State", { Disabled: true }),
   },
-  example: ({ ...props }) => <RadioField value="Initial value" {...props} />,
+  example: ({ ...props }) => <SdsRadioField value="Initial value" {...props} />,
 });
 
-figma.connect(RadioGroup, "<FIGMA_INPUTS_RADIO_GROUP>", {
+figma.connect(SdsRadioGroup, "<FIGMA_INPUTS_RADIO_GROUP>", {
   props: { children: figma.children(["Radio Field"]) },
-  example: ({ children }) => <RadioGroup>{children}</RadioGroup>,
+  example: ({ children }) => <SdsRadioGroup>{children}</SdsRadioGroup>,
 });

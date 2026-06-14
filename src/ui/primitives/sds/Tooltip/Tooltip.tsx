@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Dialog } from "primitives";
+import { SdsDialog } from "primitives";
 import {
   OverlayArrow as RACOverlayArrow,
   Popover as RACPopover,
@@ -22,7 +22,7 @@ export function Tooltip({
   return (
     <RACPopover className={classNames} offset={offset} {...props}>
       <TooltipOverlayArrow />
-      <Dialog>{children}</Dialog>
+      <SdsDialog>{children}</SdsDialog>
     </RACPopover>
   );
 }

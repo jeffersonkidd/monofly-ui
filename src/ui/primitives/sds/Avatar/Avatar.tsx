@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Text, TextStrong } from "primitives";
+import { SdsText, SdsTextStrong } from "primitives";
 import React from "react";
 import { AnchorOrButton, type AnchorOrButtonProps } from "utils";
 import "./avatar.css";
@@ -112,8 +112,8 @@ export const AvatarBlock = ({
   return (
     <div className={classNames} {...props}>
       {children}
-      <TextStrong slot="label">{title}</TextStrong>
-      {description && <Text slot="description">{description}</Text>}
+      <SdsTextStrong slot="label">{title}</SdsTextStrong>
+      {description && <SdsText slot="description">{description}</SdsText>}
     </div>
   );
 };

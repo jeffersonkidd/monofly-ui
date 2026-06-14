@@ -1,7 +1,7 @@
 import figma from "@figma/code-connect";
-import { CheckboxField, CheckboxGroup } from "primitives";
+import { SdsCheckboxField, SdsCheckboxGroup } from "primitives";
 
-figma.connect(CheckboxField, "<FIGMA_INPUTS_CHECKBOX_FIELD>", {
+figma.connect(SdsCheckboxField, "<FIGMA_INPUTS_CHECKBOX_FIELD>", {
   props: {
     label: figma.string("Label"),
     description: figma.boolean("Has Description", {
@@ -19,10 +19,10 @@ figma.connect(CheckboxField, "<FIGMA_INPUTS_CHECKBOX_FIELD>", {
       Disabled: true,
     }),
   },
-  example: ({ ...props }) => <CheckboxField {...props} />,
+  example: ({ ...props }) => <SdsCheckboxField {...props} />,
 });
 
-figma.connect(CheckboxGroup, "<FIGMA_INPUTS_CHECKBOX_GROUP>", {
+figma.connect(SdsCheckboxGroup, "<FIGMA_INPUTS_CHECKBOX_GROUP>", {
   props: { children: figma.children(["Checkbox Field"]) },
-  example: ({ children }) => <CheckboxGroup>{children}</CheckboxGroup>,
+  example: ({ children }) => <SdsCheckboxGroup>{children}</SdsCheckboxGroup>,
 });

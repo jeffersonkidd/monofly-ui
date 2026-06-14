@@ -6,9 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 `monofly` is a React component library designed and distributed to compliment the agentic methodology of consistently modular generative tools (ie. **Figma Make Kits**). It is built with Vite in *library mode*: the published artifact is a single ESM bundle (`dist/index.js`) plus one stylesheet (`dist/styles.css`), with React kept external so the host (Figma Make, or any consuming app) supplies its own copy via the esm.sh CDN.
 
-**Two styling systems coexist.** The original component layer is derived from Figma's Simple Design System (SDS) — styled via `--sds-*` CSS custom properties (see `src/theme.css`) with co-located `*.css` files, built on `react-aria-components`. A newer **Tailwind v4 + shadcn** layer was added on top (the shadcn primitives — sidebar, breadcrumb, collapsible, separator — plus `templates/`, `blocks/sidebars/`, and `blocks/dashboards/`). These use Tailwind utility classes + Radix primitives (`radix-ui`, `lucide-react`, `class-variance-authority`) and the `cn()` helper in `src/ui/utils/utils.ts`. Tailwind is wired via `@tailwindcss/vite` (`src/tailwind.css`, imported from `index.css`). When adding a component, match the styling system of the layer you're editing — don't mix SDS tokens and Tailwind utilities in one file.
+**Two styling systems coexist.** The original component layer is derived from Figma's Simple Design System (SDS) — styled via `--sds-*` CSS custom properties (see `src/theme.css`) with co-located `*.css` files, built on `react-aria-components`. A newer **Tailwind v4 + shadcn** layer was added on top (the full shadcn primitive registry vendored into `primitives/shadcn/` — accordion, dialog, input, select, sidebar, table, … — plus `templates/`, `blocks/sidebars/`, and `blocks/dashboards/`). These use Tailwind utility classes + Radix primitives (`radix-ui`, `lucide-react`, `class-variance-authority`) and the `cn()` helper in `src/ui/utils/utils.ts`. Tailwind is wired via `@tailwindcss/vite` (`src/tailwind.css`, imported from `index.css`). When adding a component, match the styling system of the layer you're editing — don't mix SDS tokens and Tailwind utilities in one file.
 
-> **Lineage gotcha:** after the primitives split, `import { Button } from "primitives"` resolves to the **shadcn** Button. SDS files must import the SDS one explicitly (e.g. `SdsButton`) or `onPress` silently no-ops.
+> **Lineage rule:** **every bare primitive name is shadcn; SDS is always `Sds*`.** `import { Button } from "primitives"` resolves to the **shadcn** Button; the SDS one is `SdsButton`. The whole SDS lineage is namespaced — `SdsDialog`, `SdsInput`, `SdsLabel`, `SdsIcon`, … (aliased in `primitives/sds/index.ts`; the source files keep bare names). Importing a bare SDS name where you meant the SDS component silently gives you the shadcn one (e.g. `onPress` no-ops on the shadcn Button). The lone deliberate exception is `mode-toggle.tsx`, which wants the shadcn `Button`.
 
 ## Commands
 
@@ -33,7 +33,7 @@ Two distinct surfaces share one `src/` tree:
 
 ### Layered structure under `src/ui/`
 
-- `primitives/` — leaf components, split by lineage into `sds/` (Button, Input, Dialog, … — own folder + co-located `*.css`, `react-aria-components` + `clsx`) and `shadcn/` (sidebar, breadcrumb, collapsible, separator — Tailwind + Radix).
+- `primitives/` — leaf components, split by lineage into `sds/` (Button, Input, Dialog, … — own folder + co-located `*.css`, `react-aria-components` + `clsx`; every export namespaced `Sds*` in `sds/index.ts`) and `shadcn/` (the full shadcn registry — accordion, dialog, table, sidebar, … — flat files, Tailwind + Radix, owns the bare names). shadcn files import each other and helpers via bare aliases (`primitives/shadcn/<name>`, `utils`, `hooks/<name>`); `components.json` is configured to generate exactly these.
 - `layout/` — Flex, Grid, Section.
 - `compositions/` — reusable, **prop-only** assemblies of primitives (Cards, Headers, Footers, Forms, `mode-toggle`, and `Sections/` → `Hero`, `Panel`). See **Layer taxonomy** below.
 - `blocks/` — **concrete instances**, organized by kind: `sections/` (filled section instances like WelcomeHero, PricingGrid, FAQs), `dashboards/` (DashboardShell, AppDashboard), `sidebars/` (sidebar-07 + AppSidebar07), `modules/`, `examples/` (full pages stacking sections).
@@ -80,6 +80,8 @@ The repo uses **parser-based** Code Connect (`*.figma.tsx`): `import figma from 
 ### Path aliases (must stay in sync across two files)
 
 Bare-specifier aliases (`primitives`, `compositions`, `data`, `hooks`, `icons`, `images`, `layout`, `blocks`, `templates`, `utils`) are defined in **both** `tsconfig.json` (`paths`) and `vite.config.js` (`resolve.alias`). When adding or renaming an alias, update **both** or builds/types diverge.
+
+`primitives`, `hooks`, and `utils` also have **subpath** variants (`primitives/*`, `hooks/*`, `utils/*` in tsconfig `paths`; matching `/^…\/(.*)/` regex entries in vite) so deep imports like `primitives/shadcn/button` and `hooks/use-mobile` resolve. `components.json`'s `aliases` are set to these bare prefixes (`ui` → `primitives/shadcn`, `utils` → `utils`, `hooks` → `hooks`, `components` → `primitives`, `lib` → `utils`) so `npx shadcn add` writes imports that match the rest of the repo instead of `@/`-style or `baseUrl` literals. Keep `components.json`, the tsconfig subpaths, and the vite aliases in sync.
 
 ## Packaging invariants (from `.notes/NOTES.md` — read it before touching build/publish config)
 

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useMediaQuery } from "hooks";
 import { IconArrowLeft, IconArrowRight } from "icons";
-import { Button } from "primitives";
+import { SdsButton } from "primitives";
 import type React from "react";
 import "./pagination.css";
 
@@ -23,14 +23,14 @@ export function PaginationPrevious({
   children?: React.ReactNode;
 }) {
   return (
-    <Button
+    <SdsButton
       {...(href === null ? { disabled: true } : { href })}
       variant="subtle"
       aria-label="Previous page"
     >
       <IconArrowLeft />
       {children}
-    </Button>
+    </SdsButton>
   );
 }
 
@@ -42,14 +42,14 @@ export function PaginationNext({
   children?: React.ReactNode;
 }) {
   return (
-    <Button
+    <SdsButton
       {...(href === null ? { disabled: true } : { href })}
       variant="subtle"
       aria-label="Next page"
     >
       {children}
       <IconArrowRight />
-    </Button>
+    </SdsButton>
   );
 }
 
@@ -68,7 +68,7 @@ export function PaginationPage({
   current?: boolean;
 }) {
   return (
-    <Button
+    <SdsButton
       href={href}
       aria-label={`Page ${children}`}
       aria-current={current ? "page" : undefined}
@@ -76,7 +76,7 @@ export function PaginationPage({
       className={clsx()}
     >
       <span className="">{children}</span>
-    </Button>
+    </SdsButton>
   );
 }
 

@@ -1,13 +1,13 @@
 import figma from "@figma/code-connect";
 import {
-  Label,
-  Tag,
-  TagToggle,
-  TagToggleGroup,
-  TagToggleList,
+  SdsLabel,
+  SdsTag,
+  SdsTagToggle,
+  SdsTagToggleGroup,
+  SdsTagToggleList,
 } from "primitives";
 
-figma.connect(Tag, "<FIGMA_TAGS_TAG>", {
+figma.connect(SdsTag, "<FIGMA_TAGS_TAG>", {
   props: {
     onRemove: figma.boolean("Removable", {
       true: () => {},
@@ -24,29 +24,29 @@ figma.connect(Tag, "<FIGMA_TAGS_TAG>", {
       Neutral: "neutral",
     }),
   },
-  example: ({ label, ...props }) => <Tag {...props}>{label}</Tag>,
+  example: ({ label, ...props }) => <SdsTag {...props}>{label}</SdsTag>,
 });
 
-figma.connect(TagToggle, "<FIGMA_TAGS_TAG_TOGGLE>", {
+figma.connect(SdsTagToggle, "<FIGMA_TAGS_TAG_TOGGLE>", {
   props: {
     label: figma.string("Label"),
     iconStart: figma.instance("Icon"),
   },
   example: ({ label, ...props }) => (
-    <TagToggle id={label} {...props}>
+    <SdsTagToggle id={label} {...props}>
       {label}
-    </TagToggle>
+    </SdsTagToggle>
   ),
 });
 
-figma.connect(TagToggleGroup, "<FIGMA_TAGS_TAG_TOGGLE_GROUP>", {
+figma.connect(SdsTagToggleGroup, "<FIGMA_TAGS_TAG_TOGGLE_GROUP>", {
   props: {
     children: figma.children("Tag Toggle"),
   },
   example: ({ children }) => (
-    <TagToggleGroup>
-      <Label>Label this!</Label>
-      <TagToggleList>{children}</TagToggleList>
-    </TagToggleGroup>
+    <SdsTagToggleGroup>
+      <SdsLabel>Label this!</SdsLabel>
+      <SdsTagToggleList>{children}</SdsTagToggleList>
+    </SdsTagToggleGroup>
   ),
 });

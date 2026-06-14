@@ -8,12 +8,12 @@ import {
   TestimonialCard,
 } from "compositions";
 import { placeholder } from "images";
-import { ButtonProps, Image, Text, TextHeading } from "primitives";
+import { SdsButtonProps, SdsImage, SdsText, SdsTextHeading } from "primitives";
 
 figma.connect(Card, "<FIGMA_CARDS_CARD>", {
   props: {
     asset: figma.enum("Asset Type", {
-      Image: <Image alt="Always use alt text" aspectRatio="1-1" size="small" />,
+      SdsImage: <SdsImage alt="Always use alt text" aspectRatio="1-1" size="small" />,
       Icon: figma.instance("Icon"),
     }),
     heading: figma.string("Heading"),
@@ -29,8 +29,8 @@ figma.connect(Card, "<FIGMA_CARDS_CARD>", {
   },
   example: ({ actions, heading, body, ...props }) => (
     <Card {...props}>
-      <TextHeading>{heading}</TextHeading>
-      <Text>{body}</Text>
+      <SdsTextHeading>{heading}</SdsTextHeading>
+      <SdsText>{body}</SdsText>
       {actions}
     </Card>
   ),
@@ -43,7 +43,7 @@ figma.connect(PricingCard, "<FIGMA_CARDS_PRICING_CARD>", {
     }),
     action: figma.nestedProps<{
       label: string;
-      variant: ButtonProps["variant"];
+      variant: SdsButtonProps["variant"];
       icon?: React.ReactNode;
     }>("Button", {
       label: figma.string("Label"),
@@ -103,7 +103,7 @@ figma.connect(ProductInfoCard, "<FIGMA_CARDS_PRODUCT_INFO_CARD>", {
   example: ({ descriptionProps, priceProps, textProps }) => (
     <ProductInfoCard
       asset={
-        <Image
+        <SdsImage
           src={placeholder}
           size="medium"
           aspectRatio="natural"

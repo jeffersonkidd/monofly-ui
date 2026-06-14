@@ -21,13 +21,15 @@
       "blocks": ["./ui/blocks"],
       "compositions": ["./ui/compositions"],
       "hooks": ["./ui/hooks"],
+      "hooks/*": ["./ui/hooks/*"],
       "icons": ["./ui/icons"],
       "images": ["./ui/images"],
       "layout": ["./ui/layout"],
       "primitives": ["./ui/primitives"],
       "primitives/*": ["./ui/primitives/*"],
       "templates": ["./ui/templates"],
-      "utils": ["./ui/utils"]
+      "utils": ["./ui/utils"],
+      "utils/*": ["./ui/utils/*"]
     }
   },
   "include": ["src", "scripts"]

@@ -1,7 +1,7 @@
 import figma from "@figma/code-connect";
-import { SwitchField } from "primitives";
+import { SdsSwitchField } from "primitives";
 
-figma.connect(SwitchField, "<FIGMA_INPUTS_SWITCH_FIELD>", {
+figma.connect(SdsSwitchField, "<FIGMA_INPUTS_SWITCH_FIELD>", {
   props: {
     label: figma.string("Label"),
     description: figma.boolean("Has Description", {
@@ -15,5 +15,5 @@ figma.connect(SwitchField, "<FIGMA_INPUTS_SWITCH_FIELD>", {
       Disabled: true,
     }),
   },
-  example: ({ ...props }) => <SwitchField {...props} />,
+  example: ({ ...props }) => <SdsSwitchField {...props} />,
 });

@@ -2,13 +2,13 @@ import { useMediaQuery } from "hooks";
 import { IconInstagram, IconLinkedin, IconTwitter, IconYoutube } from "icons";
 import { Flex, FlexItem, Section, type SectionProps } from "layout";
 import {
-  ButtonGroup,
-  IconButton,
-  Logo,
-  TextLink,
-  TextLinkList,
-  TextListItem,
-  TextStrong,
+  SdsButtonGroup,
+  SdsIconButton,
+  SdsLogo,
+  SdsTextLink,
+  SdsTextLinkList,
+  SdsTextListItem,
+  SdsTextStrong,
 } from "primitives";
 
 export type FooterProps = Omit<SectionProps, "variant" | "padding" | "src">;
@@ -28,111 +28,111 @@ export function Footer({ className, ...props }: FooterProps) {
         <FlexItem size="minor">
           <Flex direction="column" gap="600" alignSecondary="start">
             <FlexItem>
-              <Logo className="footer-logo" />
+              <SdsLogo className="footer-logo" />
             </FlexItem>
-            <TextLinkList density={listDensity}>
-              <TextListItem>
-                <TextLink href="https://www.figma.com">figma.com</TextLink>
-              </TextListItem>
-              <TextListItem>
-                <TextLink href="https://www.x.com/figma">X</TextLink>
-              </TextListItem>
-              <TextListItem>
-                <TextLink href="https://instagram.com/figma">
+            <SdsTextLinkList density={listDensity}>
+              <SdsTextListItem>
+                <SdsTextLink href="https://www.figma.com">figma.com</SdsTextLink>
+              </SdsTextListItem>
+              <SdsTextListItem>
+                <SdsTextLink href="https://www.x.com/figma">X</SdsTextLink>
+              </SdsTextListItem>
+              <SdsTextListItem>
+                <SdsTextLink href="https://instagram.com/figma">
                   Instagram
-                </TextLink>
-              </TextListItem>
-              <TextListItem>
-                <TextLink href="https://www.youtube.com/@Figma">
+                </SdsTextLink>
+              </SdsTextListItem>
+              <SdsTextListItem>
+                <SdsTextLink href="https://www.youtube.com/@Figma">
                   YouTube
-                </TextLink>
-              </TextListItem>
-              <TextListItem>
-                <TextLink href="https://www.linkedin.com/company/figma/">
+                </SdsTextLink>
+              </SdsTextListItem>
+              <SdsTextListItem>
+                <SdsTextLink href="https://www.linkedin.com/company/figma/">
                   LinkedIn
-                </TextLink>
-              </TextListItem>
-            </TextLinkList>
+                </SdsTextLink>
+              </SdsTextListItem>
+            </SdsTextLinkList>
           </Flex>
         </FlexItem>
-        <TextLinkList
+        <SdsTextLinkList
           density={listDensity}
-          title={<TextStrong>Use cases</TextStrong>}
+          title={<SdsTextStrong>Use cases</SdsTextStrong>}
         >
-          <TextListItem>
-            <TextLink href="#">UI design</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">UX design</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Wireframing</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Diagramming</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Brainstorming</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Online whiteboard</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Team collaboration</TextLink>
-          </TextListItem>
-        </TextLinkList>
-        <TextLinkList
+          <SdsTextListItem>
+            <SdsTextLink href="#">UI design</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">UX design</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Wireframing</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Diagramming</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Brainstorming</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Online whiteboard</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Team collaboration</SdsTextLink>
+          </SdsTextListItem>
+        </SdsTextLinkList>
+        <SdsTextLinkList
           density={listDensity}
-          title={<TextStrong>Explore</TextStrong>}
+          title={<SdsTextStrong>Explore</SdsTextStrong>}
         >
-          <TextListItem>
-            <TextLink href="#">Design</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Prototyping</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Development features</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Design systems</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Collaboration features</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Design process</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">FigJam</TextLink>
-          </TextListItem>
-        </TextLinkList>
-        <TextLinkList
+          <SdsTextListItem>
+            <SdsTextLink href="#">Design</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Prototyping</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Development features</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Design systems</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Collaboration features</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Design process</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">FigJam</SdsTextLink>
+          </SdsTextListItem>
+        </SdsTextLinkList>
+        <SdsTextLinkList
           density={listDensity}
-          title={<TextStrong>Resources</TextStrong>}
+          title={<SdsTextStrong>Resources</SdsTextStrong>}
         >
-          <TextListItem>
-            <TextLink href="#">Blog</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Best practices</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Colors</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Color wheel</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Support</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Developers</TextLink>
-          </TextListItem>
-          <TextListItem>
-            <TextLink href="#">Resource library</TextLink>
-          </TextListItem>
-        </TextLinkList>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Blog</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Best practices</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Colors</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Color wheel</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Support</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Developers</SdsTextLink>
+          </SdsTextListItem>
+          <SdsTextListItem>
+            <SdsTextLink href="#">Resource library</SdsTextLink>
+          </SdsTextListItem>
+        </SdsTextLinkList>
       </Flex>
     </Section>
   );
@@ -140,35 +140,35 @@ export function Footer({ className, ...props }: FooterProps) {
 
 export function SocialButtons() {
   return (
-    <ButtonGroup>
-      <IconButton
+    <SdsButtonGroup>
+      <SdsIconButton
         variant="subtle"
         aria-label="Twitter"
         href="https://www.twitter.com"
       >
         <IconTwitter />
-      </IconButton>
-      <IconButton
+      </SdsIconButton>
+      <SdsIconButton
         variant="subtle"
         aria-label="Instagram"
         href="https://www.instagram.com"
       >
         <IconInstagram />
-      </IconButton>
-      <IconButton
+      </SdsIconButton>
+      <SdsIconButton
         variant="subtle"
         aria-label="YouTube"
         href="https://www.youtube.com"
       >
         <IconYoutube />
-      </IconButton>
-      <IconButton
+      </SdsIconButton>
+      <SdsIconButton
         variant="subtle"
         aria-label="LinkedIn"
         href="https://www.linkedin.com"
       >
         <IconLinkedin />
-      </IconButton>
-    </ButtonGroup>
+      </SdsIconButton>
+    </SdsButtonGroup>
   );
 }

@@ -14,6 +14,8 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: /^primitives\/(.*)/, replacement: path.resolve(__dirname, "./src/ui/primitives/$1") },
+      { find: /^hooks\/(.*)/, replacement: path.resolve(__dirname, "./src/ui/hooks/$1") },
+      { find: /^utils\/(.*)/, replacement: path.resolve(__dirname, "./src/ui/utils/$1") },
       { find: "blocks", replacement: path.resolve(__dirname, "./src/ui/blocks") },
       { find: "compositions", replacement: path.resolve(__dirname, "./src/ui/compositions") },
       { find: "data", replacement: path.resolve(__dirname, "./src/data") },

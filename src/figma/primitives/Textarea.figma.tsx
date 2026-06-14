@@ -1,7 +1,7 @@
 import figma from "@figma/code-connect";
-import { Textarea, TextareaField } from "primitives";
+import { SdsTextarea, SdsTextareaField } from "primitives";
 
-figma.connect(Textarea, "<FIGMA_INPUTS_TEXTAREA_FIELD>", {
+figma.connect(SdsTextarea, "<FIGMA_INPUTS_TEXTAREA_FIELD>", {
   variant: { "Has Label": false },
   props: {
     isDisabled: figma.enum("State", { Disabled: true }),
@@ -13,10 +13,10 @@ figma.connect(Textarea, "<FIGMA_INPUTS_TEXTAREA_FIELD>", {
       Placeholder: figma.string("Value"),
     }),
   },
-  example: ({ ...props }) => <Textarea {...props} />,
+  example: ({ ...props }) => <SdsTextarea {...props} />,
 });
 
-figma.connect(TextareaField, "<FIGMA_INPUTS_TEXTAREA_FIELD>", {
+figma.connect(SdsTextareaField, "<FIGMA_INPUTS_TEXTAREA_FIELD>", {
   variant: { "Has Label": true },
   props: {
     isDisabled: figma.enum("State", { Disabled: true }),
@@ -34,5 +34,5 @@ figma.connect(TextareaField, "<FIGMA_INPUTS_TEXTAREA_FIELD>", {
       Placeholder: figma.string("Value"),
     }),
   },
-  example: ({ ...props }) => <TextareaField {...props} />,
+  example: ({ ...props }) => <SdsTextareaField {...props} />,
 });
