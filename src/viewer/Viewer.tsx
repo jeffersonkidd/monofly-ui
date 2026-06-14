@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ModeToggle } from "compositions";
 import type { ConnectEntry } from "./code-connect-shim";
 import { isDescriptor, type Descriptor } from "./code-connect-shim";
@@ -131,6 +131,8 @@ function Story({
   const nested = useMemo(() => collectNested(entry.props), [entry]);
   const snippet = useMemo(() => getSnippet(entry), [entry]);
   const [tab, setTab] = useState<"preview" | "figma" | "code">("preview");
+  // null = fill available width; a number = simulated viewport width in px.
+  const [vw, setVw] = useState<number | null>(null);
 
   const preview = useMemo(() => {
     if (!entry.example) return null;
@@ -145,7 +147,8 @@ function Story({
         <div>
           <h1 className="text-lg font-semibold">{entry.componentName}</h1>
           <p className="text-xs text-muted-foreground">
-            {entry.category} / {entry.sourceFile}.figma.tsx
+            {entry.category} / {entry.sourceFile}
+            {entry.modulePath ? ".figma.tsx" : ".tsx"}
           </p>
         </div>
         {url ? (
@@ -158,37 +161,42 @@ function Story({
             Open in Figma ↗
           </a>
         ) : (
-          <span className="text-xs text-muted-foreground">{entry.node}</span>
+          <span className="text-xs text-muted-foreground">{entry.node || "Hand-authored story"}</span>
         )}
       </header>
 
       <div className="flex flex-1 overflow-hidden">
         {/* Preview / Figma / Code */}
         <section className="flex flex-1 flex-col overflow-hidden">
-          <div className="flex shrink-0 gap-1 border-b border-border px-6 pt-2">
-            {(["preview", "figma", "code"] as const).map((t) => (
-              <button
-                key={t}
-                onClick={() => setTab(t)}
-                className={
-                  "rounded-t-md px-3 py-1.5 text-sm capitalize transition-colors " +
-                  (tab === t
-                    ? "border-b-2 border-foreground font-medium text-foreground"
-                    : "text-muted-foreground hover:text-foreground")
-                }
-              >
-                {t === "figma" ? "Figma" : t}
-              </button>
-            ))}
+          <div className="flex shrink-0 items-center justify-between border-b border-border px-6 pt-2">
+            <div className="flex gap-1">
+              {(["preview", "figma", "code"] as const).map((t) => (
+                <button
+                  key={t}
+                  onClick={() => setTab(t)}
+                  className={
+                    "rounded-t-md px-3 py-1.5 text-sm capitalize transition-colors " +
+                    (tab === t
+                      ? "border-b-2 border-foreground font-medium text-foreground"
+                      : "text-muted-foreground hover:text-foreground")
+                  }
+                >
+                  {t === "figma" ? "Figma" : t}
+                </button>
+              ))}
+            </div>
+            {tab === "preview" && <ViewportBar width={vw} setWidth={setVw} />}
           </div>
 
           <div className="flex-1 overflow-auto p-8">
             {tab === "preview" && (
-              <div className="grid min-h-full place-items-center rounded-lg border border-dashed border-border bg-muted/30 p-10">
-                <ErrorBoundary resetKey={values}>
-                  {preview ?? <p className="text-sm text-muted-foreground">No example defined.</p>}
-                </ErrorBoundary>
-              </div>
+              <PreviewFrame width={vw} setWidth={setVw}>
+                <div className="grid min-h-[220px] place-items-center rounded-lg border border-dashed border-border bg-muted/30 p-10">
+                  <ErrorBoundary resetKey={values}>
+                    {preview ?? <p className="text-sm text-muted-foreground">No example defined.</p>}
+                  </ErrorBoundary>
+                </div>
+              </PreviewFrame>
             )}
 
             {tab === "figma" &&
@@ -341,6 +349,85 @@ function ControlField({
         />
       )}
     </label>
+  );
+}
+
+const VIEWPORTS: { label: string; width: number | null }[] = [
+  { label: "Mobile", width: 375 },
+  { label: "Tablet", width: 768 },
+  { label: "Laptop", width: 1024 },
+  { label: "Full", width: null },
+];
+
+function ViewportBar({
+  width,
+  setWidth,
+}: {
+  width: number | null;
+  setWidth: (w: number | null) => void;
+}) {
+  return (
+    <div className="flex items-center gap-1 pb-1 text-xs">
+      {VIEWPORTS.map((v) => (
+        <button
+          key={v.label}
+          onClick={() => setWidth(v.width)}
+          className={
+            "rounded-md px-2 py-1 transition-colors " +
+            (width === v.width ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-muted")
+          }
+        >
+          {v.label}
+        </button>
+      ))}
+      <span className="ml-1 w-12 tabular-nums text-muted-foreground">
+        {width ? `${width}px` : "100%"}
+      </span>
+    </div>
+  );
+}
+
+/** Centered, drag-to-resize frame so layout/composition responsiveness is visible. */
+function PreviewFrame({
+  width,
+  setWidth,
+  children,
+}: {
+  width: number | null;
+  setWidth: (w: number | null) => void;
+  children: React.ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    e.preventDefault();
+    const startX = e.clientX;
+    const startW = ref.current?.offsetWidth ?? 0;
+    const move = (ev: PointerEvent) => {
+      // ×2 because the frame is centered, so each edge moves symmetrically.
+      setWidth(Math.max(320, Math.round(startW + (ev.clientX - startX) * 2)));
+    };
+    const up = () => {
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", up);
+    };
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", up);
+  };
+
+  return (
+    <div
+      ref={ref}
+      className="relative mx-auto min-h-full"
+      style={{ width: width ?? "100%", maxWidth: "100%" }}
+    >
+      {children}
+      <div
+        onPointerDown={onPointerDown}
+        title="Drag to resize"
+        className="absolute -right-2.5 top-1/2 h-14 w-1.5 -translate-y-1/2 cursor-ew-resize rounded-full bg-border hover:bg-foreground/40"
+      />
+    </div>
   );
 }
 

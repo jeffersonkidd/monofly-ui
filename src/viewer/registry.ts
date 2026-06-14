@@ -4,6 +4,7 @@
 
 import { registry, __setSource, type ConnectEntry } from "./code-connect-shim";
 import { extractConnectBlock } from "./source";
+import { layoutStories } from "./stories/layout";
 import figmaConfig from "../../figma.config.json";
 
 // Eager:false -> we get loader functions and import them one at a time, setting
@@ -35,8 +36,9 @@ export function figmaEmbedUrl(node: string): string | null {
   return `https://www.figma.com/embed?embed_host=monofly&url=${encodeURIComponent(url)}`;
 }
 
-/** The `figma.connect(...)` block for an entry, sliced from its raw source. */
+/** The snippet for an entry: an inline one (local stories) or sliced from source. */
 export function getSnippet(entry: ConnectEntry): string | null {
+  if (entry.snippet) return entry.snippet;
   const raw = rawModules[entry.modulePath];
   if (!raw) return null;
   return extractConnectBlock(raw, entry.node);
@@ -61,6 +63,8 @@ export function loadRegistry(): Promise<ConnectEntry[]> {
       __setSource(file, category, path);
       await loader();
     }
+    // Hand-authored stories for layers without Code Connect files (layout).
+    registry.push(...layoutStories);
     registry.sort(
       (a, b) =>
         a.category.localeCompare(b.category) ||

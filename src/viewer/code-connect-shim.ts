@@ -28,6 +28,11 @@ export interface ConnectEntry {
   category: string;
   /** Full glob path of the source module, used to look up its raw text. */
   modulePath: string;
+  /**
+   * Inline snippet for hand-authored (non-Code-Connect) stories — shown in the
+   * Code tab instead of slicing it from a `.figma.tsx` source.
+   */
+  snippet?: string;
 }
 
 export const registry: ConnectEntry[] = [];
@@ -104,6 +109,7 @@ function connect(
     example: config?.example,
     sourceFile: currentFile,
     category: currentCategory,
+    modulePath: currentPath,
   });
 }
 
