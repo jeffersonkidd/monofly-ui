@@ -22,6 +22,8 @@ npm pack --dry-run   # verify the published tarball — should list only package
 
 There is **no test runner and no lint script.**
 
+**`npm run build` runs a `prebuild` guard first** (`scripts/guard-no-runtime-deps.mjs`): it fails the build if `package.json` has any runtime `dependencies`. monofly bundles everything into `dist/` with only React external, so the package must ship **zero** runtime deps. `shadcn add` silently writes component libs (recharts, embla, cmdk, vaul, …) into `dependencies` — the guard catches that so they get demoted to `devDependencies` or the offending component gets cut. See the heavy-component list in `.box/.notes/Notes.md`.
+
 **`tsc` does not work as a check here — use `npm run build` to verify types/imports.** `typescript` is `^6.0.0` and `tsconfig.json` uses `baseUrl`, which TS 6 treats as a hard error (TS5101) that **aborts before type-checking any files**. So `npx tsc --noEmit` reports only the `baseUrl` error and silently skips real ones (unresolved imports, bad props). The Vite/rolldown build (`npm run build`) is what actually surfaces missing exports and broken imports. (`tsconfig.json` has `noEmit` set; it exists for editor type-hints and strict-mode flags, not as a CI gate.)
 
 ## Architecture
@@ -54,7 +56,7 @@ Layers depend only **downward**: `primitives → layout → compositions → blo
 - **Decisive override — dependency direction:** a component can live only as high as its lowest-tier import. A composition **cannot import a block** (upward dependency). So mounting `AppSidebar07` (a block — it defaults from `sidebarConfig`) forces the importer to block tier regardless of how prop-driven it is. This is why `DashboardShell`/`AppDashboard` are blocks even though they take `children`, and why `AppTemplate` (sidebar as a *slot*, depends only on primitives/layout) is the composition-grade abstraction they sit on.
 - **Templates** are the one tier where wiring `<AllProviders>` / a `from "data"` value import is correct — they're the app-level wrapper.
 
-Full worked reasoning is in `.notes/NOTES.md` ("Layer taxonomy").
+Full worked reasoning is in `.box/.notes/Notes.md` ("Layer taxonomy").
 
 ### Data layer — `src/data/`
 
@@ -83,7 +85,7 @@ Bare-specifier aliases (`primitives`, `compositions`, `data`, `hooks`, `icons`, 
 
 `primitives`, `hooks`, and `utils` also have **subpath** variants (`primitives/*`, `hooks/*`, `utils/*` in tsconfig `paths`; matching `/^…\/(.*)/` regex entries in vite) so deep imports like `primitives/shadcn/button` and `hooks/use-mobile` resolve. `components.json`'s `aliases` are set to these bare prefixes (`ui` → `primitives/shadcn`, `utils` → `utils`, `hooks` → `hooks`, `components` → `primitives`, `lib` → `utils`) so `npx shadcn add` writes imports that match the rest of the repo instead of `@/`-style or `baseUrl` literals. Keep `components.json`, the tsconfig subpaths, and the vite aliases in sync.
 
-## Packaging invariants (from `.notes/NOTES.md` — read it before touching build/publish config)
+## Packaging invariants (from `.box/.notes/Notes.md` — read it before touching build/publish config)
 
 These three must always agree or the package builds wrong or publishes the wrong files:
 1. `vite.config.js` build entry + externals
@@ -98,7 +100,8 @@ Hard-won rules:
 - **CSS + `sideEffects`:** the build emits `dist/styles.css`; `sideEffects: ["**/*.css"]` keeps styles from being tree-shaken. `exports["./styles.css"]` must point at the emitted file.
 - **Tailwind entry must be JS-imported** (`import "./tailwind.css"` in `src/index.js`), never `@import url()`'d from a stylesheet, or `@theme`/`@apply` go uncompiled and shadcn utilities vanish. Global SDS resets (`button { all: unset }` etc.) must stay in `@layer base` or they clobber Tailwind utilities on shadcn components.
 - **Don't hardcode the version in source** — `package.json` is the single source of truth.
+- **Zero runtime `dependencies`** — everything except React is bundled into `dist/`, so the package must have no `dependencies` block. Enforced by the `prebuild` guard (see Commands). After any `npx shadcn add`, check `package.json` and move anything it added under `dependencies` into `devDependencies`.
 
 ## Release workflow
 
-`npm version` requires a clean tree, so commit first. Convention: subject line, blank line, body; no trailing whitespace; single trailing newline. Full step-by-step (bump → tag → publish) is in `.notes/NOTES.md`.
+`npm version` requires a clean tree, so commit first. Convention: subject line, blank line, body; no trailing whitespace; single trailing newline. Full step-by-step (bump → tag → publish) is in `.box/.notes/Notes.md`.

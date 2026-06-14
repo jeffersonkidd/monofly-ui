@@ -2,9 +2,9 @@
 
 > monofly
 
-A React **Design System Package** built to the spec of a **Figma Make Kit**. `monofly` exists so that the design system is the *only* material Make's AI builds with: the components and tokens shipped here are the same ones defined in the Figma design files, kept consistent and translatable in both directions. When Make generates a screen, it composes sanctioned components and references real design tokens rather than inventing one-off markup or arbitrary values — so generated work stays on-system instead of drifting away from it.
+A React **Design System Package** for creators — a made-for-generative-tooling component kit, built to the spec of a **Figma Make Kit**. `monofly` exists so that the design system is the *only* material generative tools build with: the components and tokens shipped here are the same ones defined in the Figma design files, kept consistent and translatable in both directions. When a tool like Figma Make generates a screen, it composes sanctioned components and references real design tokens rather than inventing one-off markup or arbitrary values — so generated work stays on-system instead of drifting away from it.
 
-Mechanically, it's a small React component library shipped as ESM with a single stylesheet, built with Vite in library mode so Figma Make can pull it from npm via the esm.sh CDN. But the packaging is in service of the goal above, not the point of it.
+Mechanically, it's a small React component library shipped as ESM with a single stylesheet, built with Vite in library mode so a host like Figma Make can pull it from npm via the esm.sh CDN. But the packaging is in service of the goal above, not the point of it.
 
 ## Why a Design System Package
 
@@ -16,14 +16,14 @@ The result is three guarantees, in order of importance:
 
 ### 1. Design ↔ code parity
 
-Every component and token in the kit is meant to map 1:1 to its counterpart in the Figma library. A `<Button variant="primary">` in generated code and the **Button / Primary** component in the design file are not lookalikes that happen to resemble each other — they are two representations of *the same definition*. This mapping is made explicit through **[Code Connect](https://www.figma.com/code-connect-docs/)**: the `.figma/` files in the kit tell Figma which code component, with which props, corresponds to which design component.
+Every component and token in the kit is meant to map 1:1 to its counterpart in the Figma library. A `<Button variant="primary">` in generated code and the **Button / Primary** component in the design file are not lookalikes that happen to resemble each other — they are two representations of *the same definition*. This mapping is made explicit through **[Code Connect](https://www.figma.com/code-connect-docs/)**: the `*.figma.tsx` files under `src/figma/` tell Figma which code component, with which props, corresponds to which design component.
 
 Parity is bidirectional and that matters in both directions:
 
 - **Design → code.** A designer arranges real library components on a canvas; Make reads that file and emits code using the *exact same* components, props, and tokens — not an approximation it inferred from a screenshot.
 - **Code → design.** When the kit gains a component, that component can be reflected back into the Figma library, so designers are always working with the same parts engineering ships.
 
-(Today, Code Connect mappings live primarily in the `templates/` layer; extending coverage across `primitives/` and `compositions/` is ongoing. Where a mapping doesn't yet exist, Make falls back to the component's source — still on-system, just not yet round-trip-verified.)
+(Today, Code Connect mappings live in `src/figma/` and cover the SDS `primitives/` and `compositions/` layers; extending coverage across the shadcn primitives and `blocks/` is ongoing. Where a mapping doesn't yet exist, the tool falls back to the component's source — still on-system, just not yet round-trip-verified.)
 
 ### 2. No drift
 
@@ -47,12 +47,15 @@ What's left is the opposite of bloat: a lean set of component pieces that earned
 
 The package is organized as layers under `src/ui/`, each re-exported from the library barrel so consumers (and Make) import from one place:
 
-- **`primitives/`** — leaf components (Button, Input, Dialog, sidebar, breadcrumb …)
+- **`primitives/`** — leaf components, split by lineage into `sds/` (`Sds*` — react-aria + `--sds-*` tokens) and `shadcn/` (the bare names — Tailwind + Radix: button, dialog, table, sidebar …)
 - **`layout/`** — Flex, Grid, Section
-- **`compositions/`** — multi-primitive assemblies (Cards, Headers, Forms, Sidebars …)
-- **`templates/`** — page-level shells (`AppTemplate`, `AuthTemplate`, `DashboardShell`), with `.figma/` Code Connect mappings
-- **`icons/` · `images/` · `hooks/` · `lib/`** — supporting parts and the `cn()` helper
+- **`compositions/`** — reusable, prop-only assemblies (Cards, Headers, Footers, Forms, `mode-toggle`, `Sections/`)
+- **`blocks/`** — concrete instances (`sections/`, `dashboards/`, `sidebars/`, `examples/` …) — either data-wired or with content baked in
+- **`templates/`** — page-level shells (`AppTemplate01`/`02`, `AuthTemplate`, `BrandTemplate`)
+- **`icons/` · `images/` · `hooks/` · `utils/`** — supporting parts and the `cn()` helper (`utils/utils.ts`)
 - **`data/`** — a self-contained mock context/provider/hook stack so generated screens have realistic data to render against
+
+Code Connect mappings live separately under `src/figma/` (parser-based `*.figma.tsx`), not inside the layers above.
 
 Tokens are the other half of the kit: the SDS layer is driven by `--sds-*` CSS custom properties (`src/theme.css`), and the shadcn layer by Tailwind v4 theme variables. These are the values Make is meant to reference — never raw hex or magic numbers.
 
@@ -64,8 +67,11 @@ npm install monofly
 
 ## Usage
 
+`monofly` ships named exports only (no default export) plus one stylesheet:
+
 ```js
-import monofly from "monofly";
+import { Button, AppTemplate01 } from "monofly";
+import "monofly/styles.css";
 ```
 
 ## Use in Figma Make
@@ -85,12 +91,13 @@ export default function App() {
 ## Develop / publish
 
 ```bash
-npm install        # install dev deps (react, vite)
-npm run build      # emit dist/index.js + dist/style.css
+npm install        # install dev deps (React 19, Vite, react-aria-components)
+npm run dev        # Vite dev server on http://localhost:8000
+npm run build      # emit dist/index.js + dist/styles.css
 npm publish        # prepublishOnly runs the build automatically
 ```
 
-React and ReactDOM are `peerDependencies` — the host (Figma Make) supplies them, so they are never bundled.
+React and ReactDOM are `peerDependencies` — the host (e.g. Figma Make) supplies them, so they are never bundled. The package ships **zero runtime `dependencies`**: everything else is bundled into `dist/`, and a `prebuild` guard fails the build if any `dependencies` sneak in (e.g. via `npx shadcn add`).
 
 ## License
 
