@@ -84,7 +84,8 @@ export function PasswordGate({
         ref={formRef}
         onSubmit={submit}
         className={cn(
-          "relative z-10 w-full max-w-md border-4 border-foreground bg-card p-8 pb-10",
+          ink.panel,
+          "relative z-10 w-full max-w-md border-4 p-8 pb-10",
           "shadow-[12px_12px_0_0_var(--foreground)]",
         )}
       >
@@ -117,7 +118,8 @@ export function PasswordGate({
           }}
           placeholder="••••••••"
           className={cn(
-            "w-full border-2 border-foreground bg-card p-4 font-mono text-lg outline-none transition-all",
+            ink.panel,
+            "w-full p-4 font-mono text-lg outline-none transition-all",
             "placeholder:text-muted-foreground",
             "focus:-translate-x-1 focus:-translate-y-1 focus:shadow-[6px_6px_0_0_var(--foreground)]",
           )}
