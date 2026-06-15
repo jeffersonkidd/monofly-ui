@@ -4,7 +4,7 @@
 // pages are prop-driven and meant to be personalized. Best viewed with the
 // resizable viewport to see responsive reflow.
 
-import { BrutalistDashboard, LinkInBio, PasswordGate } from "blocks";
+import { BrutalistDashboard, Dashboard02, Link02, LinkInBio, PasswordGate } from "blocks";
 import figma, { type ConnectEntry } from "../code-connect-shim";
 
 function story(
@@ -57,6 +57,37 @@ export const pageStories: ConnectEntry[] = [
   links={myLinks}
   socials={mySocials}
 />`,
+  }),
+
+  story({
+    component: Dashboard02,
+    componentName: "Dashboard02",
+    category: "examples",
+    sourceFile: "dashboard-02",
+    props: {
+      brand: figma.string("Brand", { defaultValue: "monofly" }),
+      title: figma.string("Title", { defaultValue: "Dashboard" }),
+    },
+    example: (props: any) => <Dashboard02 {...props} />,
+    snippet: `import { Dashboard02 } from "monofly";
+
+// Dashboard-01's layout, restyled with the brutalist ink kit.
+<Dashboard02 brand="monofly" nav={["Dashboard", "Projects", "Settings"]} />`,
+  }),
+
+  story({
+    component: Link02,
+    componentName: "Link02",
+    category: "examples",
+    sourceFile: "link-02",
+    props: {
+      name: figma.string("Name", { defaultValue: "Hi, I'm Molly Pillar" }),
+    },
+    example: (props: any) => <Link02 {...props} />,
+    snippet: `import { Link02 } from "monofly";
+
+// Link-01's link-in-bio design, restyled with the brutalist ink kit.
+<Link02 name="Hi, I'm Molly Pillar" />`,
   }),
 
   story({
