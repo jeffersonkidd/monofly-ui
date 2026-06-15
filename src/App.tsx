@@ -1,14 +1,22 @@
 import { useState } from "react"
 import { AllProviders } from "data"
-import { BrutalistDashboard, LinkInBio } from "blocks"
+import { BrutalistDashboard, LinkInBio, PasswordGate } from "blocks"
 import { ModeToggle } from "compositions"
 import { cn } from "utils"
 
 // Dev preview of the two headline creator-OS demos. The published component
 // viewer (viewer.html) browses every component; this is the at-a-glance
-// showcase of the most important views.
+// showcase of the most important views. The dashboard sits behind a light
+// password gate (default password: "monofly"); the link in bio is public.
 const DEMOS = {
-  dashboard: { label: "Dashboard", render: () => <BrutalistDashboard /> },
+  dashboard: {
+    label: "Dashboard",
+    render: () => (
+      <PasswordGate hint="Demo password: monofly">
+        <BrutalistDashboard />
+      </PasswordGate>
+    ),
+  },
   linkinbio: { label: "Link in bio", render: () => <LinkInBio /> },
 } as const
 

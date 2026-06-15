@@ -4,7 +4,7 @@
 // pages are prop-driven and meant to be personalized. Best viewed with the
 // resizable viewport to see responsive reflow.
 
-import { BrutalistDashboard, LinkInBio } from "blocks";
+import { BrutalistDashboard, LinkInBio, PasswordGate } from "blocks";
 import figma, { type ConnectEntry } from "../code-connect-shim";
 
 function story(
@@ -57,5 +57,27 @@ export const pageStories: ConnectEntry[] = [
   links={myLinks}
   socials={mySocials}
 />`,
+  }),
+
+  story({
+    component: PasswordGate,
+    componentName: "PasswordGate",
+    category: "examples",
+    sourceFile: "PasswordGate",
+    props: {
+      title: figma.string("Title", { defaultValue: "Restricted" }),
+      subtitle: figma.string("Subtitle", { defaultValue: "Dashboard access only" }),
+    },
+    example: (props: any) => (
+      <PasswordGate {...props} hint="Demo password: monofly">
+        <BrutalistDashboard />
+      </PasswordGate>
+    ),
+    snippet: `import { PasswordGate, BrutalistDashboard } from "monofly";
+
+// Soft client-side gate — keeps casual visitors out, NOT real security.
+<PasswordGate password={import.meta.env.VITE_DASHBOARD_PASSWORD}>
+  <BrutalistDashboard />
+</PasswordGate>`,
   }),
 ];
