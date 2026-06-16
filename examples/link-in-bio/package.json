@@ -1,9 +1,9 @@
 {
-  "name": "monofly-app",
+  "name": "monofly-link-in-bio",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "A web app built entirely from UI modules imported from the monofly npm package.",
+  "description": "A creator link-in-bio page built from the monofly LinkInBio block, importing monofly straight from GitHub.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

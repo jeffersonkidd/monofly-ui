@@ -25,7 +25,7 @@ import { ComponentPropsWithoutRef, ReactNode } from "react";
 import { AnchorOrButton, AnchorOrButtonProps } from "utils";
 import "./cards.css";
 
-export type CardProps = ComponentPropsWithoutRef<"div"> & {
+export type SdsCardProps = ComponentPropsWithoutRef<"div"> & {
   /**
    * The alignment of the card content.
    */
@@ -59,7 +59,7 @@ export type CardProps = ComponentPropsWithoutRef<"div"> & {
 /**
  * The basic card generic component that can be used to create vanity card components.
  */
-export function Card({
+export function SdsCard({
   align = "start",
   children,
   className,
@@ -69,7 +69,7 @@ export function Card({
   asset,
   padding,
   ...props
-}: CardProps) {
+}: SdsCardProps) {
   const { isMobile } = useMediaQuery();
   const classNames = clsx(
     className,
@@ -122,7 +122,7 @@ export type PricingCardProps = {
   /**
    * Card variant
    */
-  variant?: CardProps["variant"];
+  variant?: SdsCardProps["variant"];
   /**
    * The text labeling the action button
    */
@@ -211,7 +211,7 @@ export function PricingCardSkeleton({
   size: PricingCardProps["size"];
 }) {
   return (
-    <Card
+    <SdsCard
       variant="stroke"
       padding={size === "large" ? "800" : "600"}
       direction="vertical"
@@ -243,7 +243,7 @@ export function PricingCardSkeleton({
           </Button>
         </SdsButtonGroup>
       </Flex>
-    </Card>
+    </SdsCard>
   );
 }
 
@@ -265,7 +265,7 @@ export function PricingCard({
   ...props
 }: PricingCardProps) {
   return (
-    <Card
+    <SdsCard
       {...props}
       variant={variant}
       padding={size === "large" ? "800" : "600"}
@@ -307,7 +307,7 @@ export function PricingCard({
           </Button>
         </SdsButtonGroup>
       </Flex>
-    </Card>
+    </SdsCard>
   );
 }
 
@@ -333,7 +333,7 @@ export function productToProductInfoCardProps(
   };
 }
 
-export type ProductInfoCardProps = Pick<CardProps, "asset"> & {
+export type ProductInfoCardProps = Pick<SdsCardProps, "asset"> & {
   /**
    * The product name
    */
@@ -359,7 +359,7 @@ export type ProductInfoCardProps = Pick<CardProps, "asset"> & {
 
 export function ProductInfoCardSkeleton({}: {}) {
   return (
-    <Card
+    <SdsCard
       padding="600"
       direction="vertical"
       variant="stroke"
@@ -376,7 +376,7 @@ export function ProductInfoCardSkeleton({}: {}) {
         <SdsTextStrong>&nbsp;</SdsTextStrong>
         <SdsText lineClamp={2}>&nbsp;</SdsText>
       </Flex>
-    </Card>
+    </SdsCard>
   );
 }
 
@@ -392,7 +392,7 @@ export function ProductInfoCard({
   ...props
 }: ProductInfoCardProps) {
   return (
-    <Card
+    <SdsCard
       {...props}
       padding="600"
       direction="vertical"
@@ -406,7 +406,7 @@ export function ProductInfoCard({
         </SdsTextStrong>
         <SdsText lineClamp={2}>{description}</SdsText>
       </Flex>
-    </Card>
+    </SdsCard>
   );
 }
 
@@ -451,7 +451,7 @@ export function ReviewCard({
   ...props
 }: ReviewCardProps) {
   return (
-    <Card {...props} padding="600" direction="vertical" variant="stroke">
+    <SdsCard {...props} padding="600" direction="vertical" variant="stroke">
       <Flex gap="100">
         {new Array(stars).fill(0).map((_, i) => (
           <IconStar key={i} />
@@ -464,7 +464,7 @@ export function ReviewCard({
       <SdsAvatarBlock title={name} description={date}>
         <Avatar size="large" src={src} initials={name.charAt(0)} />
       </SdsAvatarBlock>
-    </Card>
+    </SdsCard>
   );
 }
 
@@ -493,7 +493,7 @@ export function StatsCard({
   ...props
 }: StatsCardProps) {
   return (
-    <Card
+    <SdsCard
       {...props}
       padding="600"
       direction="vertical"
@@ -505,7 +505,7 @@ export function StatsCard({
         <SdsTextHeading>{stat}</SdsTextHeading>
         {description && <SdsTextSmall>{description}</SdsTextSmall>}
       </Flex>
-    </Card>
+    </SdsCard>
   );
 }
 
@@ -544,11 +544,11 @@ export function TestimonialCard({
   ...props
 }: TestimonialCardProps) {
   return (
-    <Card {...props} padding="600" direction="vertical" variant="stroke">
+    <SdsCard {...props} padding="600" direction="vertical" variant="stroke">
       <SdsTextHeading>{heading}</SdsTextHeading>
       <SdsAvatarBlock title={name} description={`@${username}`}>
         <Avatar size="large" src={src} initials={initials} />
       </SdsAvatarBlock>
-    </Card>
+    </SdsCard>
   );
 }

@@ -1,9 +1,9 @@
 {
-  "name": "monofly-app",
+  "name": "monofly-auth-app",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "A web app built entirely from UI modules imported from the monofly npm package.",
+  "description": "A sign-in screen built entirely from the monofly AuthTemplate and primitives, importing monofly straight from GitHub.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -1,9 +1,9 @@
 {
-  "name": "monofly-app",
+  "name": "monofly-dashboard-app",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "A web app built entirely from UI modules imported from the monofly npm package.",
+  "description": "A dashboard app shell built from the monofly AppTemplate02, sidebar primitives, and cards — importing monofly straight from GitHub.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
