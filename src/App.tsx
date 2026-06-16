@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { AllProviders } from "data"
-import { BrutalistDashboard, LinkInBio, PasswordGate } from "blocks"
+import { BrutalistDashboard, LinkInBio, PasswordGate,  } from "blocks"
 import { ModeToggle } from "compositions"
 import { cn } from "utils"
 
@@ -24,7 +24,7 @@ export default function App() {
   const [demo, setDemo] = useState<keyof typeof DEMOS>("dashboard")
   return (
     <AllProviders>
-      <div className="fixed left-1/2 top-4 z-50 flex -translate-x-1/2 items-center gap-1 border-2 border-foreground bg-background p-1 shadow-[4px_4px_0_0_var(--foreground)]">
+      <div className="fixed left-4 top-4 z-50 flex items-center gap-1 border-2 border-foreground bg-background p-1 shadow-[4px_4px_0_0_var(--foreground)]">
         {(Object.keys(DEMOS) as (keyof typeof DEMOS)[]).map((key) => (
           <button
             key={key}
