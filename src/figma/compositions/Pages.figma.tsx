@@ -1,5 +1,5 @@
 import { figma } from "@figma/code-connect";
-import { Card } from "compositions";
+import { SdsCard as Card } from "compositions";
 import { placeholder } from "images";
 import { Flex, FlexItem, Section } from "layout";
 import { SdsImage } from "primitives";
