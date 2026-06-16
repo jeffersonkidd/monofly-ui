@@ -1,6 +1,3 @@
-# a197ff2d392b52e20469854a34a830fe557ba918
----
-
 # MonoFly
 ---
 > monofly
