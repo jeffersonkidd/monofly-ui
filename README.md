@@ -1,5 +1,8 @@
-# MonoFly
+# a197ff2d392b52e20469854a34a830fe557ba918
+---
 
+# MonoFly
+---
 > monofly
 
 A React **Design System Package** for creators — a made-for-generative-tooling component kit, built to the spec of a **Figma Make Kit**. `monofly` exists so that the design system is the *only* material generative tools build with: the components and tokens shipped here are the same ones defined in the Figma design files, kept consistent and translatable in both directions. When a tool like Figma Make generates a screen, it composes sanctioned components and references real design tokens rather than inventing one-off markup or arbitrary values — so generated work stays on-system instead of drifting away from it.
