@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { AllProviders } from "data"
-import { Dashboard03, PasswordGate01, LinkInBio03 } from "blocks"
+import { Dashboard02, PasswordGate01, LinkInBio03 } from "blocks"
 import { ModeToggle } from "compositions"
 import { cn } from "utils"
 
@@ -13,7 +13,7 @@ const DEMOS = {
     label: "Dashboard",
     render: () => (
       <PasswordGate01 hint="Demo password: monofly">
-        <Dashboard03 />
+        <Dashboard02 />
       </PasswordGate01 >
     )
   },

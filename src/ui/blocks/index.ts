@@ -22,5 +22,6 @@ export * from "./link-in-bio-02"
 export * from "./link-in-bio-03";
 export * from "./module-01";
 export * from "./password-gate-01";
+export * from "./password-gate-02";
 export * from "./sidebar-02";
 export * from "./sidebar-07";

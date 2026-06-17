@@ -36,7 +36,7 @@ export function PasswordGate01({
   hint,
   storageKey = "monofly.dashboard.unlocked",
   className,
-}: PasswordGateProps) {
+}: PasswordGate01Props) {
   const [unlocked, setUnlocked] = useState(
     () => typeof window !== "undefined" && window.sessionStorage.getItem(storageKey) === "1",
   );

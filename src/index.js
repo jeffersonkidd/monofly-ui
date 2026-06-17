@@ -25,5 +25,8 @@ export * from "./ui/hooks/index.ts";
 export * from "./ui/templates/index.ts";
 export * from "./ui/utils/index.ts";
 
+export * from "./ui/blocks/password-gate-01.tsx";
+export * from "./ui/blocks/password-gate-02.tsx";
+
 // Data layer (mock services, providers, guarded hooks)
 export * from "./data/index.ts";
