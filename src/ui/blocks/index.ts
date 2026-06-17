@@ -1,14 +1,26 @@
-export * from "./examples/demo-01";
-export * from "./examples/brutalist/ink";
-export * from "./examples/brutalist/BrutalistDashboard";
-export * from "./examples/brutalist/LinkInBio";
-export * from "./examples/brutalist/PasswordGate";
-export * from "./sections";
-export * from "./sidebars/sidebar-07";
-export * from "./sidebars/sidebar-02";
-export * from "./modules/modules-01";
-export * from "./dashboards/dashboard-01";
-export * from "./dashboards/dashboard-02";
-export * from "./links/link-01"
-export { default as Link01 } from "./links/link-01"
-export * from "./links/link-02"
+export * from "./ink";
+
+export * from "./components/nav-main";
+export * from "./components/nav-projects"
+export * from "./components/nav-user"
+export * from "./components/team-switcher"
+
+export { Demo } from "./sections/Demo";
+export { FAQs } from "./sections/FAQs";
+export { PanelSections } from "./sections/PanelSections";
+export { PricingGrid } from "./sections/PricingGrid";
+export { ProductDetails } from "./sections/ProductDetails";
+export { ProductGrid } from "./sections/ProductGrid";
+export { WelcomeHero } from "./sections/WelcomeHero";
+
+export * from "./dashboard-01";
+export * from "./dashboard-02";
+export * from "./dashboard-03";
+export * from "./demo-01";
+export * from "./link-in-bio-01"
+export * from "./link-in-bio-02"
+export * from "./link-in-bio-03";
+export * from "./module-01";
+export * from "./password-gate-01";
+export * from "./sidebar-02";
+export * from "./sidebar-07";

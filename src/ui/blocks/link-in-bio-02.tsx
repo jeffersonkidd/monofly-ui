@@ -1,6 +1,6 @@
 import { cn } from "utils";
-import { Halftone, ink } from "../examples/brutalist/ink";
-import { svgPaths } from "./link-01";
+import { Halftone, ink } from "./ink";
+import { svgPaths } from "./link-in-bio-01";
 
 /**
  * Link-02 — the same link-in-bio design as Link-01 (avatar + heading +
@@ -38,7 +38,7 @@ const STARS = [
   "left-[20%] bottom-[20%] rotate-[45deg] h-5 w-5",
 ];
 
-export function Link02({
+export function LinkInBio02({
   name = "Hi, I'm Molly Pillar",
   bio = "Sapien nec sagittis aliquam bibendum arcu feugiat pretium nibh ipsum lorem sed consequat.",
   className,
@@ -135,4 +135,4 @@ export function Link02({
   );
 }
 
-export default Link02;
+export default LinkInBio02;

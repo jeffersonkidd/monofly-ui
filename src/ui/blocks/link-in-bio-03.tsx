@@ -55,7 +55,7 @@ const DEFAULT_SOCIALS: BioSocial[] = [
   { icon: Mail, label: "Email" },
 ];
 
-export function LinkInBio({
+export function LinkInBio03({
   name = "KOB",
   handle = "@kobcosplay",
   bio = "Cosplayer & character creator. Comic-accurate builds, behind-the-scenes, and a little chaos.",
@@ -139,4 +139,4 @@ export function LinkInBio({
   );
 }
 
-export default LinkInBio;
+export default LinkInBio03;

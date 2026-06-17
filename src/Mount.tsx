@@ -20,26 +20,31 @@ export interface MountView {
 
 // ── Registry — add/remove entries here ────────────────────────────────────
 import {
-  BrutalistDashboard,
-  Dash03,
-  Link01,
-  LinkInBio,
-  PasswordGate,
+  Dashboard01,
+  Dashboard02,
+  Dashboard03,
+  LinkInBio01,
+  LinkInBio02,
+  LinkInBio03,
+  PasswordGate01,
 } from "blocks"
 
 const VIEWS = {
-  "dashboard-01": { label: "dashboard-01", render: () => <Dash03 /> },
-  "link-01": { label: "link-01", render: () => <Link01 /> },
-  brutalist: { label: "brutalist", render: () => <BrutalistDashboard /> },
+  "dashboard-01": { label: "dashboard-01", render: () => <Dashboard01 /> },
+  "dashboard-02": { label: "dashboard-01", render: () => <Dashboard02 /> },
+  "dashboard-03": { label: "dashboard-03", render: () => <Dashboard03 /> },
+  "link-in-bio-01": { label: "link-in-bio-01", render: () => <LinkInBio01 /> },
+  "link-in-bio-02": { label: "link-in-bio-02", render: () => <LinkInBio02 /> },
+  "link-in-bio-03": { label: "link-in-bio-03", render: () => <LinkInBio03 /> },
+  "password-gate-01": { label: "password-gate-01", render: () => <PasswordGate01><h1>Hello</h1></PasswordGate01> },
   gated: {
     label: "gated",
     render: () => (
-      <PasswordGate hint="Demo password: monofly">
-        <BrutalistDashboard />
-      </PasswordGate>
-    ),
-  },
-  "link-in-bio": { label: "link-in-bio", render: () => <LinkInBio /> },
+      <PasswordGate01 hint="Demo password: monofly">
+        <Dashboard03 />
+      </PasswordGate01>
+    )
+  }
 } satisfies Record<string, MountView>
 
 type ViewKey = keyof typeof VIEWS
@@ -79,6 +84,18 @@ export default function Mount() {
     <AllProviders>
       {/* Floating toolbar */}
       <div className="fixed left-1/2 top-220 z-50 flex max-w-[95vw] -translate-x-1/2 flex-wrap items-center justify-center gap-2 border-2 border-foreground bg-background p-1 shadow-[4px_4px_0_0_var(--foreground)]">
+        <div className="flex" >
+          <button
+            onClick={() => setSplit((s) => !s)}
+            className={cn(
+              "px-3 py-1 font-mono text-xs uppercase tracking-[0.15em]",
+              split ? "bg-foreground text-background" : "hover:bg-muted",
+            )}
+          >
+            Split
+          </button>
+        <ModeToggle />
+        </div>
         <Picker value={left} onChange={setLeft} />
         {split && (
           <>
@@ -87,16 +104,7 @@ export default function Mount() {
           </>
         )}
         <span className="h-5 w-px bg-foreground/30" />
-        <button
-          onClick={() => setSplit((s) => !s)}
-          className={cn(
-            "px-3 py-1 font-mono text-xs uppercase tracking-[0.15em]",
-            split ? "bg-foreground text-background" : "hover:bg-muted",
-          )}
-        >
-          Split
-        </button>
-        <ModeToggle />
+
       </div>
 
       {split ? (

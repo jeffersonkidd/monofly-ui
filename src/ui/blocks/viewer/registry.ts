@@ -6,14 +6,14 @@ import { registry, __setSource, type ConnectEntry } from "./code-connect-shim";
 import { extractConnectBlock } from "./source";
 import { layoutStories } from "./stories/layout";
 import { pageStories } from "./stories/pages";
-import figmaConfig from "../../figma.config.json";
+import figmaConfig from "../../../../figma.config.json";
 
 // Eager:false -> we get loader functions and import them one at a time, setting
 // the source label before each so registrations are attributed correctly.
-const modules = import.meta.glob("../figma/**/*.figma.tsx");
+const modules = import.meta.glob("../../../figma/**/*.figma.tsx");
 
 // Raw text of the same files, so the viewer can show the snippet template.
-const rawModules = import.meta.glob("../figma/**/*.figma.tsx", {
+const rawModules = import.meta.glob("../../../figma/**/*.figma.tsx", {
   query: "?raw",
   import: "default",
   eager: true,

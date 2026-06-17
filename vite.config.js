@@ -23,7 +23,7 @@ export default defineConfig(({ command }) => ({
         ? [
             {
               find: "@figma/code-connect",
-              replacement: path.resolve(__dirname, "./src/viewer/code-connect-shim.ts"),
+              replacement: path.resolve(__dirname, "./src/ui/blocks/viewer/code-connect-shim.ts"),
             },
           ]
         : []),

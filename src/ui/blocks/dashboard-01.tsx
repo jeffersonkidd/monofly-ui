@@ -7,7 +7,7 @@ import {
 } from "primitives"
 import { AppTemplate02 } from "templates"
 
-export function Dash03() {
+export function Dashboard01() {
   return (
       <AppTemplate02
         sidebarHeader={<div className="font-semibold">monofly</div>}

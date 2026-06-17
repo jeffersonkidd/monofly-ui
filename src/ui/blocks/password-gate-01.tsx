@@ -15,7 +15,7 @@ import { Halftone, ink, InkBadge } from "./ink";
  * monofly's build-time value — not the consumer's — so the password is a
  * prop instead. The consumer wires it (and can pull from their own env).
  */
-export interface PasswordGateProps {
+export interface PasswordGate01Props {
   children: ReactNode;
   /** The unlock phrase. Default "monofly". Shipped in the client bundle. */
   password?: string;
@@ -28,7 +28,7 @@ export interface PasswordGateProps {
   className?: string;
 }
 
-export function PasswordGate({
+export function PasswordGate01({
   children,
   password = "monofly",
   title = "Restricted",
@@ -155,4 +155,4 @@ export function PasswordGate({
   );
 }
 
-export default PasswordGate;
+export default PasswordGate01;

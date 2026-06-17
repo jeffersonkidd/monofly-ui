@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { cn } from "utils";
-import { InkPanel, ink } from "../examples/brutalist/ink";
+import { InkPanel, ink } from "./ink";
 
 /**
  * Dashboard-02 — the same skeletal sidebar+header+content design as
@@ -24,7 +24,7 @@ export function Dashboard02({
   navLabel = "Platform",
   nav = ["Dashboard", "Projects", "Settings"],
   activeIndex = 0,
-  title = "Dashboard",
+  title = "Dashboard02",
   children,
   className,
 }: Dashboard02Props) {

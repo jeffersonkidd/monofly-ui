@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { AllProviders } from "data"
-import { BrutalistDashboard, LinkInBio, PasswordGate,  } from "blocks"
+import { Dashboard03, PasswordGate01, LinkInBio03 } from "blocks"
 import { ModeToggle } from "compositions"
 import { cn } from "utils"
 
@@ -12,16 +12,16 @@ const DEMOS = {
   dashboard: {
     label: "Dashboard",
     render: () => (
-      <PasswordGate hint="Demo password: monofly">
-        <BrutalistDashboard />
-      </PasswordGate>
-    ),
+      <PasswordGate01 hint="Demo password: monofly">
+        <Dashboard03 />
+      </PasswordGate01 >
+    )
   },
-  linkinbio: { label: "Link in bio", render: () => <LinkInBio /> },
+  linkinbio: { label: "Link-In-Bio", render: () => <LinkInBio03 /> },
 } as const
 
 export default function App() {
-  const [demo, setDemo] = useState<keyof typeof DEMOS>("dashboard")
+  const [demo, setDemo] = useState<keyof typeof DEMOS>("linkinbio")
   return (
     <AllProviders>
       <div className="fixed left-4 top-4 z-50 flex items-center gap-1 border-2 border-foreground bg-background p-1 shadow-[4px_4px_0_0_var(--foreground)]">

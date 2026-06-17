@@ -111,7 +111,7 @@ const DEFAULT_MODULES: DashboardModule[] = [
   },
 ];
 
-export function BrutalistDashboard({
+export function Dashboard03({
   brand = "MONOFLY",
   creator = { name: "Kaya O. Black", handle: "@kobcosplay" },
   greeting = "Creator dashboard",
@@ -241,4 +241,4 @@ function initials(name: string): string {
     .toUpperCase();
 }
 
-export default BrutalistDashboard;
+export default Dashboard03;

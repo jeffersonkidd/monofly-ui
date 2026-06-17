@@ -1,7 +1,7 @@
 import { BrandTemplate } from "templates";
 import { Demo, FAQs, PanelSections, PricingGrid, ProductDetails, ProductGrid, WelcomeHero} from "blocks";
 
-function SdsDemo() {
+function Demo01() {
   return (
     <BrandTemplate>
       <Demo />
@@ -15,4 +15,4 @@ function SdsDemo() {
   );
 }
 
-export default SdsDemo;
+export default Demo01;

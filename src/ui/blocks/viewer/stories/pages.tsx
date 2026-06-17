@@ -4,7 +4,7 @@
 // pages are prop-driven and meant to be personalized. Best viewed with the
 // resizable viewport to see responsive reflow.
 
-import { BrutalistDashboard, Dashboard02, Link02, LinkInBio, PasswordGate } from "blocks";
+import { Dashboard02, LinkInBio02, PasswordGate01 } from "blocks";
 import figma, { type ConnectEntry } from "../code-connect-shim";
 
 function story(
@@ -15,16 +15,16 @@ function story(
 
 export const pageStories: ConnectEntry[] = [
   story({
-    component: BrutalistDashboard,
+    component: Dashboard02,
     componentName: "BrutalistDashboard",
     category: "examples",
-    sourceFile: "BrutalistDashboard",
+    sourceFile: "dashboard-02",
     props: {
       brand: figma.string("Brand", { defaultValue: "MONOFLY" }),
       greeting: figma.string("Greeting", { defaultValue: "Creator dashboard" }),
     },
-    example: (props: any) => <BrutalistDashboard {...props} />,
-    snippet: `import { BrutalistDashboard } from "monofly";
+    example: (props: any) => <Dashboard02 {...props} />,
+    snippet: `import { Dashboard } from "monofly";
 
 // Ships with baked defaults; pass your own KPIs + modules to extend.
 <BrutalistDashboard
@@ -36,10 +36,10 @@ export const pageStories: ConnectEntry[] = [
   }),
 
   story({
-    component: LinkInBio,
-    componentName: "LinkInBio",
+    component: LinkInBio02,
+    componentName: "LinkInBio02",
     category: "examples",
-    sourceFile: "LinkInBio",
+    sourceFile: "link-in-bio-02",
     props: {
       name: figma.string("Name", { defaultValue: "KOB" }),
       handle: figma.string("Handle", { defaultValue: "@kobcosplay" }),
@@ -48,7 +48,7 @@ export const pageStories: ConnectEntry[] = [
           "Cosplayer & character creator. Comic-accurate builds, behind-the-scenes, and a little chaos.",
       }),
     },
-    example: (props: any) => <LinkInBio {...props} />,
+    example: (props: any) => <LinkInBio02 {...props} />,
     snippet: `import { LinkInBio } from "monofly";
 
 <LinkInBio
@@ -76,22 +76,22 @@ export const pageStories: ConnectEntry[] = [
   }),
 
   story({
-    component: Link02,
-    componentName: "Link02",
+    component: LinkInBio02,
+    componentName: "LinkInBio02",
     category: "examples",
-    sourceFile: "link-02",
+    sourceFile: "link-in-bio-02",
     props: {
       name: figma.string("Name", { defaultValue: "Hi, I'm Molly Pillar" }),
     },
-    example: (props: any) => <Link02 {...props} />,
-    snippet: `import { Link02 } from "monofly";
+    example: (props: any) => <LinkInBio02 {...props} />,
+    snippet: `import { LinkInBio02 } from "monofly";
 
 // Link-01's link-in-bio design, restyled with the brutalist ink kit.
-<Link02 name="Hi, I'm Molly Pillar" />`,
+<LinkInBio02 name="Hi, I'm Molly Pillar" />`,
   }),
 
   story({
-    component: PasswordGate,
+    component: PasswordGate01,
     componentName: "PasswordGate",
     category: "examples",
     sourceFile: "PasswordGate",
@@ -100,15 +100,15 @@ export const pageStories: ConnectEntry[] = [
       subtitle: figma.string("Subtitle", { defaultValue: "Dashboard access only" }),
     },
     example: (props: any) => (
-      <PasswordGate {...props} hint="Demo password: monofly">
-        <BrutalistDashboard />
-      </PasswordGate>
+      <PasswordGate01 {...props} hint="Demo password: monofly">
+        <Dashboard02 />
+      </PasswordGate01 >
     ),
     snippet: `import { PasswordGate, BrutalistDashboard } from "monofly";
 
 // Soft client-side gate — keeps casual visitors out, NOT real security.
-<PasswordGate password={import.meta.env.VITE_DASHBOARD_PASSWORD}>
-  <BrutalistDashboard />
-</PasswordGate>`,
+<PasswordGate01 password={import.meta.env.VITE_DASHBOARD_PASSWORD}>
+  <Dashboard02 />
+</PasswordGate01 >`,
   }),
 ];

@@ -1,6 +1,6 @@
 import { figma } from "@figma/code-connect";
 import {
-  Card,
+  SdsCard,
   PricingCard,
   ProductInfoCard,
   ReviewCard,
@@ -10,7 +10,7 @@ import {
 import { placeholder } from "images";
 import { SdsButtonProps, SdsImage, SdsText, SdsTextHeading } from "primitives";
 
-figma.connect(Card, "<FIGMA_CARDS_CARD>", {
+figma.connect(SdsCard, "<FIGMA_CARDS_CARD>", {
   props: {
     asset: figma.enum("Asset Type", {
       SdsImage: <SdsImage alt="Always use alt text" aspectRatio="1-1" size="small" />,
@@ -28,11 +28,11 @@ figma.connect(Card, "<FIGMA_CARDS_CARD>", {
     }),
   },
   example: ({ actions, heading, body, ...props }) => (
-    <Card {...props}>
+    <SdsCard {...props}>
       <SdsTextHeading>{heading}</SdsTextHeading>
       <SdsText>{body}</SdsText>
       {actions}
-    </Card>
+    </SdsCard>
   ),
 });
 

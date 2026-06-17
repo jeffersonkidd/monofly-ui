@@ -23,7 +23,7 @@ pbdf3800: "M80 156C121.974 156 156 121.974 156 80C156 38.0264 121.974 4 80 4C38.
 }
 
 
-export default function Link01() {
+export function LinkInBio01() {
   return (
     <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-4 relative overflow-hidden">
       {/* Background blobs */}
