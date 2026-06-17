@@ -1,21 +1,115 @@
-MIT License
+monofly Proprietary Software License Agreement
 
-Copyright (c) 2026 Jefferson Kidd, LLC
+Copyright (c) 2026 Jefferson Kidd, LLC. All Rights Reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+THIS IS A PROPRIETARY, CLOSED-SOURCE LICENSE. THE SOFTWARE IS NOT OPEN
+SOURCE AND IS NOT FREE. BY ACCESSING, COPYING, INSTALLING, OR USING THE
+SOFTWARE IN ANY WAY, YOU AGREE TO BE BOUND BY EVERY TERM OF THIS AGREEMENT.
+IF YOU DO NOT AGREE, YOU HAVE NO LICENSE AND MUST IMMEDIATELY AND
+PERMANENTLY DELETE ALL COPIES IN YOUR POSSESSION OR CONTROL.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. DEFINITIONS
+   "Software" means the monofly source code, object code, component
+   library, design tokens, stylesheets, build artifacts, documentation,
+   and any portion, derivative, modification, or copy thereof, in any
+   form or medium. "Licensor" means Jefferson Kidd, LLC. "You" means the
+   individual or entity that has been granted access under Section 2.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. GRANT OF LICENSE
+   No license is granted by this file. Any right to access or use the
+   Software exists ONLY where Licensor has executed a separate, written,
+   signed agreement with You expressly granting such rights, and ONLY to
+   the precise extent stated in that agreement. Absent such a signed
+   agreement, You have NO right to access, possess, copy, install, run,
+   or use the Software for any purpose, and any such activity is
+   unauthorized and unlawful.
+
+3. PROHIBITED ACTS (NO SHARING)
+   You shall NOT, in whole or in part, directly or indirectly, and shall
+   not permit or enable any third party to:
+   (a) copy, reproduce, distribute, publish, transmit, disclose, lend,
+       lease, sell, resell, sublicense, host, mirror, or otherwise make
+       the Software available to any other person or entity;
+   (b) fork, post, upload, or commit the Software to any public or
+       shared repository, registry, package index, CDN, file-share,
+       chat, forum, or AI training corpus;
+   (c) modify, adapt, translate, or create derivative works from the
+       Software;
+   (d) reverse engineer, decompile, disassemble, or attempt to derive
+       source code, structure, or organization of the Software, except
+       to the narrow extent this prohibition is unenforceable under
+       applicable mandatory law;
+   (e) remove, alter, or obscure any copyright, trademark, proprietary,
+       or attribution notice;
+   (f) use the Software to build, train, or assist any product or
+       library that competes with the Software.
+
+4. OWNERSHIP
+   The Software is licensed, never sold. Licensor retains all right,
+   title, and interest in and to the Software, including all
+   intellectual property rights. No rights are granted by implication,
+   estoppel, or otherwise except as expressly stated in a signed
+   agreement under Section 2.
+
+5. CONFIDENTIALITY
+   The Software is the confidential trade secret of Licensor. You shall
+   hold it in strict confidence, use at least the same degree of care
+   You use to protect Your own most sensitive confidential information
+   (and no less than a reasonable degree of care), and disclose it to no
+   one.
+
+6. TERMINATION
+   Any license granted under a Section 2 agreement terminates
+   automatically and immediately, without notice, upon any breach of
+   this Agreement. Upon termination You must cease all use and
+   permanently destroy all copies of the Software and certify such
+   destruction in writing on request. Sections 3 through 11 survive
+   termination.
+
+7. ENFORCEMENT, INJUNCTIVE RELIEF, AND LIQUIDATED DAMAGES
+   You acknowledge that any breach of Sections 3, 4, or 5 causes
+   immediate, irreparable harm for which monetary damages are
+   inadequate, and that Licensor is entitled to immediate injunctive
+   and equitable relief WITHOUT the requirement of posting a bond, in
+   addition to all other remedies. For each act of unauthorized copying,
+   distribution, or disclosure, You agree to pay Licensor liquidated
+   damages of USD $50,000 per occurrence (or actual damages and
+   Licensor's profits and Your disgorged gains, whichever is greater),
+   plus all costs of enforcement and reasonable attorneys' fees. Where
+   the Software qualifies for statutory protection, Licensor reserves
+   the right to elect maximum statutory damages and to pursue all civil
+   and criminal remedies available, including under applicable copyright
+   and trade-secret law.
+
+8. AUDIT
+   Licensor may, on reasonable notice, audit Your systems and records to
+   verify compliance. You shall cooperate fully with any such audit.
+
+9. NO WARRANTY
+   THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE", WITH ALL FAULTS
+   AND WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY,
+   OR OTHERWISE, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND
+   NON-INFRINGEMENT.
+
+10. LIMITATION OF LIABILITY
+   TO THE MAXIMUM EXTENT PERMITTED BY LAW, LICENSOR SHALL NOT BE LIABLE
+   FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR
+   PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, DATA, OR GOODWILL, ARISING
+   OUT OF OR RELATED TO THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY.
+   LICENSOR'S TOTAL AGGREGATE LIABILITY SHALL NOT EXCEED THE GREATER OF
+   THE FEES YOU ACTUALLY PAID LICENSOR FOR THE SOFTWARE OR USD $100.
+
+11. GENERAL
+   This Agreement is governed by the laws of the State of Delaware, USA,
+   excluding its conflict-of-laws rules. Exclusive venue and jurisdiction
+   lie in the state and federal courts located in Delaware, and You
+   consent to personal jurisdiction there. If any provision is held
+   unenforceable, it shall be limited or severed to the minimum extent
+   necessary and the remainder shall remain in full force. Licensor's
+   failure to enforce any provision is not a waiver. This Agreement is
+   the entire agreement regarding the Software and supersedes all prior
+   understandings, except a separately signed Section 2 agreement, which
+   controls only where it expressly conflicts.
+
+For licensing inquiries, contact: Jefferson Kidd, LLC.

@@ -101,4 +101,4 @@ React and ReactDOM are `peerDependencies` — the host (e.g. Figma Make) supplie
 
 ## License
 
-MIT © [jeffersonkidd](https://github.com/jeffersonkidd)
+**Proprietary — All Rights Reserved.** Copyright © 2026 Jefferson Kidd, LLC. This software is not open source. No right to use, copy, modify, or distribute is granted except under a separate written agreement signed by Jefferson Kidd, LLC. See [LICENSE](./LICENSE) for the full terms.
